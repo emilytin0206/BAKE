@@ -19,8 +19,6 @@ optimizer:
   api_key: "ollama"        # Ollama 隨意填, OpenAI 需填真實 Key
   temperature: 0.0
   max_tokens: 256
-# config.yaml
-# config.yaml
 
 # ========================
 # Pricing (USD per 1M tokens)
@@ -64,7 +62,7 @@ datasets:
       - "high_school_world_history"      # 歷史 (文科)
       - "high_school_physics"      # 物理 (理科)
       - "professional_law"         # 法律 (邏輯與條文)
-      - "business_ethics"          # 商業 (常識判斷)
+      - "business_ethics"      # 商業 (常識判斷)
   split: "test"
   offset: 0
   limit: 2                 # MMLU 取 10 題
@@ -84,6 +82,4 @@ initial_prompts:
   - "Solve this problem by breaking it down into smaller parts."
   - "Take a deep breath and work on this problem step-by-step."
   - "Please provide a detailed explanation followed by the final answer."
-  - "Imagine you are a math teacher explaining this to a student."
-  - "First, understand the goal, then calculate the result."
   - "Use chain of thought reasoning to derive the answer."

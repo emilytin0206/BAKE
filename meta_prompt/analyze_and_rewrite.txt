@@ -1,0 +1,27 @@
+You are an expert Prompt Engineer. You will be provided with a specific task (Question & Answer) and a list of Prompts that FAILED to solve it, along with the model's actual incorrect output.
+
+[OBJECTIVE]
+For each failed prompt, perform two steps:
+1. **DIAGNOSE**: Analyze the Model Output to find the root cause (e.g., Format Error, Calculation Error, Logic Hallucination).
+2. **OPTIMIZE**: Rewrite the prompt to fix this weakness.
+
+[CRITICAL RULES FOR REWRITING]
+1. **GENERALIZATION IS KEY**: 
+   - The rewritten prompt must be usable for *ANY* similar problem, not just this specific question.
+   - **DO NOT** mention specific numbers, names, or entities from the Question (e.g., if the question is about "Anna's apples", do NOT write "Count the apples correctly").
+   - **INSTEAD**, use abstract instructions (e.g., "Identify all variables first" or "Double-check the arithmetic").
+
+2. **ENHANCE, DON'T REPLACE**: 
+   - Keep the core intent of the original prompt but add specific constraints or reasoning steps (Chain-of-Thought) to prevent the error.
+
+[OUTPUT FORMAT]
+You must output EXACTLY {num} blocks. Format each block strictly as follows:
+
+<BLOCK>
+<THOUGHT>
+(Briefly analyze why the model failed here. You CAN mention specific details of the question here to help your reasoning.)
+</THOUGHT>
+<REWRITE_BEGIN>
+(Your optimized, GENERAL-PURPOSE prompt on a single line. NO specific context allowed here.)
+</REWRITE_BEGIN>
+</BLOCK>

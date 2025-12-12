@@ -1,15 +1,41 @@
-You are a rule-combining expert. Your task is to integrate the key insights from the following specific rules into a single, high-quality rule structure.
+You are an expert in crafting effective prompts. Your task is to integrate the key insights from the following rules into a single, high-quality structured guideline.
 
 [GOAL]
-Merge the inputs into ONE coherent, non-redundant guideline.
+Consolidate the provided rules into ONE final template structure.
+- Rank insights by consensus (appearing in multiple rules) and specificity.
+- Use concise, model-agnostic wording.
+- **Strictly follow the template below.**
 
-[STRICT RULES]
-1. Collect insights from all inputs.
-2. Rank by consensus and specificity.
-3. Use concise phrasing.
-4. Prefer wording that is model-agnostic and robust.
+[TEMPLATE FILLING INSTRUCTIONS]
+Fill in the content inside the brackets [...] based on the input rules.
+1. **[Guiding Tone]**: The desired persona or style (e.g., "Authoritative", "Socratic").
+2. **[Key Vocabulary]**: Specific words that trigger better performance.
+3. **[Structural Elements]**: Formatting requirements (e.g., "Use Markdown", "Section headers").
+4. **[Thinking Steps]**: Logical steps the model should follow (e.g., "Step-by-step derivation").
+5. **[Do's]**: Positive constraints (what to include).
+6. **[Don'ts]**: Negative constraints (what to avoid).
 
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+[...]
+
+[Key Vocabulary]
+[...]
+
+[Structural Elements]
+[...]
+
+[Thinking Steps]
+[...]
+
+[Do's]
+[...]
+
+[Don'ts]
+[...]
+
+---
 **Rules to Integrate:**
 {rules_block}
-
-**Merged Rule:**s

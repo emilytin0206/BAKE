@@ -1,14 +1,3 @@
 
-========== Sample 0 (mmlu_high_school_mathematics) ==========
-Failed Prompts:
-   [X] Take a deep breath and work on this problem step-by-step.
-   [X] Please provide a detailed explanation followed by the final answer.
-   [X] Think about this logically.
-   [X] Let's think step by step.
-   [X] Solve this problem by breaking it down into smaller parts.
-   [X] Imagine you are a math teacher explaining this to a student.
-   [X] First, understand the goal, then calculate the result.
-   [X] Use chain of thought reasoning to derive the answer.
+========== FINAL RULE ==========
 
-Generated Guideline:
-Guideline: Convert vague instructions into specific, actionable steps that guide the user through identifying key elements, applying relevant methods, and reviewing their solution systematically.
