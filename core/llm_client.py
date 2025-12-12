@@ -32,28 +32,28 @@ class LLMClient:
         self.client = OpenAI(base_url=base_url, api_key=api_key)
         self.model_name = self.config.get("model_name", "gpt-3.5-turbo")
 
+
     def chat(self, system_prompt: str, user_prompt: str) -> str:
-        try:
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
-                temperature=self.config.get("temperature", 0.7),
-                max_tokens=self.config.get("max_tokens", 512)
-            )
-            
-            # 自動計費
-            if response.usage:
-                self.usage["prompt_tokens"] += response.usage.prompt_tokens
-                self.usage["completion_tokens"] += response.usage.completion_tokens
-                self.usage["total_tokens"] += response.usage.total_tokens
-            
-            return response.choices[0].message.content.strip()
-        except Exception as e:
-            print(f"[{self.role.upper()} ERROR] {e}")
-            return ""
+        # [修正] 移除 try-except，讓 OpenAI/Network 相關的異常直接拋出
+        # 這樣上層 (bake_engine) 才能區分是「連線失敗」還是「模型回答為空」
+        response = self.client.chat.completions.create(
+            model=self.model_name,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            temperature=self.config.get("temperature", 0.7),
+            max_tokens=self.config.get("max_tokens", 512)
+        )
+        
+        # 自動計費
+        if response.usage:
+            self.usage["prompt_tokens"] += response.usage.prompt_tokens
+            self.usage["completion_tokens"] += response.usage.completion_tokens
+            self.usage["total_tokens"] += response.usage.total_tokens
+        
+        return response.choices[0].message.content.strip()
+
 
     def get_cost(self) -> float:
         """計算當前累積金額 (USD)"""

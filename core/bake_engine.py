@@ -1,6 +1,7 @@
 import time
 from typing import List, Tuple
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from utils import text_tools, logger
 
 # 引用工具層
 from utils import text_tools, logger
@@ -29,26 +30,45 @@ class BakeEngine:
         detailed_res = {}
 
         def _worker(p):
-            full_input = f"{p}\n\n{query}" # MMLU 題目已經包含 "Answer:"
+            full_input = f"{p}\n\n{query}" 
             
             for _ in range(self.max_retries):
-                # 呼叫 LLM
-                raw = self.scorer.chat("You are a helpful assistant.", full_input)
-                
-                # [關鍵修改] 使用統一驗證器，傳入 task_type
-                if text_tools.validate_answer(raw, answer_gt, task_type):
-                    return (p, True)
-                
-                # 簡單容錯: 如果是連線錯誤才 sleep，如果是答案錯就不 sleep (這裡簡化)
-                # time.sleep(1) 
-            return (p, False)
+                try:
+                    # [修正] 呼叫 API (現在若連線失敗會拋出異常)
+                    raw = self.scorer.chat("You are a helpful assistant.", full_input)
+                    
+                    # [邏輯區分]
+                    # 情境 A: API 成功回傳，檢查答案是否正確
+                    if text_tools.validate_answer(raw, answer_gt, task_type):
+                        return (p, True) # 答對
+                    else:
+                        # 答錯 (Model Answer Error) -> 直接回傳 False，不需 Retry (除非想測 Consistency)
+                        return (p, False)
+                        
+                except Exception as e:
+                    # 情境 B: API 連線錯誤 (API Error) -> 進行 Retry
+                    # print(f"API Error retrying: {e}") 
+                    time.sleep(self.config['execution'].get('retry_delay', 1.0))
+            
+            # [修正] 若重試次數耗盡仍是 API 錯誤，回傳 None
+            # 表示此 Prompt 因技術問題無法評測，不應被歸類為「Bad Prompt」
+            return (p, None)
 
         with ThreadPoolExecutor(max_workers=self.concurrency) as executor:
             future_to_p = {executor.submit(_worker, p): p for p in prompts}
             for future in as_completed(future_to_p):
-                p, is_correct = future.result()
-                detailed_res[p] = is_correct
-                (correct if is_correct else wrong).append(p)
+                p, status = future.result()
+                
+                # [關鍵修正] 過濾掉 API 失敗 (status is None) 的案例
+                # 避免將其加入 wrong 列表，導致 Optimizer 試圖優化一個其實沒問題的 Prompt
+                if status is None:
+                    continue
+                
+                detailed_res[p] = status
+                if status:
+                    correct.append(p)
+                else:
+                    wrong.append(p)
                 
         return correct, wrong, detailed_res
 
@@ -97,19 +117,23 @@ class BakeEngine:
         current_prompts = initial_prompts.copy()
         attr, all_rule = [], []
         
+        # 初始化 Log
         logger.init_files([self.paths['detailed_log'], self.paths['rules_log']])
 
         for idx, item in enumerate(dataset):
-            # [關鍵] 從資料中讀取 type
             q, a = item['question'], item['answer']
-            t_type = item['type'] 
+            t_type = item.get('type', 'general')
             src = item.get('source', 'unknown')
             
             print(f"Processing {idx+1}/{len(dataset)} [{src}]...")
             
-            # 1. Eval (傳入 task_type)
+            # 1. Eval
             Pc, Pi, details = self.evaluate_parallel(q, a, current_prompts, task_type=t_type)
             
+            # [修正 1] 在 Console 顯示詳細對錯數量
+            print(f"  > Correct: {len(Pc)}, Wrong: {len(Pi)}")
+            
+            # Log 詳細結果 (JSONL)
             logger.log_jsonl(self.paths['detailed_log'], {
                 "id": idx, "source": src, "type": t_type, 
                 "q": q, "res": details
@@ -122,36 +146,50 @@ class BakeEngine:
             rule = self.extract_rule(Pc, pairs)
             
             if rule:
-                # 可以在 Rule 前面加上來源標記，幫助 Optimizer 區分
-                tagged_rule = f"[Source: {src}] {rule}"
-                attr.append(tagged_rule)
-                logger.log_rule(self.paths['rules_log'], f"Sample {idx} ({src})", rule)
+                attr.append(rule)
+                
+                # [修正 2] 在 Log 中記錄是哪些 Prompt 錯了，才導致這條 Rule
+                # 這樣你回頭看 Log 就知道: "喔，是因為這幾個 Prompt 沒寫清楚，所以才產生這條規則"
+                failed_prompts_text = "\n".join([f"   [X] {p}" for p in Pi])
+                log_content = f"Failed Prompts:\n{failed_prompts_text}\n\nGenerated Guideline:\n{rule}"
+                
+                logger.log_rule(self.paths['rules_log'], f"Sample {idx} ({src})", log_content)
 
-            # 3. Merge Logic (Recursive)
+            # 3. Merge Logic (Tier-1)
             if len(attr) >= self.group_size:
                 merged = self.combine_rules(attr)
                 all_rule.append(merged)
                 attr.clear()
                 logger.log_rule(self.paths['rules_log'], "Tier-1 Merge", merged)
             
+            # 4. Recursive Merge
             while len(all_rule) >= self.group_size:
                 chunk = all_rule[:self.group_size]
                 merged = self.combine_rules(chunk)
                 all_rule = [merged] + all_rule[self.group_size:]
                 logger.log_rule(self.paths['rules_log'], "Recursive Merge", merged)
 
-        # 4. Finalize
-        if attr: all_rule.append(self.combine_rules(attr))
+        # 5. Finalize
+        print("\n=== Finalizing Rules ===")
+        if attr: 
+            tail = self.combine_rules(attr)
+            all_rule.append(tail)
+            logger.log_rule(self.paths['rules_log'], "Cleanup Tier-0", tail)
+            
         while len(all_rule) > 1:
             merged = self.combine_rules(all_rule[:self.group_size])
             all_rule = [merged] + all_rule[self.group_size:]
+            logger.log_rule(self.paths['rules_log'], "Convergence Merge", merged)
             
         final_rule = all_rule[0] if all_rule else ""
         logger.log_rule(self.paths['rules_log'], "FINAL RULE", final_rule)
         
-        # 5. Generate Prompts
+        # 6. Generate Prompts
         gen_tpl = self.meta_prompts.get("prompt_generation", "")
         sys_msg = gen_tpl.format(rules_block=final_rule, num=self.config['bake']['max_output_prompts'])
         raw = self.optimizer.chat(sys_msg, f"Rule:\n{final_rule}")
         
-        return [line.strip() for line in raw.split('\n') if len(line) > 10]
+        final_prompts = [line.strip() for line in raw.split('\n') if len(line) > 10]
+        
+        # [修正 3] 同時回傳 Prompts 和 Rule 字串
+        return final_prompts, final_rule

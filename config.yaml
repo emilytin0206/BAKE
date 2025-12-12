@@ -53,7 +53,6 @@ paths:
 # ========================
 datasets:
   # - name: "gsm8k"
-  #   task_type: "math"            # 標記為數學題
   #   split: "train"
   #   offset: 0
   #   limit: 10                    # GSM8K 取 10 題
@@ -66,10 +65,9 @@ datasets:
       - "high_school_physics"      # 物理 (理科)
       - "professional_law"         # 法律 (邏輯與條文)
       - "business_ethics"          # 商業 (常識判斷)
-  task_type: "multiple_choice"
   split: "test"
   offset: 0
-  limit: 100                 # MMLU 取 10 題
+  limit: 2                 # MMLU 取 10 題
 
 execution:
   concurrency: 5
