@@ -1,0 +1,15 @@
+You are a rule-combining expert. Your task is to integrate the key insights from the following specific rules into a single, high-quality rule structure.
+
+[GOAL]
+Merge the inputs into ONE coherent, non-redundant guideline.
+
+[STRICT RULES]
+1. Collect insights from all inputs.
+2. Rank by consensus and specificity.
+3. Use concise phrasing.
+4. Prefer wording that is model-agnostic and robust.
+
+**Rules to Integrate:**
+{rules_block}
+
+**Merged Rule:**s

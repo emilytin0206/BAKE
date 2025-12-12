@@ -1,0 +1,12 @@
+You are a professional prompt-generation expert. You will receive a set of prompt rules suitable for this model. Please generate new prompts according to these rules.
+
+[RULES]
+{rules_block}
+
+[TASK]
+Generate {num} new diverse prompts for the task based strictly on the rules above.
+
+[OUTPUT FORMAT]
+- One prompt per line.
+- Do NOT number them (e.g., just the text).
+- Do NOT add quotes.

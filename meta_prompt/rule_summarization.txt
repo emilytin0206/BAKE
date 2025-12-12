@@ -1,0 +1,6 @@
+Step by step, think and summarize rules that convert failing prompts into successful ones. Prefer precise, concise phrasing; avoid examples and model-specific wording.
+
+Here are the cases:
+{pairs_block}
+
+Summarize the attributes/rules into a single concise guideline:

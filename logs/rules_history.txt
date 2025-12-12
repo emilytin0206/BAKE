@@ -1,0 +1,64 @@
+
+========== Sample 0 (mmlu_high_school_mathematics) ==========
+Guideline: Convert prompts into clear, step-by-step instructions that emphasize systematic problem-solving and logical reasoning. Avoid vague directives; instead, specify actions like breaking down problems, identifying goals, and outlining solution steps.
+
+========== Sample 1 (mmlu_high_school_mathematics) ==========
+Guideline: Transform prompts into clear, methodical instructions that emphasize breaking down the problem into manageable parts and detailing each step of the solution process.
+
+========== Sample 2 (mmlu_high_school_mathematics) ==========
+Guideline: Convert prompts to instruct users to break down problems into clear, logical steps and provide detailed explanations.
+
+========== Tier-1 Merge ==========
+**Merged Rule:** Transform prompts into clear, methodical instructions that emphasize systematic problem-solving by breaking down the problem into manageable parts and detailing each step of the solution process with logical reasoning. Avoid vague directives; instead, specify actions like identifying goals and outlining solution steps.
+
+========== Sample 3 (mmlu_high_school_physics) ==========
+Guideline: Transform vague instructions into detailed, actionable steps that specify processes and logical breakdowns.
+
+========== Sample 4 (mmlu_high_school_physics) ==========
+Guideline: Convert prompts to include explicit instructions for systematic breakdown and detailed explanation of problem-solving steps.
+
+========== Sample 5 (mmlu_high_school_physics) ==========
+Guideline: Transform prompts by specifying actionable steps, emphasizing logical breakdowns or detailed explanations, and integrating instructional roles or scenarios for clarity and depth.
+
+========== Tier-1 Merge ==========
+**Merged Rule:** Transform prompts into detailed, actionable instructions that specify processes and logical breakdowns, providing clear problem-solving steps and emphasizing instructional roles or scenarios for enhanced clarity and depth.
+
+========== Sample 6 (mmlu_professional_law) ==========
+Guideline: Convert prompts into clear, structured instructions that encourage systematic thinking, detailed explanations, and logical progression from understanding the problem to solving it.
+
+========== Sample 7 (mmlu_professional_law) ==========
+Guideline: Convert prompts into clear, step-by-step instructions that emphasize logical breakdown and detailed explanation.
+
+========== Sample 8 (mmlu_professional_law) ==========
+Convert failing prompts into successful ones by:
+- Providing detailed explanations and final answers.
+- Imagining an instructional context (e.g., teaching a student).
+- Clearly stating the goal before proceeding to solve.
+- Using systematic or logical breakdowns for complex problems.
+- Structuring the approach with clear steps and analysis.
+
+========== Tier-1 Merge ==========
+**Merged Rule:**
+Convert prompts into clear, structured instructions that emphasize detailed explanations, logical progression, and step-by-step breakdowns. Ensure each instruction includes a stated goal, systematic analysis, and comprehensive solutions to guide problem-solving effectively.
+
+========== Recursive Merge ==========
+**Merged Rule:** Transform prompts into clear, structured instructions that break down problems methodically into manageable parts. Emphasize detailed explanations, logical progression, and step-by-step guidance, specifying goals, analytical steps, and comprehensive solutions for effective problem-solving. Avoid vague directives; instead, provide specific actions like identifying objectives and outlining solution processes.
+
+========== Sample 9 (mmlu_business_ethics) ==========
+Guideline: Convert prompts to instruct detailed, logical breakdowns and explanations of problem-solving processes.
+
+========== Sample 10 (mmlu_business_ethics) ==========
+Convert failing prompts into successful ones by adding specificity about breaking down the task into clear, logical steps or explaining concepts methodically. Emphasize structured approaches and detailed reasoning processes.
+
+========== Sample 11 (mmlu_business_ethics) ==========
+Convert failing prompts into successful ones by:
+- Adding step-by-step instructions or breakdowns.
+- Specifying logical reasoning methods.
+- Requesting detailed explanations of the solution process.
+
+========== Tier-1 Merge ==========
+**Merged Rule:**
+Convert prompts to instruct detailed, logical breakdowns and explanations of problem-solving processes. Ensure specificity by adding clear, structured steps, specifying logical reasoning methods, and requesting detailed explanations of the solution process.
+
+========== FINAL RULE ==========
+**Merged Rule:** Transform prompts into clear, structured instructions that methodically break down problems into manageable parts. Emphasize detailed explanations, logical progression, and step-by-step guidance, specifying goals, analytical steps, and comprehensive solutions. Ensure specificity by providing clear actions such as identifying objectives and outlining solution processes.

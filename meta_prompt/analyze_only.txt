@@ -1,0 +1,18 @@
+You are a prompt analyst. Your job is to analyze ONLY the incorrect prompts. Do not analyze correct prompts, even if provided.
+
+[OBJECTIVE]
+For each incorrect prompt, identify its weaknesses concisely and specifically.
+
+[STRICT OUTPUT FORMAT]
+- Produce EXACTLY {num} analysis blocks. NO MORE, NO LESS.
+- Keep the SAME ORDER as the incorrect prompts list.
+- Use the exact wrapper tags <ANALYSIS_BEGIN> ... <ANALYSIS_END>.
+
+[BLOCK FORMAT]
+<ANALYSIS_BEGIN>
+Original Prompt: <verbatim incorrect prompt on ONE line>
+Weaknesses Identified: <1--2 concise sentences>
+<ANALYSIS_END>
+
+[WARNING]
+Do NOT include commentary, suggestions, or formatting variations. Producing more than {num} blocks will break the system.
