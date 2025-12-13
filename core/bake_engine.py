@@ -16,7 +16,7 @@ class BakeEngine:
         self.max_retries = config['execution']['max_retries']
         self.group_size = config['bake']['group_size']
         
-        # Log 路徑
+        # Log 路徑 (初始化時先留空，run 時會動態更新)
         self.paths = config['paths']
 
     def evaluate_parallel(self, query: str, answer_gt: str, prompts: List[str], task_type: str):
@@ -54,13 +54,10 @@ class BakeEngine:
                     correct.append(p)
                 else:
                     wrong.append(p)
-                    # 無論對錯，只要是用於 Debug 或 Trace，都可能需要 output，
-                    # 但這裡為了節省記憶體，主要存錯誤的 output
+                    # 存錯誤的 output 用於 Debug
                     failed_outputs[p] = raw_output
 
         return correct, wrong, detailed_res, failed_outputs
-
-
 
     def refine(self, correct, wrong, question, answer_gt, failed_outputs):
         """Step 2: 優化 (Analyze + Rewrite)"""
@@ -90,12 +87,8 @@ class BakeEngine:
         # 5. 提取結果
         improved = text_tools.extract_tags(response, "REWRITE")
         
-        # [NEW] 控制台即時警告
         if not improved:
             print(f"  [⚠️ WARNING] Refine failed! No tags found.")
-            print(f"  > Optimizer Response Length: {len(response)} chars")
-            print(f"  > Head (first 200 chars): {response[:200]!r}...")
-            print(f"  > Tail (last 200 chars): ...{response[-200:]!r}")
             # 將完整錯誤記錄到 debug 檔
             with open("logs/optimizer_debug.txt", "a", encoding="utf-8") as f:
                 f.write(f"\n{'='*20} FAILED PARSE {time.strftime('%X')} {'='*20}\n")
@@ -137,17 +130,58 @@ class BakeEngine:
             
         return self.optimizer.chat(sys_msg, "Please fill the template based on the rules above.")
 
+    def _generate_prompts_from_rule(self, rule_text, count):
+        """[Helper] 根據規則生成 Prompts"""
+        if not rule_text: return []
+        
+        gen_tpl = self.meta_prompts.get("prompt_generation", "")
+        
+        # 1. 填入 Template (System Prompt)
+        # 這裡我們把 rule_text 直接填入 System Prompt，讓模型知道這是「背景知識」
+        try:
+            sys_msg = gen_tpl.format(rules_block=rule_text, num=count)
+        except Exception:
+            # Fallback for safety
+            sys_msg = gen_tpl.replace("{rules_block}", rule_text).replace("{num}", str(count))
+            
+        # 2. 呼叫 Optimizer
+        # [修改] User Prompt 不需要再重複 Rule，只需觸發指令即可
+        user_msg = f"Please generate {count} new prompts based on the above rule now."
+        
+        try:
+            raw = self.optimizer.chat(sys_msg, user_msg)
+            
+            # 3. 清洗與過濾
+            prompts = []
+            for line in raw.split('\n'):
+                line = line.strip()
+                # 過濾掉空行、過短的行，或是包含 "Here are..." 這種廢話的行
+                if len(line) > 10 and not line.lower().startswith("here"):
+                    # 移除開頭的引號 (如果有的話)
+                    line = line.strip('"').strip("'")
+                    # 移除開頭的數字編號 (如 "1. ", "1) ")
+                    if line[0].isdigit():
+                        line = line.split('.', 1)[-1].strip()
+                        line = line.split(')', 1)[-1].strip()
+                    prompts.append(line)
+            
+            # 確保只回傳指定數量 (如果多生了就截斷，少生了也沒辦法)
+            return prompts[:count]
+            
+        except Exception as e:
+            print(f"  [⚠️ Warning] Generate prompts failed: {e}")
+            return []
 
     def run(self, dataset, initial_prompts):
         """主流程"""
         current_prompts = initial_prompts.copy()
         attr, all_rule = [], []
         
-        # [修改] 從 self.paths 讀取路徑，支援外部動態傳入
+        # [修改] 支援外部傳入的路徑
         opt_status_path = self.paths.get('opt_status', "logs/optimization_status.csv")
         trace_log_path = self.paths.get('trace_log', "logs/refinement_trace.jsonl") 
         
-        # 初始化 Log (確保傳入的是完整的路徑列表)
+        # 初始化 Log
         logger.init_files([
             self.paths['detailed_log'], 
             self.paths['rules_log'], 
@@ -156,9 +190,10 @@ class BakeEngine:
         ])
 
         # 寫入 CSV 表頭
-        with open(opt_status_path, 'w', encoding='utf-8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerow(["id", "source", "status", "initial_wrong", "verified_success", "note"])
+        if not text_tools.file_has_content(opt_status_path):
+             with open(opt_status_path, 'w', encoding='utf-8', newline='') as f:
+                writer = csv.writer(f)
+                writer.writerow(["id", "source", "status", "initial_wrong", "verified_success", "note"])
 
         for idx, item in enumerate(dataset):
             q, a = item['question'], item['answer']
@@ -168,10 +203,9 @@ class BakeEngine:
             print(f"Processing {idx+1}/{len(dataset)} [{src}]...")
             
             # --- 狀態變數 ---
-            status = "Processing"
             verified_success_count = 0
             
-            # 1. First Eval
+            # 1. First Eval (使用當前的 current_prompts)
             Pc, Pi, details, failed_outputs = self.evaluate_parallel(q, a, current_prompts, task_type=t_type)
             
             print(f"  > Initial: Correct: {len(Pc)}, Wrong: {len(Pi)}")
@@ -193,52 +227,36 @@ class BakeEngine:
                 self._log_optimization_status(opt_status_path, idx, src, "Failed (Refine Step)", len(Pi), 0, "No suggestions from optimizer")
                 continue
 
-            # =================================================
             # 3. Verification Step (驗證步驟)
-            # =================================================
             new_prompts_to_test = [new_p for (old_p, new_p) in candidate_pairs]
-            
             print(f"  > Verifying {len(new_prompts_to_test)} candidates...")
             
-            # [修改] 這裡同時接收 failed_outputs (verify_failed_outputs)
             Pc_new, Pi_new, details_new, verify_failed_outputs = self.evaluate_parallel(q, a, new_prompts_to_test, task_type=t_type)
-            
-            print(f"  > Verification Result: {len(Pc_new)} succeeded, {len(Pi_new)} failed.")
+            print(f"  > Verification Result: {len(Pc_new)} succeeded.")
 
-            # [NEW] 記錄每一個優化 Prompt 的詳細結果 (Trace Log)
-            # 這樣您就能看到「優化後的 Prompt」長什麼樣子，以及它為什麼失敗
+            # Log Trace
             for old_p, new_p in candidate_pairs:
                 is_verified = (new_p in Pc_new)
-                # 如果驗證失敗，抓取它的輸出 output
                 raw_out = verify_failed_outputs.get(new_p, "Correct" if is_verified else "No Output")
-                
                 logger.log_jsonl(trace_log_path, {
                     "id": idx,
                     "source": src,
                     "original_prompt": old_p,
-                    "candidate_prompt": new_p, # 這就是優化後的 Prompt
+                    "candidate_prompt": new_p,
                     "verified": is_verified,
-                    "model_output": raw_out    # 這是該 Prompt 跑出來的結果
+                    "model_output": raw_out
                 })
 
-            # 4. Filter Pairs (只保留驗證成功的)
-            valid_pairs = []
-            for old_p, new_p in candidate_pairs:
-                if new_p in Pc_new:
-                    valid_pairs.append((old_p, new_p))
-            
+            valid_pairs = [(old, new) for old, new in candidate_pairs if new in Pc_new]
             verified_success_count = len(valid_pairs)
 
             if not valid_pairs:
-                print("  > No improvements verified. Skipping rule extraction.")
                 self._log_optimization_status(opt_status_path, idx, src, "Failed (Verification)", len(Pi), 0, "All candidates failed")
                 continue
             else:
                 self._log_optimization_status(opt_status_path, idx, src, "Success", len(Pi), verified_success_count, "")
 
-            # =================================================
-            
-            # 5. Extract Rule
+            # 4. Extract Rule
             rule = self.extract_rule(Pc, valid_pairs)
             if rule:
                 attr.append(rule)
@@ -246,20 +264,37 @@ class BakeEngine:
                 log_content = f"Successful Refinements:\n{failed_prompts_text}\n\nGenerated Guideline:\n{rule}"
                 logger.log_rule(self.paths['rules_log'], f"Sample {idx} ({src})", log_content)
 
-            # Merge Logic
+            # 5. Merge Logic & [New] Iterative Prompt Update
             if len(attr) >= self.group_size:
                 merged = self.combine_rules(attr)
                 all_rule.append(merged)
                 attr.clear()
                 logger.log_rule(self.paths['rules_log'], "Tier-1 Merge", merged)
+                
+                # [迭代功能核心]
+                # 當累積出 Tier-1 Rule 時，立即生成 5 個新 Prompt，並替換下一輪的初始 Prompt
+                print(f"\n  ⚡ [Iterative Update] Tier-1 Rule generated! Updating prompts for next rounds...")
+                new_iterative_prompts = self._generate_prompts_from_rule(merged, count=5)
+                
+                if new_iterative_prompts:
+                    current_prompts = new_iterative_prompts
+                    print(f"  🔄 Prompt Pool Updated: {len(current_prompts)} new prompts loaded.")
+                    print(f"  📝 First new prompt preview: {current_prompts[0][:60]}...")
+                    # 記錄這次變更
+                    logger.log_rule(self.paths['rules_log'], f"Prompt Update @ Sample {idx}", 
+                                    f"Switched to {len(current_prompts)} prompts based on Tier-1 Merge.")
+                else:
+                    print("  ⚠️ Failed to generate new prompts, keeping old ones.")
+
             
+            # Recursive Merge (保留既有邏輯)
             while len(all_rule) >= self.group_size:
                 chunk = all_rule[:self.group_size]
                 merged = self.combine_rules(chunk)
                 all_rule = [merged] + all_rule[self.group_size:]
                 logger.log_rule(self.paths['rules_log'], "Recursive Merge", merged)
 
-        # 5. Finalize
+        # 6. Finalize
         print("\n=== Finalizing Rules ===")
         if attr: 
             tail = self.combine_rules(attr)
@@ -274,16 +309,8 @@ class BakeEngine:
         final_rule = all_rule[0] if all_rule else ""
         logger.log_rule(self.paths['rules_log'], "FINAL RULE", final_rule)
         
-        # 6. Generate Prompts
-        if not final_rule:
-             print("⚠️ No final rule generated. Returning empty list.")
-             return [], ""
-
-        gen_tpl = self.meta_prompts.get("prompt_generation", "")
-        sys_msg = gen_tpl.format(rules_block=final_rule, num=self.config['bake']['max_output_prompts'])
-        raw = self.optimizer.chat(sys_msg, f"Rule:\n{final_rule}")
-        
-        final_prompts = [line.strip() for line in raw.split('\n') if len(line) > 10]
+        # 最後再生成一次最終版，給使用者存檔用
+        final_prompts = self._generate_prompts_from_rule(final_rule, count=self.config['bake']['max_output_prompts'])
         
         return final_prompts, final_rule
 

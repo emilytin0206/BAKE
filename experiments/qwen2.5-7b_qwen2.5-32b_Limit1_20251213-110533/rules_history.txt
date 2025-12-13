@@ -1,0 +1,186 @@
+
+========== Sample 0 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Use chain of thought reasoning to derive the answer.
+   [Fixed O]    Use chain of thought reasoning to derive the answer, ensuring all steps are completed from applying the transformation to each vertex to identifying the correct option among the choices provided.
+
+Generated Guideline:
+Ensure prompts include clear instructions for systematic reasoning or step-by-step processing, and specify the need for detailed explanations or complete thought processes.
+
+========== Sample 1 (mmlu_high_school_world_history) ==========
+Successful Refinements:
+   [Original X] Solve this problem by breaking it down into smaller parts.
+   [Fixed O]    Identify and analyze the central theme and context of the passage before connecting it to potential historical developments.
+
+Generated Guideline:
+To convert failing prompts into successful ones, ensure the prompt specifies clear actions and contextual details relevant to the task.
+
+Improved Guideline: Specify clear actions and provide relevant contextual details.
+
+========== Sample 3 (mmlu_professional_law) ==========
+Successful Refinements:
+   [Original X] Let's think step by step.
+   [Fixed O]    Use chain-of-thought reasoning to derive the answer while explicitly considering applicable legal principles and their exclusions.
+
+Generated Guideline:
+Include specific instructions for methodical reasoning, explicit details, and logical thinking in the prompt.
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clear actions, contextual details, systematic reasoning, step-by-step processing, detailed explanations, complete thought processes, methodical reasoning, explicit details, logical thinking
+
+[Structural Elements]
+Use Markdown for formatting where necessary (e.g., headers, lists)
+
+[Thinking Steps]
+1. Identify the specific task or problem to be addressed.
+2. Break down the task into clear, actionable steps.
+3. Provide detailed explanations and thought processes for each step.
+4. Ensure logical consistency throughout the reasoning.
+
+[Do's]
+- Include explicit instructions for systematic and methodical reasoning.
+- Specify clear actions that need to be taken.
+- Provide relevant contextual details pertinent to the task or problem.
+- Use detailed explanations and complete thought processes in your steps.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not omit necessary context or details.
+- Refrain from skipping logical steps or reasoning phases.
+- Do not produce incomplete or partially explained steps.
+
+---
+
+========== Prompt Update @ Sample 3 ==========
+Switched to 5 prompts based on Tier-1 Merge.
+
+========== Sample 4 (mmlu_business_ethics) ==========
+Successful Refinements:
+   [Original X] Systematically address the software bug by isolating the issue and describing each troubleshooting step with thorough context and logical thinking.
+   [Fixed O]    Carefully analyze the given options and provide a step-by-step reasoning process to identify the correct answer choice based on the provided sentence structure and content.
+   [Original X] Detail the process of creating a budget plan, starting with income assessment and moving through expense categorization, with clear actions and complete thought processes for adjustment.
+   [Fixed O]    Identify the correct answer choice by analyzing the given sentence structure and content, providing a step-by-step reasoning process without including unrelated information.
+   [Original X] Break down the marketing strategy into actionable steps, providing detailed explanations for each phase to ensure a clear understanding.
+   [Fixed O]    Analyze the given options, provide a step-by-step reasoning process to identify the correct answer choice based on the provided sentence structure and content without including unrelated information or steps.
+
+Generated Guideline:
+To convert failing prompts into successful ones:
+
+1. Focus on identifying a correct answer choice or outlining a specific process.
+2. Provide a step-by-step reasoning or action process.
+3. Base analysis strictly on provided information (sentence structure, content).
+4. Exclude unrelated information and unnecessary details.
+5. Ensure clarity and logical progression in the explanation.
+
+========== Cleanup Tier-0 ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Correct answer, specific process, step-by-step reasoning, provided information, sentence structure, content, clarity, logical progression
+
+[Structural Elements]
+Use Markdown for formatting, section headers if necessary
+
+[Thinking Steps]
+1. Identify a correct answer choice or outline a specific process.
+2. Provide a step-by-step reasoning or action process based on the given information.
+3. Ensure the explanation is clear and logically progresses.
+
+[Do's]
+- Focus on identifying a correct answer choice or outlining a specific process.
+- Base analysis strictly on provided sentence structure and content.
+- Include a step-by-step reasoning or action process.
+- Maintain clarity and logical progression in the explanation.
+
+[Don'ts]
+- Do not include unrelated information or unnecessary details.
+- Avoid deviating from the given information when providing explanations.
+
+---
+
+========== Convergence Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clear actions, contextual details, systematic reasoning, step-by-step processing, detailed explanations, complete thought processes, methodical reasoning, explicit details, logical thinking, correct answer, specific process, provided information, sentence structure, content, clarity, logical progression
+
+[Structural Elements]
+Use Markdown for formatting where necessary (e.g., headers, lists)
+
+[Thinking Steps]
+1. Identify the specific task or problem to be addressed.
+2. Break down the task into clear, actionable steps.
+3. Provide detailed explanations and thought processes for each step.
+4. Ensure logical consistency throughout the reasoning.
+
+[Do's]
+- Include explicit instructions for systematic and methodical reasoning.
+- Specify clear actions that need to be taken.
+- Provide relevant contextual details pertinent to the task or problem.
+- Base analysis strictly on provided sentence structure and content.
+- Focus on identifying a correct answer choice or outlining a specific process.
+- Maintain clarity and logical progression in the explanation.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not omit necessary context or details.
+- Refrain from skipping logical steps or reasoning phases.
+- Do not produce incomplete or partially explained steps.
+- Avoid including unrelated information or unnecessary details.
+- Do not deviate from the given information when providing explanations.
+---
+
+This template consolidates the key insights and rules into a single, high-quality guideline.
+
+========== FINAL RULE ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clear actions, contextual details, systematic reasoning, step-by-step processing, detailed explanations, complete thought processes, methodical reasoning, explicit details, logical thinking, correct answer, specific process, provided information, sentence structure, content, clarity, logical progression
+
+[Structural Elements]
+Use Markdown for formatting where necessary (e.g., headers, lists)
+
+[Thinking Steps]
+1. Identify the specific task or problem to be addressed.
+2. Break down the task into clear, actionable steps.
+3. Provide detailed explanations and thought processes for each step.
+4. Ensure logical consistency throughout the reasoning.
+
+[Do's]
+- Include explicit instructions for systematic and methodical reasoning.
+- Specify clear actions that need to be taken.
+- Provide relevant contextual details pertinent to the task or problem.
+- Base analysis strictly on provided sentence structure and content.
+- Focus on identifying a correct answer choice or outlining a specific process.
+- Maintain clarity and logical progression in the explanation.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not omit necessary context or details.
+- Refrain from skipping logical steps or reasoning phases.
+- Do not produce incomplete or partially explained steps.
+- Avoid including unrelated information or unnecessary details.
+- Do not deviate from the given information when providing explanations.
+---
+
+This template consolidates the key insights and rules into a single, high-quality guideline.

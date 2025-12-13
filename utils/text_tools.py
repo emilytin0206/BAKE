@@ -1,4 +1,5 @@
 import re
+import os  # [新增] 用於檢查檔案
 
 def to_float_maybe(s: str) -> float:
     if not s: raise ValueError
@@ -32,7 +33,6 @@ def validate_answer(prediction: str, ground_truth: str, task_type: str) -> bool:
     except ValueError:
         return False
 
-
 def extract_tags(text: str, tag_name: str) -> list:
     if not text: return []
     
@@ -51,3 +51,9 @@ def insert_prompts_template(correct, wrong):
     c = "\n".join(correct) if correct else "None"
     w = "\n".join(wrong) if wrong else "None"
     return f"Correct:\n{c}\n---\nWrong:\n{w}"
+
+# [新增] 檢查檔案是否存在且有內容
+def file_has_content(filepath: str) -> bool:
+    if not os.path.exists(filepath):
+        return False
+    return os.path.getsize(filepath) > 0
