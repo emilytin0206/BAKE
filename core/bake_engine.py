@@ -1,9 +1,7 @@
 import time
+import csv
 from typing import List, Tuple
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from utils import text_tools, logger
-
-# 引用工具層
 from utils import text_tools, logger
 
 class BakeEngine:
@@ -21,14 +19,10 @@ class BakeEngine:
         # Log 路徑
         self.paths = config['paths']
 
-
-# core/bake_engine.py
-
-    # [修改 1] 增加回傳 failed_outputs (記錄模型原始的錯誤回答)
     def evaluate_parallel(self, query: str, answer_gt: str, prompts: List[str], task_type: str):
         correct, wrong = [], []
         detailed_res = {}
-        failed_outputs = {}  # [NEW] Map: prompt -> raw_output
+        failed_outputs = {}
 
         def _worker(p):
             full_input = f"{p}\n\n{query}"
@@ -60,53 +54,59 @@ class BakeEngine:
                     correct.append(p)
                 else:
                     wrong.append(p)
-                    failed_outputs[p] = raw_output # [NEW] 儲存錯誤內容
+                    # 無論對錯，只要是用於 Debug 或 Trace，都可能需要 output，
+                    # 但這裡為了節省記憶體，主要存錯誤的 output
+                    failed_outputs[p] = raw_output
 
         return correct, wrong, detailed_res, failed_outputs
 
-    # [修改 2] 合併 Analyze & Rewrite，並接收 Context
+
+
     def refine(self, correct, wrong, question, answer_gt, failed_outputs):
-        """
-        Step 2: 優化 (One-Pass: Analyze + Rewrite)
-        """
+        """Step 2: 優化 (Analyze + Rewrite)"""
         if not wrong: return []
 
-        # 1. 準備 Context (題目、正確答案、失敗的 Prompt 與其對應的錯誤回答)
+        # 1. 準備 Context
         error_cases = []
         for p in wrong:
             raw_out = failed_outputs.get(p, "")
-            # 截斷過長的輸出以節省 Token
             snippet = raw_out[:300] + "..." if len(raw_out) > 300 else raw_out
             error_cases.append(
                 f"<CASE>\nOriginal Prompt: {p}\nModel Output: {snippet}\n</CASE>"
             )
         
         error_block = "\n".join(error_cases)
-        
-        # 2. 載入新的合併版 Meta-Prompt
-        # 假設我們將新 Prompt 存為 'analyze_and_rewrite.txt'
         sys_msg = self.meta_prompts.get("analyze_and_rewrite", "")
         
-        # 3. 組合 User Message
         user_msg = (
             f"[TASK CONTEXT]\nQuestion: {question}\nGround Truth: {answer_gt}\n\n"
             f"[FAILED PROMPTS & OUTPUTS]\n{error_block}\n\n"
             f"[SUCCESSFUL PROMPTS (REFERENCE)]\n{correct}"
         )
 
-        # 4. 單次呼叫 Optimizer
+        # 4. 呼叫 Optimizer
         response = self.optimizer.chat(sys_msg.format(num=len(wrong)), user_msg)
         
         # 5. 提取結果
-        # 這裡我們只抓取 <REWRITE> 標籤內的內容
         improved = text_tools.extract_tags(response, "REWRITE")
         
-        # 配對 (確保數量一致)
+        # [NEW] 控制台即時警告
+        if not improved:
+            print(f"  [⚠️ WARNING] Refine failed! No tags found.")
+            print(f"  > Optimizer Response Length: {len(response)} chars")
+            print(f"  > Head (first 200 chars): {response[:200]!r}...")
+            print(f"  > Tail (last 200 chars): ...{response[-200:]!r}")
+            # 將完整錯誤記錄到 debug 檔
+            with open("logs/optimizer_debug.txt", "a", encoding="utf-8") as f:
+                f.write(f"\n{'='*20} FAILED PARSE {time.strftime('%X')} {'='*20}\n")
+                f.write(f"Response:\n{response}\n")
+
         pairs = []
         for i in range(min(len(wrong), len(improved))):
             pairs.append((wrong[i], improved[i]))
             
         return pairs
+
 
     def extract_rule(self, correct, pairs):
         """Step 3: 提取規則"""
@@ -115,46 +115,49 @@ class BakeEngine:
         
         pair_text = "\n".join([f"Original: {o}\nImproved: {n}" for o, n in pairs])
         
-        # [修正] 嘗試填入模板參數 pairs_block
         try:
             sys_msg = tpl.format(pairs_block=pair_text)
         except Exception:
             sys_msg = tpl
             
-        # user_msg 可以簡化，因為內容已經在 system prompt (或者保留以防萬一)
         user_msg = f"Correct Prompts:\n{correct}"
-        
         return self.optimizer.chat(sys_msg, user_msg)
 
     def combine_rules(self, rules):
-        """Step 4: 合併規則 (使用結構化模板)"""
+        """Step 4: 合併規則"""
         if not rules: return ""
         
         tpl = self.meta_prompts.get("combine_rules", "")
-        
-        # 將多條規則組合成文字塊
         block = "\n\n".join([f"Rule {i+1}:\n{r}" for i, r in enumerate(rules)])
         
-        # [關鍵修正] 確保填入模板參數 rules_block
         try:
-            # 這裡將 block 填入 combine_rules.txt 的 {rules_block} 位置
             sys_msg = tpl.format(rules_block=block)
         except Exception:
-            # 防呆：如果模板格式有誤，退回簡單串接
             sys_msg = f"{tpl}\n\nRules:\n{block}"
             
-        # 因為規則與指令都已經包含在 System Prompt (sys_msg) 裡了
-        # User Prompt 只需要給一個簡單的觸發指令
         return self.optimizer.chat(sys_msg, "Please fill the template based on the rules above.")
-
 
     def run(self, dataset, initial_prompts):
         """主流程"""
         current_prompts = initial_prompts.copy()
         attr, all_rule = [], []
         
+        # [Log 路徑設定]
+        opt_status_path = "logs/optimization_status.csv"
+        trace_log_path = "logs/refinement_trace.jsonl" # [NEW] 詳細記錄優化後的 Prompt
+        
         # 初始化 Log
-        logger.init_files([self.paths['detailed_log'], self.paths['rules_log']])
+        logger.init_files([
+            self.paths['detailed_log'], 
+            self.paths['rules_log'], 
+            opt_status_path,
+            trace_log_path
+        ])
+
+        # 寫入 CSV 表頭
+        with open(opt_status_path, 'w', encoding='utf-8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(["id", "source", "status", "initial_wrong", "verified_success", "note"])
 
         for idx, item in enumerate(dataset):
             q, a = item['question'], item['answer']
@@ -163,8 +166,11 @@ class BakeEngine:
             
             print(f"Processing {idx+1}/{len(dataset)} [{src}]...")
             
-            # 1. First Eval (評測原始 Prompt)
-            # 這裡回傳 failed_outputs 是為了給 Refine 做診斷用
+            # --- 狀態變數 ---
+            status = "Processing"
+            verified_success_count = 0
+            
+            # 1. First Eval
             Pc, Pi, details, failed_outputs = self.evaluate_parallel(q, a, current_prompts, task_type=t_type)
             
             print(f"  > Initial: Correct: {len(Pc)}, Wrong: {len(Pi)}")
@@ -175,65 +181,77 @@ class BakeEngine:
                 "q": q, "res": details
             })
             
-            if not Pi: continue
+            if not Pi:
+                self._log_optimization_status(opt_status_path, idx, src, "Skipped (All Correct)", 0, 0, "")
+                continue
 
-            # 2. Refine (產生「候選」的新 Prompt)
-            # 這些只是 Optimizer 覺得會比較好，但還沒被證實
+            # 2. Refine (產生候選 Prompt)
             candidate_pairs = self.refine(Pc, Pi, q, a, failed_outputs)
             
-            if not candidate_pairs: continue
+            if not candidate_pairs:
+                self._log_optimization_status(opt_status_path, idx, src, "Failed (Refine Step)", len(Pi), 0, "No suggestions from optimizer")
+                continue
 
             # =================================================
-            # 3. [NEW] Verification Step (驗證步驟)
+            # 3. Verification Step (驗證步驟)
             # =================================================
-            # 提取出所有新生成的 Prompt
             new_prompts_to_test = [new_p for (old_p, new_p) in candidate_pairs]
             
             print(f"  > Verifying {len(new_prompts_to_test)} candidates...")
             
-            # 再次評測 (只針對題目 q 進行驗證)
-            # 注意：這裡我們不關心 failed_outputs，只關心 Pc_new (哪些答對了)
-            Pc_new, Pi_new, details_new, _ = self.evaluate_parallel(q, a, new_prompts_to_test, task_type=t_type)
+            # [修改] 這裡同時接收 failed_outputs (verify_failed_outputs)
+            Pc_new, Pi_new, details_new, verify_failed_outputs = self.evaluate_parallel(q, a, new_prompts_to_test, task_type=t_type)
             
             print(f"  > Verification Result: {len(Pc_new)} succeeded, {len(Pi_new)} failed.")
 
-            # 4. Filter Pairs (過濾 Pairs)
-            # 只有當 new_p 在 Pc_new (驗證成功列表) 中，才保留該 Pair
+            # [NEW] 記錄每一個優化 Prompt 的詳細結果 (Trace Log)
+            # 這樣您就能看到「優化後的 Prompt」長什麼樣子，以及它為什麼失敗
+            for old_p, new_p in candidate_pairs:
+                is_verified = (new_p in Pc_new)
+                # 如果驗證失敗，抓取它的輸出 output
+                raw_out = verify_failed_outputs.get(new_p, "Correct" if is_verified else "No Output")
+                
+                logger.log_jsonl(trace_log_path, {
+                    "id": idx,
+                    "source": src,
+                    "original_prompt": old_p,
+                    "candidate_prompt": new_p, # 這就是優化後的 Prompt
+                    "verified": is_verified,
+                    "model_output": raw_out    # 這是該 Prompt 跑出來的結果
+                })
+
+            # 4. Filter Pairs (只保留驗證成功的)
             valid_pairs = []
             for old_p, new_p in candidate_pairs:
-                if new_p in Pc_new: # 關鍵：確認這個新 Prompt 真的能解對這題
+                if new_p in Pc_new:
                     valid_pairs.append((old_p, new_p))
             
-            # 如果驗證後沒有半個成功的，就跳過這題的規則提取
+            verified_success_count = len(valid_pairs)
+
             if not valid_pairs:
                 print("  > No improvements verified. Skipping rule extraction.")
+                self._log_optimization_status(opt_status_path, idx, src, "Failed (Verification)", len(Pi), 0, "All candidates failed")
                 continue
+            else:
+                self._log_optimization_status(opt_status_path, idx, src, "Success", len(Pi), verified_success_count, "")
 
             # =================================================
             
-            # 5. Extract Rule (使用驗證過的 Pairs)
-            # 這裡傳入 Pc (原始就對的) 和 valid_pairs (修正後變對的)
+            # 5. Extract Rule
             rule = self.extract_rule(Pc, valid_pairs)
-            
             if rule:
                 attr.append(rule)
-                
-                # Log 記錄：只記錄那些「原本錯、後來改對」的案例，這才是最有價值的
                 failed_prompts_text = "\n".join([f"   [Original X] {old}\n   [Fixed O]    {new}" for old, new in valid_pairs])
                 log_content = f"Successful Refinements:\n{failed_prompts_text}\n\nGenerated Guideline:\n{rule}"
-                
                 logger.log_rule(self.paths['rules_log'], f"Sample {idx} ({src})", log_content)
 
-            # ... (後續 Merge 邏輯保持不變)
-
-            # 3. Merge Logic (Tier-1)
+            # Merge Logic
             if len(attr) >= self.group_size:
                 merged = self.combine_rules(attr)
                 all_rule.append(merged)
                 attr.clear()
                 logger.log_rule(self.paths['rules_log'], "Tier-1 Merge", merged)
             
-            # 4. Recursive Merge
             while len(all_rule) >= self.group_size:
                 chunk = all_rule[:self.group_size]
                 merged = self.combine_rules(chunk)
@@ -256,11 +274,19 @@ class BakeEngine:
         logger.log_rule(self.paths['rules_log'], "FINAL RULE", final_rule)
         
         # 6. Generate Prompts
+        if not final_rule:
+             print("⚠️ No final rule generated. Returning empty list.")
+             return [], ""
+
         gen_tpl = self.meta_prompts.get("prompt_generation", "")
         sys_msg = gen_tpl.format(rules_block=final_rule, num=self.config['bake']['max_output_prompts'])
         raw = self.optimizer.chat(sys_msg, f"Rule:\n{final_rule}")
         
         final_prompts = [line.strip() for line in raw.split('\n') if len(line) > 10]
         
-        # [修正 3] 同時回傳 Prompts 和 Rule 字串
         return final_prompts, final_rule
+
+    def _log_optimization_status(self, filepath, idx, src, status, initial_wrong, verified_success, note):
+        with open(filepath, 'a', encoding='utf-8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow([idx, src, status, initial_wrong, verified_success, note])

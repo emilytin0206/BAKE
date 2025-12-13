@@ -1,3 +1,260 @@
 
-========== FINAL RULE ==========
+========== Sample 0 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Let's think step by step.
+   [Fixed O]    Ensure you reflect each vertex completely before moving on to the next step and verify all possible answers.
+   [Original X] Use chain of thought reasoning to derive the answer.
+   [Fixed O]    Reflect each vertex across the line y = x and list all transformed coordinates before concluding with your final answer.
 
+Generated Guideline:
+Ensure clarity and specificity in instructions; focus on logical breakdown and detailed explanations.
+
+========== Sample 1 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Solve this problem by breaking it down into smaller parts.
+   [Fixed O]    Ensure all calculations are completed before providing the final answer.
+   [Original X] Please provide a detailed explanation followed by the final answer.
+   [Fixed O]    Provide detailed calculations and reasoning for each step before concluding with the final answer.
+
+Generated Guideline:
+Ensure prompts specify clear, logical processes and detailed reasoning for arriving at conclusions.
+
+========== Sample 2 (mmlu_high_school_world_history) ==========
+Successful Refinements:
+   [Original X] Let's think step by step.
+   [Fixed O]    Identify the main themes, then connect them logically to one of the given options before providing your final answer.
+   [Original X] Take a deep breath and work on this problem step-by-step.
+   [Fixed O]    Analyze the passage by breaking it down into key themes, then logically connect them to one of the given options and provide your final answer.
+
+Generated Guideline:
+To convert failing prompts into successful ones:
+
+1. Specify clear analytical steps.
+2. Direct towards logical connections between themes and options.
+3. Instruct to provide a final answer based on analysis.
+
+Guideline: Specify analytical steps, direct logical connections, and instruct provision of a final answer.
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, specificity, logical breakdown, detailed explanations, analytical steps, logical connections, final answer
+
+[Structural Elements]
+Use clear section headers and bullet points for structured presentation.
+
+[Thinking Steps]
+1. Break down the problem into clear, logical steps.
+2. Provide detailed reasoning for each step.
+3. Establish logical connections between themes and options.
+4. Summarize with a final answer based on the analysis.
+
+[Do's]
+- Ensure instructions are clear and specific.
+- Include detailed explanations and logical breakdowns.
+- Specify analytical steps to guide the process.
+- Direct towards making logical connections between relevant elements.
+- Provide a final answer based on thorough analysis.
+
+[Don'ts]
+- Avoid vague or ambiguous language.
+- Do not skip logical reasoning or steps in the explanation.
+- Refrain from providing conclusions without detailed supporting analysis.
+
+---
+
+========== Sample 3 (mmlu_high_school_world_history) ==========
+Successful Refinements:
+   [Original X] Think about this logically.
+   [Fixed O]    Think through each option carefully, then clearly state which one best fits the passage's argument.
+
+Generated Guideline:
+Specify clear actions and expected outcomes for precise thinking and response.
+
+========== Sample 5 (mmlu_high_school_physics) ==========
+Successful Refinements:
+   [Original X] Please provide a detailed explanation followed by the final answer.
+   [Fixed O]    Provide a detailed explanation for each option by considering the field behavior at large distances from the source before concluding with the final answer.
+   [Original X] Take a deep breath and work on this problem step-by-step.
+   [Fixed O]    Work on this problem step-by-step, ensuring you complete the reasoning for each option before concluding with the final answer.
+   [Original X] Use chain of thought reasoning to derive the answer.
+   [Fixed O]    Use chain-of-thought reasoning to derive the answer, ensuring you complete the reasoning for each option before concluding with the final answer.
+
+Generated Guideline:
+To convert failing prompts into successful ones:
+
+1. Specify detailed reasoning requirements.
+2. Include intermediate steps or considerations.
+3. Ensure completion of reasoning for each option before concluding with the final answer.
+
+========== Sample 6 (mmlu_professional_law) ==========
+Successful Refinements:
+   [Original X] Let's think step by step.
+   [Fixed O]    Identify all relevant legal principles and explicitly state their application to determine the final answer.
+   [Original X] Take a deep breath and work on this problem step-by-step.
+   [Fixed O]    After identifying relevant legal principles, clearly state how they apply and provide a final answer.
+
+Generated Guideline:
+To convert failing prompts into successful ones, ensure the prompt:
+1. Specifies clear actions or steps.
+2. Requires identification and explicit application of relevant principles.
+3. Demands a final answer.
+
+Improved guideline: Specify clear actions, require identification and explicit application of relevant principles, and demand a final answer.
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Specify, detailed reasoning, intermediate steps, clear actions, identification, explicit application, relevant principles, final answer
+
+[Structural Elements]
+Use Markdown for formatting if applicable; include section headers if necessary.
+
+[Thinking Steps]
+1. Identify the problem or question.
+2. Specify clear actions and steps required to address the problem.
+3. Detail reasoning requirements and intermediate steps.
+4. Explicitly apply relevant principles at each step.
+5. Ensure completion of reasoning before concluding with a final answer.
+
+[Do's]
+- Specify clear actions and expected outcomes for precise thinking and response.
+- Include detailed reasoning requirements and intermediate steps.
+- Identify and explicitly apply relevant principles.
+- Demand a final answer after completing the reasoning process.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not skip intermediate steps in the reasoning process.
+- Do not conclude without applying relevant principles.
+- Do not omit the final answer.
+
+---
+
+========== Sample 7 (mmlu_professional_law) ==========
+Successful Refinements:
+   [Original X] Please provide a detailed explanation followed by the final answer.
+   [Fixed O]    Provide a detailed explanation followed by a clear final answer.
+
+Generated Guideline:
+Remove unnecessary words and ensure clarity.
+
+========== Cleanup Tier-0 ==========
+Here is the merged rule template based on the provided rule:
+
+---
+
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, Conciseness
+
+[Structural Elements]
+Use Markdown for formatting if applicable; ensure a clear and organized structure.
+
+[Thinking Steps]
+1. Identify the main points that need to be conveyed.
+2. Remove any unnecessary words or phrases.
+3. Ensure each sentence is clear and contributes to the overall message.
+
+[Do's]
+- Focus on clarity and conciseness in your writing.
+- Use specific terms and vocabulary relevant to the topic.
+- Organize content logically for easy understanding.
+
+[Don'ts]
+- Avoid using unnecessary words that do not add value to the message.
+- Do not include redundant information or overly complex sentences.
+
+---
+
+========== Convergence Merge ==========
+---
+
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, specificity, logical breakdown, detailed explanations, analytical steps, logical connections, final answer, intermediate steps, clear actions, identification, explicit application, relevant principles
+
+[Structural Elements]
+Use Markdown for formatting if applicable; include section headers and bullet points for structured presentation.
+
+[Thinking Steps]
+1. Identify the problem or question.
+2. Break down the problem into clear, logical steps.
+3. Specify clear actions and steps required to address the problem.
+4. Provide detailed reasoning for each step.
+5. Establish logical connections between themes and options.
+6. Explicitly apply relevant principles at each step.
+7. Summarize with a final answer based on thorough analysis.
+
+[Do's]
+- Ensure instructions are clear, specific, and concise.
+- Include detailed explanations and logical breakdowns.
+- Specify analytical steps to guide the process.
+- Direct towards making logical connections between relevant elements.
+- Identify and explicitly apply relevant principles at each step.
+- Provide a final answer after completing the reasoning process.
+
+[Don'ts]
+- Avoid vague or ambiguous language.
+- Do not skip logical reasoning, intermediate steps, or detailed supporting analysis.
+- Refrain from providing conclusions without thorough supporting evidence.
+- Do not omit the final answer based on comprehensive analysis.
+
+---
+
+========== FINAL RULE ==========
+---
+
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, specificity, logical breakdown, detailed explanations, analytical steps, logical connections, final answer, intermediate steps, clear actions, identification, explicit application, relevant principles
+
+[Structural Elements]
+Use Markdown for formatting if applicable; include section headers and bullet points for structured presentation.
+
+[Thinking Steps]
+1. Identify the problem or question.
+2. Break down the problem into clear, logical steps.
+3. Specify clear actions and steps required to address the problem.
+4. Provide detailed reasoning for each step.
+5. Establish logical connections between themes and options.
+6. Explicitly apply relevant principles at each step.
+7. Summarize with a final answer based on thorough analysis.
+
+[Do's]
+- Ensure instructions are clear, specific, and concise.
+- Include detailed explanations and logical breakdowns.
+- Specify analytical steps to guide the process.
+- Direct towards making logical connections between relevant elements.
+- Identify and explicitly apply relevant principles at each step.
+- Provide a final answer after completing the reasoning process.
+
+[Don'ts]
+- Avoid vague or ambiguous language.
+- Do not skip logical reasoning, intermediate steps, or detailed supporting analysis.
+- Refrain from providing conclusions without thorough supporting evidence.
+- Do not omit the final answer based on comprehensive analysis.
+
+---

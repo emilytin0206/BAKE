@@ -9,16 +9,16 @@ scorer:
   base_url: "http://localhost:11434/v1" # Ollama 預設位置, OpenAI 則留空或刪除
   api_key: "ollama"        # Ollama 隨意填, OpenAI 需填真實 Key
   temperature: 0.0
-  max_tokens: 256
+  max_tokens: 1024
 
 # 負責優化與總結規則的模型 (Optimizer Model / Mo)
 optimizer:
   provider: "ollama"       # 選項: "openai" 或 "ollama"
-  model_name: "qwen2.5:14b"     # 模型名稱 (如 gpt-3.5-turbo, llama3, mistral)
+  model_name: "qwen2.5:32b"     # 模型名稱 (如 gpt-3.5-turbo, llama3, mistral)
   base_url: "http://localhost:11434/v1" # Ollama 預設位置, OpenAI 則留空或刪除
   api_key: "ollama"        # Ollama 隨意填, OpenAI 需填真實 Key
   temperature: 0.0
-  max_tokens: 256
+  max_tokens: 2048
 
 # ========================
 # Pricing (USD per 1M tokens)

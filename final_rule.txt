@@ -1,0 +1,37 @@
+---
+
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, specificity, logical breakdown, detailed explanations, analytical steps, logical connections, final answer, intermediate steps, clear actions, identification, explicit application, relevant principles
+
+[Structural Elements]
+Use Markdown for formatting if applicable; include section headers and bullet points for structured presentation.
+
+[Thinking Steps]
+1. Identify the problem or question.
+2. Break down the problem into clear, logical steps.
+3. Specify clear actions and steps required to address the problem.
+4. Provide detailed reasoning for each step.
+5. Establish logical connections between themes and options.
+6. Explicitly apply relevant principles at each step.
+7. Summarize with a final answer based on thorough analysis.
+
+[Do's]
+- Ensure instructions are clear, specific, and concise.
+- Include detailed explanations and logical breakdowns.
+- Specify analytical steps to guide the process.
+- Direct towards making logical connections between relevant elements.
+- Identify and explicitly apply relevant principles at each step.
+- Provide a final answer after completing the reasoning process.
+
+[Don'ts]
+- Avoid vague or ambiguous language.
+- Do not skip logical reasoning, intermediate steps, or detailed supporting analysis.
+- Refrain from providing conclusions without thorough supporting evidence.
+- Do not omit the final answer based on comprehensive analysis.
+
+---

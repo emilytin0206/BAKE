@@ -23,5 +23,5 @@ You must output EXACTLY {num} blocks. Format each block strictly as follows:
 </THOUGHT>
 <REWRITE_BEGIN>
 (Your optimized, GENERAL-PURPOSE prompt on a single line. NO specific context allowed here.)
-</REWRITE_BEGIN>
+</REWRITE_END>
 </BLOCK>
