@@ -1,0 +1,6 @@
+id,source,status,initial_wrong,verified_success,note
+0,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+1,mmlu_high_school_world_history,Failed (Verification),6,0,All candidates failed
+2,mmlu_high_school_physics,Failed (Verification),6,0,All candidates failed
+3,mmlu_professional_law,Success,5,1,
+4,mmlu_business_ethics,Skipped (All Correct),0,0,

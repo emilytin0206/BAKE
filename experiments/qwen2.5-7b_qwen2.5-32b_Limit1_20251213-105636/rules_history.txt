@@ -1,0 +1,64 @@
+
+========== Sample 3 (mmlu_professional_law) ==========
+Successful Refinements:
+   [Original X] Use chain of thought reasoning to derive the answer.
+   [Fixed O]    Use chain-of-thought reasoning to derive your analysis, then clearly state your final conclusion.
+
+Generated Guideline:
+Ensure prompts specify clear actions and desired outcomes, such as logical thinking processes and explicit conclusions.
+
+========== Cleanup Tier-0 ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical, process, conclusion, outcome
+
+[Structural Elements]
+Clear action steps, explicit conclusions
+
+[Thinking Steps]
+1. Define clear actions and desired outcomes.
+2. Follow a logical thinking process.
+3. Derive explicit conclusions.
+
+[Do's]
+- Specify clear actions
+- Outline the desired outcomes
+- Use logical reasoning steps
+- Ensure conclusions are explicit
+
+[Don'ts]
+- Avoid vague instructions
+- Do not omit the logical process
+- Refrain from ambiguous conclusions
+
+========== FINAL RULE ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical, process, conclusion, outcome
+
+[Structural Elements]
+Clear action steps, explicit conclusions
+
+[Thinking Steps]
+1. Define clear actions and desired outcomes.
+2. Follow a logical thinking process.
+3. Derive explicit conclusions.
+
+[Do's]
+- Specify clear actions
+- Outline the desired outcomes
+- Use logical reasoning steps
+- Ensure conclusions are explicit
+
+[Don'ts]
+- Avoid vague instructions
+- Do not omit the logical process
+- Refrain from ambiguous conclusions

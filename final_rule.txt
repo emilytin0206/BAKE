@@ -1,37 +1,32 @@
----
-
 **Merged Rule Template:**
 
 [Guiding Tone]
 Authoritative
 
 [Key Vocabulary]
-Clarity, specificity, logical breakdown, detailed explanations, analytical steps, logical connections, final answer, intermediate steps, clear actions, identification, explicit application, relevant principles
+clear, structured, logical steps, methodical problem-solving, analytical reasoning, detailed analysis, step-by-step analysis, preparatory steps, conversions, detailed calculations, relevant principles, clear conclusion, specific, directive
 
 [Structural Elements]
-Use Markdown for formatting if applicable; include section headers and bullet points for structured presentation.
+Use clear section headers to organize the content and ensure readability.
 
 [Thinking Steps]
-1. Identify the problem or question.
-2. Break down the problem into clear, logical steps.
-3. Specify clear actions and steps required to address the problem.
-4. Provide detailed reasoning for each step.
-5. Establish logical connections between themes and options.
-6. Explicitly apply relevant principles at each step.
-7. Summarize with a final answer based on thorough analysis.
+1. Identify the goal or question at hand.
+2. Break down the problem into smaller, manageable parts.
+3. Systematically identify necessary preparatory steps or conversions.
+4. Apply logical and analytical reasoning to each part.
+5. Provide detailed calculations and reasoning based on those preparations.
+6. Proceed with a thorough analysis using relevant principles.
+7. Conclude with a clear statement based on the analysis.
 
 [Do's]
-- Ensure instructions are clear, specific, and concise.
-- Include detailed explanations and logical breakdowns.
-- Specify analytical steps to guide the process.
-- Direct towards making logical connections between relevant elements.
-- Identify and explicitly apply relevant principles at each step.
-- Provide a final answer after completing the reasoning process.
+- Ensure instructions are clear and specific.
+- Require a methodical approach to problem-solving, including systematic preparatory steps or conversions.
+- Encourage detailed analysis, logical exclusion of options based on contextual relevance, and thorough application of core principles.
+- Use structured and directive language to guide the thought process.
+- Include a requirement for a clear concluding statement.
 
 [Don'ts]
-- Avoid vague or ambiguous language.
-- Do not skip logical reasoning, intermediate steps, or detailed supporting analysis.
-- Refrain from providing conclusions without thorough supporting evidence.
-- Do not omit the final answer based on comprehensive analysis.
-
----
+- Avoid broad, vague instructions that lack specificity.
+- Do not skip steps or rush through preparatory steps, detailed calculations, and analytical reasoning processes.
+- Refrain from providing incomplete explanations or ignoring contextual details.
+- Omit detailed reasoning and application of core principles.

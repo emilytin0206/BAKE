@@ -137,16 +137,17 @@ class BakeEngine:
             
         return self.optimizer.chat(sys_msg, "Please fill the template based on the rules above.")
 
+
     def run(self, dataset, initial_prompts):
         """主流程"""
         current_prompts = initial_prompts.copy()
         attr, all_rule = [], []
         
-        # [Log 路徑設定]
-        opt_status_path = "logs/optimization_status.csv"
-        trace_log_path = "logs/refinement_trace.jsonl" # [NEW] 詳細記錄優化後的 Prompt
+        # [修改] 從 self.paths 讀取路徑，支援外部動態傳入
+        opt_status_path = self.paths.get('opt_status', "logs/optimization_status.csv")
+        trace_log_path = self.paths.get('trace_log', "logs/refinement_trace.jsonl") 
         
-        # 初始化 Log
+        # 初始化 Log (確保傳入的是完整的路徑列表)
         logger.init_files([
             self.paths['detailed_log'], 
             self.paths['rules_log'], 

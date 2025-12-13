@@ -17,7 +17,7 @@ optimizer:
   model_name: "qwen2.5:32b"     # 模型名稱 (如 gpt-3.5-turbo, llama3, mistral)
   base_url: "http://localhost:11434/v1" # Ollama 預設位置, OpenAI 則留空或刪除
   api_key: "ollama"        # Ollama 隨意填, OpenAI 需填真實 Key
-  temperature: 0.0
+  temperature: 0.7
   max_tokens: 2048
 
 # ========================
