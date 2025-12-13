@@ -1,5 +1,6 @@
 import time
 import csv
+import os
 from typing import List, Tuple
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from utils import text_tools, logger
@@ -15,6 +16,9 @@ class BakeEngine:
         self.max_retries = config['execution']['max_retries']
         self.group_size = config['bake']['group_size']
         
+        # 讀取是否啟用迭代 (預設 False)
+        self.enable_iterative = config['bake'].get('iterative', False)
+        
         self.paths = config['paths']
 
     def evaluate_parallel(self, query: str, answer_gt: str, prompts: List[str], task_type: str):
@@ -26,7 +30,9 @@ class BakeEngine:
             full_input = f"{p}\n\n{query}"
             for _ in range(self.max_retries):
                 try:
+                    # 取得原始回答
                     raw = self.scorer.chat("You are a helpful assistant.", full_input)
+                    # 判斷對錯
                     is_correct = text_tools.validate_answer(raw, answer_gt, task_type)
                     return (p, is_correct, raw)
                 except Exception:
@@ -49,13 +55,16 @@ class BakeEngine:
         return correct, wrong, detailed_res, failed_outputs
 
     def refine(self, correct, wrong, question, answer_gt, failed_outputs):
+        """Step 2: 優化 (Analyze + Rewrite)"""
         if not wrong: return []
 
         error_cases = []
         for p in wrong:
             raw_out = failed_outputs.get(p, "")
             snippet = raw_out[:300] + "..." if len(raw_out) > 300 else raw_out
-            error_cases.append(f"<CASE>\nOriginal Prompt: {p}\nModel Output: {snippet}\n</CASE>")
+            error_cases.append(
+                f"<CASE>\nOriginal Prompt: {p}\nModel Output: {snippet}\n</CASE>"
+            )
         
         error_block = "\n".join(error_cases)
         sys_msg = self.meta_prompts.get("analyze_and_rewrite", "")
@@ -82,28 +91,38 @@ class BakeEngine:
         return pairs
 
     def extract_rule(self, correct, pairs):
+        """Step 3: 提取規則"""
         if not pairs: return ""
         tpl = self.meta_prompts.get("rule_summarization", "")
+        
         pair_text = "\n".join([f"Original: {o}\nImproved: {n}" for o, n in pairs])
+        
         try:
             sys_msg = tpl.format(pairs_block=pair_text)
         except Exception:
             sys_msg = tpl
+            
         user_msg = f"Correct Prompts:\n{correct}"
         return self.optimizer.chat(sys_msg, user_msg)
 
     def combine_rules(self, rules):
+        """Step 4: 合併規則"""
         if not rules: return ""
+        
         tpl = self.meta_prompts.get("combine_rules", "")
         block = "\n\n".join([f"Rule {i+1}:\n{r}" for i, r in enumerate(rules)])
+        
         try:
             sys_msg = tpl.format(rules_block=block)
         except Exception:
             sys_msg = f"{tpl}\n\nRules:\n{block}"
+            
         return self.optimizer.chat(sys_msg, "Please fill the template based on the rules above.")
 
     def _generate_prompts_from_rule(self, rule_text, count):
+        """[Helper] 根據規則生成 Prompts"""
         if not rule_text: return []
+        
         gen_tpl = self.meta_prompts.get("prompt_generation", "")
         try:
             sys_msg = gen_tpl.format(rules_block=rule_text, num=count)
@@ -111,6 +130,7 @@ class BakeEngine:
             sys_msg = gen_tpl.replace("{rules_block}", rule_text).replace("{num}", str(count))
             
         user_msg = f"Please generate {count} new prompts based on the above rule now."
+        
         try:
             raw = self.optimizer.chat(sys_msg, user_msg)
             prompts = []
@@ -127,6 +147,12 @@ class BakeEngine:
             print(f"  [⚠️ Warning] Generate prompts failed: {e}")
             return []
 
+    # [關鍵修正] 確保這裡有這個函式
+    def _log_optimization_status(self, filepath, idx, src, status, initial_wrong, verified_success, note):
+        with open(filepath, 'a', encoding='utf-8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow([idx, src, status, initial_wrong, verified_success, note])
+
     def run(self, dataset, initial_prompts):
         """主流程"""
         current_prompts = initial_prompts.copy()
@@ -134,32 +160,22 @@ class BakeEngine:
         
         opt_status_path = self.paths.get('opt_status', "logs/optimization_status.csv")
         trace_log_path = self.paths.get('trace_log', "logs/refinement_trace.jsonl") 
-        # [新增]
         prompt_history_path = self.paths.get('prompt_history', "logs/prompt_history.jsonl")
         rule_evolution_path = self.paths.get('rule_evolution', "logs/rule_evolution.jsonl")
         
-        # 初始化 Log
         logger.init_files([
-            self.paths['detailed_log'], 
-            self.paths['rules_log'], 
-            opt_status_path,
-            trace_log_path,
-            prompt_history_path, # New
-            rule_evolution_path  # New
+            self.paths['detailed_log'], self.paths['rules_log'], 
+            opt_status_path, trace_log_path, prompt_history_path, rule_evolution_path
         ])
 
-        # 寫入 CSV 表頭
         if not text_tools.file_has_content(opt_status_path):
              with open(opt_status_path, 'w', encoding='utf-8', newline='') as f:
                 writer = csv.writer(f)
                 writer.writerow(["id", "source", "status", "initial_wrong", "verified_success", "note"])
 
-        # [新增] 記錄初始 Prompts
+        # 記錄初始 Prompts
         logger.log_jsonl(prompt_history_path, {
-            "event": "initial_load",
-            "sample_idx": 0,
-            "prompts": current_prompts,
-            "count": len(current_prompts)
+            "event": "initial_load", "sample_idx": 0, "prompts": current_prompts, "count": len(current_prompts)
         })
 
         for idx, item in enumerate(dataset):
@@ -169,16 +185,11 @@ class BakeEngine:
             
             print(f"Processing {idx+1}/{len(dataset)} [{src}]...")
             
-            verified_success_count = 0
-            
             # 1. First Eval
             Pc, Pi, details, failed_outputs = self.evaluate_parallel(q, a, current_prompts, task_type=t_type)
             print(f"  > Initial: Correct: {len(Pc)}, Wrong: {len(Pi)}")
             
-            logger.log_jsonl(self.paths['detailed_log'], {
-                "id": idx, "source": src, "type": t_type, 
-                "q": q, "res": details
-            })
+            logger.log_jsonl(self.paths['detailed_log'], {"id": idx, "source": src, "type": t_type, "q": q, "res": details})
             
             if not Pi:
                 self._log_optimization_status(opt_status_path, idx, src, "Skipped (All Correct)", 0, 0, "")
@@ -201,8 +212,7 @@ class BakeEngine:
                 is_verified = (new_p in Pc_new)
                 raw_out = verify_failed_outputs.get(new_p, "Correct" if is_verified else "No Output")
                 logger.log_jsonl(trace_log_path, {
-                    "id": idx, "source": src, 
-                    "original_prompt": old_p, "candidate_prompt": new_p,
+                    "id": idx, "source": src, "original_prompt": old_p, "candidate_prompt": new_p,
                     "verified": is_verified, "model_output": raw_out
                 })
 
@@ -223,38 +233,31 @@ class BakeEngine:
                 log_content = f"Successful Refinements:\n{failed_prompts_text}\n\nGenerated Guideline:\n{rule}"
                 logger.log_rule(self.paths['rules_log'], f"Sample {idx} ({src})", log_content)
 
-            # 5. Merge Logic & Iterative Update
+            # 5. Merge Logic
             if len(attr) >= self.group_size:
                 merged = self.combine_rules(attr)
                 all_rule.append(merged)
                 attr.clear()
                 logger.log_rule(self.paths['rules_log'], "Tier-1 Merge", merged)
                 
-                # [新增] 記錄 Tier-1 Rule
-                logger.log_jsonl(rule_evolution_path, {
-                    "sample_idx": idx,
-                    "tier": "Tier-1",
-                    "rule_content": merged
-                })
+                logger.log_jsonl(rule_evolution_path, {"sample_idx": idx, "tier": "Tier-1", "rule_content": merged})
 
-                # [迭代功能]
-                print(f"\n  ⚡ [Iterative Update] Tier-1 Rule generated! Updating prompts...")
-                new_iterative_prompts = self._generate_prompts_from_rule(merged, count=5)
-                
-                if new_iterative_prompts:
-                    current_prompts = new_iterative_prompts
-                    print(f"  🔄 Prompt Pool Updated: {len(current_prompts)} new prompts.")
+                # [迭代開關]
+                if self.enable_iterative:
+                    print(f"\n  ⚡ [Iterative Update] Enabled. Updating prompts from Tier-1 Rule...")
+                    new_iterative_prompts = self._generate_prompts_from_rule(merged, count=5)
                     
-                    # [新增] 記錄 Prompt 更新
-                    logger.log_jsonl(prompt_history_path, {
-                        "event": "iterative_update",
-                        "sample_idx": idx,
-                        "prompts": current_prompts,
-                        "derived_from_rule_tier": "Tier-1",
-                        "count": len(current_prompts)
-                    })
+                    if new_iterative_prompts:
+                        current_prompts = new_iterative_prompts
+                        print(f"  🔄 Prompt Pool Updated: {len(current_prompts)} new prompts.")
+                        logger.log_jsonl(prompt_history_path, {
+                            "event": "iterative_update", "sample_idx": idx, "prompts": current_prompts,
+                            "derived_from_rule_tier": "Tier-1", "count": len(current_prompts)
+                        })
+                    else:
+                        print("  ⚠️ Failed to generate new prompts, keeping old ones.")
                 else:
-                    print("  ⚠️ Failed to generate new prompts.")
+                    print(f"  ℹ️ [Iterative Update] Disabled. Continuing with existing prompts.")
 
             # Recursive Merge
             while len(all_rule) >= self.group_size:
@@ -262,13 +265,7 @@ class BakeEngine:
                 merged = self.combine_rules(chunk)
                 all_rule = [merged] + all_rule[self.group_size:]
                 logger.log_rule(self.paths['rules_log'], "Recursive Merge", merged)
-                
-                # [新增] 記錄 Recursive Rule
-                logger.log_jsonl(rule_evolution_path, {
-                    "sample_idx": idx,
-                    "tier": "Recursive/Tier-N",
-                    "rule_content": merged
-                })
+                logger.log_jsonl(rule_evolution_path, {"sample_idx": idx, "tier": "Recursive/Tier-N", "rule_content": merged})
 
         # 6. Finalize
         print("\n=== Finalizing Rules ===")
@@ -281,12 +278,7 @@ class BakeEngine:
             merged = self.combine_rules(all_rule[:self.group_size])
             all_rule = [merged] + all_rule[self.group_size:]
             logger.log_rule(self.paths['rules_log'], "Convergence Merge", merged)
-            # [新增] 記錄 Final Convergence Rule
-            logger.log_jsonl(rule_evolution_path, {
-                "sample_idx": "FINAL",
-                "tier": "Convergence",
-                "rule_content": merged
-            })
+            logger.log_jsonl(rule_evolution_path, {"sample_idx": "FINAL", "tier": "Convergence", "rule_content": merged})
             
         final_rule = all_rule[0] if all_rule else ""
         logger.log_rule(self.paths['rules_log'], "FINAL RULE", final_rule)
@@ -294,8 +286,3 @@ class BakeEngine:
         final_prompts = self._generate_prompts_from_rule(final_rule, count=self.config['bake']['max_output_prompts'])
         
         return final_prompts, final_rule
-
-    def _log_optimization_status(self, filepath, idx, src, status, initial_wrong, verified_success, note):
-        with open(filepath, 'a', encoding='utf-8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerow([idx, src, status, initial_wrong, verified_success, note])
