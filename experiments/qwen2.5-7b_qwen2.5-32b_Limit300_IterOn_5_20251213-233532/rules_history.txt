@@ -1,0 +1,71 @@
+
+========== Sample 0 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Solve this problem by breaking it down into smaller parts.
+   [Fixed O]    Break down the problem into smaller parts and ensure each step is completed thoroughly before moving on to the next part.
+
+Generated Guideline:
+Ensure prompts are actionable, specify clear steps, and encourage thorough completion of each part.
+
+========== Sample 4 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Solve this problem by breaking it down into smaller parts.
+   [Fixed O]    After defining the key properties, explicitly derive all necessary intermediate steps leading to the final solution.
+
+Generated Guideline:
+Ensure prompts explicitly instruct using a step-by-step approach and logical reasoning, avoiding vague requests.
+
+========== Sample 5 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Use chain of thought reasoning to derive the answer.
+   [Fixed O]    Employ detailed chain-of-thought reasoning and guarantee you finish with a comprehensive answer after working through all steps.
+
+Generated Guideline:
+Ensure prompts instruct step-by-step reasoning and logical breakdown of tasks, emphasizing comprehensive completion.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Step-by-step, logical reasoning, comprehensive, thorough, actionable
+
+[Structural Elements]
+Use clear section headers and bullet points where necessary for clarity.
+
+[Thinking Steps]
+1. Break down the task into manageable steps.
+2. Ensure each step is logically connected to the next.
+3. Emphasize the importance of completing each part thoroughly.
+
+[Do's]
+- Include explicit instructions that require a step-by-step approach.
+- Use logical reasoning to guide the breakdown of tasks.
+- Ensure prompts are actionable and specify clear steps for completion.
+
+[Don'ts]
+- Avoid vague requests or ambiguous instructions.
+- Do not skip steps or assume prior knowledge without stating it clearly.
+
+========== Sample 6 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Break down the project into clear phases and execute each phase thoroughly.
+   [Fixed O]    Ensure all given probabilities are accurately identified and used in a step-by-step Chain-of-Thought process to derive the final solution.
+   [Original X] Apply logical reasoning to dissect the challenge into actionable steps.
+   [Fixed O]    Carefully interpret given probabilities as events, identify their relationships, and calculate step-by-step using conditional probability rules before arriving at the solution.
+   [Original X] Proceed methodically from one step to the next, ensuring comprehensive coverage.
+   [Fixed O]    Interpret all provided probabilities as events, identify their relationships using logical reasoning, and calculate step-by-step to derive the final solution accurately.
+
+Generated Guideline:
+To convert failing prompts into successful ones, follow these rules:
+
+1. Specify precise actions required for task completion.
+2. Emphasize step-by-step processing.
+3. Incorporate accurate identification and use of given information.
+4. Utilize logical reasoning to interpret relationships between components.
+5. Ensure comprehensive coverage and accuracy in calculations or analyses.
+
+Resulting Guideline:
+Identify key components of the task, interpret their relationships logically, and address them accurately in a structured sequence.
