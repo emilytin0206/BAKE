@@ -1,17 +1,16 @@
 #!/bin/bash
 
 # ==========================================
-# BAKE 實驗自動化腳本 (v2: 含 Iterative 開關)
+# BAKE 實驗自動化腳本 (v3: 含 Iterative Count 標記)
 # ==========================================
 
 # 1. 定義實驗參數陣列
-# 格式：ScorerModel | OptimizerModel | Limit | EnableIterative(true/false)
+# 格式：Scorer | Optimizer | Limit | EnableIterative | IterCount(新參數)
 EXPERIMENTS=(
-    # 實驗 1: 關閉迭代，只跑流程 (Baseline)
-    "qwen2.5:7b|qwen2.5:32b|300|true"
     
-    # 實驗 2: 開啟迭代，測試熱替換效果
-    "qwen2.5:7b|qwen2.5:32b|300|false"
+    "qwen2.5:7b|qwen2.5:32b|300|true|5"
+    "qwen2.5:7b|qwen2.5:32b|300|false|5"
+
 )
 
 # 基礎輸出目錄
@@ -27,16 +26,19 @@ count=1
 total=${#EXPERIMENTS[@]}
 
 for exp in "${EXPERIMENTS[@]}"; do
-    IFS='|' read -r SCORER OPTIMIZER LIMIT ITERATIVE <<< "$exp"
+    # [修改] 讀取第 5 個參數 ITER_COUNT
+    IFS='|' read -r SCORER OPTIMIZER LIMIT ITERATIVE ITER_COUNT <<< "$exp"
     
     SAFE_SCORER=$(echo "$SCORER" | tr ':' '-')
     SAFE_OPT=$(echo "$OPTIMIZER" | tr ':' '-')
     TIMESTAMP=$(date +"%Y%m%d-%H%M%S")
     
-    # 資料夾名稱加上模式標記 (IterOn/IterOff)
+    # [修改] 檔名與參數邏輯
     if [ "$ITERATIVE" = "true" ]; then
-        MODE_STR="IterOn"
-        ITERATIVE_FLAG="--iterative"
+        # 檔名加上數量，例如: IterOn_5
+        MODE_STR="IterOn_${ITER_COUNT}"
+        # 傳遞參數給 main.py
+        ITERATIVE_FLAG="--iterative --iterative_prompt_count $ITER_COUNT"
     else
         MODE_STR="IterOff"
         ITERATIVE_FLAG=""
@@ -50,10 +52,10 @@ for exp in "${EXPERIMENTS[@]}"; do
     echo "   🔹 Scorer: $SCORER"
     echo "   🔹 Optimizer: $OPTIMIZER"
     echo "   🔹 Limit: $LIMIT"
-    echo "   🔹 Mode: $MODE_STR"
+    echo "   🔹 Mode: $MODE_STR (Count: $ITER_COUNT)"
     echo "   📂 Saving to: $OUTPUT_PATH"
     
-    # 執行 Python (動態加入 --iterative)
+    # 執行 Python
     python3 main.py \
         --scorer_model "$SCORER" \
         --optimizer_model "$OPTIMIZER" \

@@ -750,3 +750,386 @@ Use Markdown for formatting (e.g., headers, lists), section headers if necessary
 - Do not progress to the next segment without verifying accuracy.
 
 ---
+
+========== Sample 76 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Break down the task into clear segments and define all terms before proceeding.
+   [Fixed O]    Define all critical terms first, then analyze each option methodically, and verify the truthfulness of each statement before concluding.
+
+Generated Guideline:
+Define critical terms precisely, divide tasks into manageable segments, apply systematic analysis and verification at each step.
+
+========== Sample 78 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Ensure coherence in your solution by breaking down the task logically, defining terms accurately, and verifying each step meticulously.
+   [Fixed O]    Break down the task into clear segments, define all terms accurately, and provide explicit calculations for each segment to ensure logical progression towards the solution.
+
+Generated Guideline:
+To convert failing prompts into successful ones, ensure each step is logically defined, clearly segmented, and thoroughly validated with precise terminology.
+
+========== Sample 79 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Break down the task into clear segments and define all terms before proceeding.
+   [Fixed O]    Break down the task into clear segments, define all terms before proceeding, and ensure each step includes a rigorous calculation to maintain accuracy throughout the solution process.
+
+Generated Guideline:
+To convert failing prompts into successful ones: Divide the problem into manageable parts, provide precise definitions, apply rigorous checks at each step, and ensure logical consistency throughout.
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+precise, systematic, rigorous, logical, segmented, validated, definitions, consistency
+
+[Structural Elements]
+Use clear section headers to organize tasks and steps.
+
+[Thinking Steps]
+1. Precisely define critical terms.
+2. Divide the problem into manageable segments.
+3. Apply systematic analysis at each step.
+4. Rigorously verify the accuracy of each segment.
+5. Ensure logical consistency throughout the process.
+
+[Do's]
+- Include precise definitions for all critical terms.
+- Segment tasks logically and clearly.
+- Verify each step systematically.
+- Maintain logical consistency across all sections.
+
+[Don'ts]
+- Avoid vague or ambiguous terminology.
+- Do not skip steps in the analysis or verification process.
+- Do not overlook logical inconsistencies between segments.
+
+---
+
+========== Sample 81 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Avoid vague language and meticulously validate each step for accuracy.
+   [Fixed O]    Carefully validate each step by identifying all subsets containing the required letter(s), then systematically counting valid palindromic arrangements within those subsets.
+
+Generated Guideline:
+Ensure clarity by specifying actions and their objectives, avoiding vagueness.
+
+========== Sample 82 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Divide the project into coherent segments and systematically analyze each part.
+   [Fixed O]    Ensure all bases are reduced modulo the divisor before applying any theorems or simplifications.
+   [Original X] Define all critical terms precisely before proceeding with the analysis.
+   [Fixed O]    Reduce all bases modulo the divisor first, and simplify exponents accordingly before applying any theorem to ensure accurate computation.
+   [Original X] Avoid vague language and meticulously validate each step for accuracy.
+   [Fixed O]    After identifying and applying relevant mathematical theorems, perform necessary modular arithmetic operations to reach a final answer.
+
+Generated Guideline:
+To convert failing prompts into successful ones, follow these rules:
+
+1. Specify precise actions or steps.
+2. Ensure clarity and specificity in instructions.
+3. Maintain a logical sequence of operations.
+4. Emphasize rigorous validation and verification.
+
+These attributes ensure the prompt is clear, actionable, and methodically sound.
+
+========== Sample 84 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Divide the project into coherent segments and systematically analyze each part.
+   [Fixed O]    Carefully outline each step and ensure to include the final calculation for a complete solution.
+
+Generated Guideline:
+Ensure precision, avoid vagueness, validate each step rigorously, and maintain logical consistency throughout.
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, Precision, Specificity, Validation, Verification, Logical Sequence, Actions, Objectives
+
+[Structural Elements]
+Use Markdown for formatting, include section headers if necessary.
+
+[Thinking Steps]
+1. Specify precise actions or steps.
+2. Ensure clarity and specificity in instructions.
+3. Maintain a logical sequence of operations.
+4. Emphasize rigorous validation and verification at each step.
+
+[Do's]
+- Specify clear objectives and actionable steps.
+- Validate each action rigorously.
+- Maintain logical consistency throughout the process.
+- Use precise language to avoid vagueness.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not skip any steps in the logical sequence.
+- Refrain from omitting validation or verification processes.
+
+---
+
+========== Recursive Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Confident
+
+[Key Vocabulary]
+precise, systematic, rigorous, logical progression, clear reasoning, thorough explanations, detailed breakdowns, technical terminology relevant to the task, comprehensive evaluation, explicit articulation, verification, accuracy, definitions, segmentation, coherence, consistency
+
+[Structural Elements]
+Use Markdown for formatting (e.g., headers, lists), section headers if necessary (e.g., Problem Breakdown, Steps, Calculations, Reasoning, Conclusion)
+
+[Thinking Steps]
+1. **Define and Break Down the Task**: Precisely define critical terms and break down the task into manageable components.
+2. **Step-by-Step Analysis**: Provide a detailed step-by-step analysis for each component with precise calculations and clear explanations.
+3. **Verification at Each Step**: Rigorously verify the accuracy of each calculation before advancing to the next step.
+4. **Logical Progression**: Ensure a logical progression throughout the analysis by grouping and simplifying terms systematically, maintaining thorough reasoning and consistency.
+5. **Final Answer**: Conclude with a precise final answer.
+
+[Do's]
+- Dissect the task into smaller, manageable parts.
+- Offer detailed, step-by-step guidance with clear explanations.
+- Ensure precision in all calculations.
+- Use technical terminology relevant to the task for clarity and precision.
+- Maintain clarity in reasoning and logic.
+- Include comprehensive evaluations and show all calculations leading to the final answer.
+- Verify the accuracy of each calculation before proceeding to the next step.
+- Provide clear definitions for key terms and concepts.
+
+[Don'ts]
+- Avoid vague or ambiguous terminology; use concrete actions instead.
+- Do not skip any logical steps or omit important parts of the reasoning process.
+- Ensure no gaps in detailed calculations or explanations.
+- Maintain a consistent logical flow from problem breakdown to solution.
+- Refrain from advancing without verifying the accuracy of previous steps.
+- Do not progress to the next segment without verifying accuracy.
+
+---
+
+========== Sample 88 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Outline a logical sequence of operations to maintain consistency throughout the process.
+   [Fixed O]    Outline a logical sequence of operations to maintain consistency throughout the process, and verify each step by ensuring the transformations preserve the original graph identity.
+
+Generated Guideline:
+Ensure clarity in objectives, break tasks into precise actions, verify accuracy of each step, and validate results rigorously at every stage.
+
+========== Sample 90 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Define your objectives clearly before initiating any action steps.
+   [Fixed O]    Identify all key elements and formulate equations before proceeding with calculations.
+   [Original X] Outline a logical sequence of operations to maintain consistency throughout the process.
+   [Fixed O]    Establish specific relationships and use given constraints systematically to derive solutions step-by-step.
+
+Generated Guideline:
+To convert failing prompts into successful ones, specify precise actions, include validation steps, and emphasize accuracy and clarity at each stage.
+
+========== Sample 95 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Define your objectives clearly before initiating any action steps.
+   [Fixed O]    Ensure you compute all necessary derivatives and evaluate them at the given point before substituting into the Taylor polynomial formula.
+
+Generated Guideline:
+Precisely articulate the task, emphasizing specific actions and desired outcomes.
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, precise actions, validation, accuracy, objectives, steps, outcomes
+
+[Structural Elements]
+Use bullet points for precise actions and clarity in each step.
+
+[Thinking Steps]
+1. Clearly articulate the task and desired outcomes.
+2. Break down the task into specific, actionable steps.
+3. Verify the accuracy of each action.
+4. Validate results rigorously at every stage.
+
+[Do's]
+- Ensure clarity in objectives.
+- Specify precise actions for each step.
+- Include validation steps to ensure accuracy.
+- Emphasize clarity and precision throughout the process.
+
+[Don'ts]
+- Avoid vague or ambiguous language.
+- Do not skip validation steps.
+- Do not assume accuracy without rigorous verification at every stage.
+
+---
+
+========== Sample 96 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Verify each step's accuracy before moving to the next phase.
+   [Fixed O]    Identify all variables first, then perform each step of the calculation carefully and provide the final result.
+
+Generated Guideline:
+Clearly define objectives, break tasks into smaller steps, specify actions precisely, and validate results at each stage.
+
+========== Sample 102 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Specify clear actions and validate results at every stage for precision.
+   [Fixed O]    Identify all factors systematically by checking divisibility up to the square root and then validate each potential solution against the criteria provided in the question before concluding with an answer.
+
+Generated Guideline:
+Break tasks into smaller steps, verify each step’s accuracy, clarify objectives, and rigorously check outcomes against initial goals.
+
+========== Sample 108 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Verify each step's accuracy before moving to the next phase.
+   [Fixed O]    Identify all given equations, express each variable explicitly where possible, and systematically solve for the unknown using intermediate steps.
+
+Generated Guideline:
+Clearly define objectives, break tasks into smaller steps, specify actions precisely, and validate results at each stage.
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Objectives, Steps, Actions, Validate, Accuracy, Outcomes
+
+[Structural Elements]
+Use bullet points or numbered lists to organize steps and validations.
+
+[Thinking Steps]
+1. Clearly define the objectives.
+2. Break tasks into smaller, manageable steps.
+3. Specify actions precisely for each step.
+4. Validate results at each stage against the defined objectives.
+
+[Do's]
+- Define clear and specific objectives.
+- Break down tasks into smaller steps.
+- Ensure precision in specifying actions.
+- Verify accuracy of each step.
+- Rigorously check outcomes against initial goals.
+
+[Don'ts]
+- Avoid vague or ambiguous objectives.
+- Do not skip validation at any stage.
+- Refrain from lumping together complex tasks without breaking them down.
+
+---
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Confident
+
+[Key Vocabulary]
+precise, systematic, rigorous, logical progression, clear reasoning, thorough explanations, detailed breakdowns, technical terminology relevant to the task, comprehensive evaluation, explicit articulation, verification, accuracy, definitions, segmentation, coherence, consistency, clarity, objectives, steps, actions, validation, outcomes
+
+[Structural Elements]
+Use Markdown for formatting (e.g., headers, lists), section headers if necessary (e.g., Problem Breakdown, Steps, Calculations, Reasoning, Conclusion). Use bullet points or numbered lists to organize steps and validations.
+
+[Thinking Steps]
+1. **Define Objectives**: Clearly define the task objectives and break down the task into smaller, manageable parts.
+2. **Step-by-Step Analysis**: Provide a detailed step-by-step analysis for each component with precise calculations and clear explanations.
+3. **Verification at Each Step**: Rigorously verify the accuracy of each calculation or action before advancing to the next step.
+4. **Logical Progression**: Ensure a logical progression throughout the analysis by grouping and simplifying terms systematically, maintaining thorough reasoning and consistency.
+5. **Final Answer**: Conclude with a precise final answer.
+
+[Do's]
+- Dissect the task into smaller, manageable parts.
+- Offer detailed, step-by-step guidance with clear explanations.
+- Ensure precision in all calculations.
+- Use technical terminology relevant to the task for clarity and precision.
+- Maintain clarity in reasoning and logic.
+- Include comprehensive evaluations and show all calculations leading to the final answer.
+- Verify the accuracy of each calculation or action before proceeding to the next step.
+- Provide clear definitions for key terms and concepts.
+
+[Don'ts]
+- Avoid vague or ambiguous terminology; use concrete actions instead.
+- Do not skip any logical steps or omit important parts of the reasoning process.
+- Ensure no gaps in detailed calculations or explanations.
+- Maintain a consistent logical flow from problem breakdown to solution.
+- Refrain from advancing without verifying the accuracy of previous steps.
+- Do not progress to the next segment without rigorous validation at every stage.
+
+========== Sample 120 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Specify each action with clarity to ensure accuracy in outcomes.
+   [Fixed O]    Ensure all steps are completed and provide a final conclusive answer after detailed reasoning.
+
+Generated Guideline:
+Clearly define objectives, break down tasks into smaller steps, validate results at each stage, and rigorously check final outputs against defined goals.
+
+========== Sample 128 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Rigorously check final outputs against defined objectives for completeness.
+   [Fixed O]    Ensure all mathematical steps are completed thoroughly, including setting up and solving integrals for accurate results.
+
+Generated Guideline:
+Summarize the attributes/rules into a single concise guideline:
+
+Clearly define objectives, break tasks into smaller steps, validate results at every stage, and specify actions precisely.
+
+========== Sample 132 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Specify each action with clarity to ensure accuracy in outcomes.
+   [Fixed O]    Apply each given condition systematically, breaking down the operation into smaller, manageable parts to ensure accuracy in your final result.
+
+Generated Guideline:
+Clarify objectives, break tasks into smaller steps, rigorously check outputs, and validate results at each stage.
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Objectives, Tasks, Steps, Validate, Results, Check, Outputs
+
+[Structural Elements]
+Use clear headings and bullet points for each step.
+
+[Thinking Steps]
+1. Clearly define the objectives.
+2. Break down tasks into smaller steps.
+3. Validate results at each stage.
+4. Rigorously check final outputs against defined goals.
+
+[Do's]
+- Define objectives clearly.
+- Break tasks into manageable steps.
+- Validate results at every stage.
+- Specify actions precisely.
+- Check outputs rigorously.
+
+[Don'ts]
+- Avoid vague or undefined objectives.
+- Do not skip validation of intermediate results.
+- Refrain from omitting final output checks.
+
+---
+
+========== Sample 134 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Check final outputs thoroughly against initial objectives to confirm alignment and success.
+   [Fixed O]    Ensure all necessary calculations are completed thoroughly and verify intermediate results before moving on to the next steps.
+
+Generated Guideline:
+Ensure clarity in project goals, break tasks into actionable steps, specify precise actions at each stage, and validate interim results before proceeding.

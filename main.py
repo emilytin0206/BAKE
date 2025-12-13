@@ -7,6 +7,10 @@ from core.llm_client import LLMClient
 from core.bake_engine import BakeEngine
 from utils import config_loader, data_loader
 
+# main.py
+
+# ... (前面的 import)
+
 def parse_arguments():
     parser = argparse.ArgumentParser(description='BAKE Automation Runner')
     
@@ -15,8 +19,11 @@ def parse_arguments():
     parser.add_argument('--dataset_limit', type=int, help='Override dataset limit per subset')
     parser.add_argument('--output_dir', type=str, required=True, help='Directory to save all outputs')
     
-    # [新增] 迭代模式開關 (加上這個 flag 代表 True)
+    # 迭代模式開關
     parser.add_argument('--iterative', action='store_true', help='Enable iterative prompt updates based on rules')
+    
+    # [新增] 接收迭代數量參數
+    parser.add_argument('--iterative_prompt_count', type=int, help='Number of prompts to generate in iterative mode')
     
     return parser.parse_args()
 
@@ -35,9 +42,16 @@ def main():
         for ds in cfg['datasets']:
             ds['limit'] = args.dataset_limit
             
-    # [新增] 將迭代開關寫入 config
+    # 將迭代開關寫入 config
     cfg['bake']['iterative'] = args.iterative
+    
+    # [新增] 將迭代數量寫入 config (覆蓋 yaml 預設值)
+    if args.iterative_prompt_count:
+        cfg['bake']['iterative_prompt_count'] = args.iterative_prompt_count
+
     print(f"🔄 Iterative Mode: {'ON' if args.iterative else 'OFF'}")
+    if args.iterative:
+        print(f"   ↳ Iterative Prompt Count: {cfg['bake'].get('iterative_prompt_count', 5)}")
 
     # 目錄設定
     if not os.path.exists(args.output_dir):

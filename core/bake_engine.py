@@ -245,7 +245,10 @@ class BakeEngine:
                 # [迭代開關]
                 if self.enable_iterative:
                     print(f"\n  ⚡ [Iterative Update] Enabled. Updating prompts from Tier-1 Rule...")
-                    new_iterative_prompts = self._generate_prompts_from_rule(merged, count=5)
+                    
+                    # [修改] 改為讀取 config，若未設定則預設為 5
+                    iter_count = self.config['bake'].get('iterative_prompt_count', 5)
+                    new_iterative_prompts = self._generate_prompts_from_rule(merged, count=iter_count)
                     
                     if new_iterative_prompts:
                         current_prompts = new_iterative_prompts
