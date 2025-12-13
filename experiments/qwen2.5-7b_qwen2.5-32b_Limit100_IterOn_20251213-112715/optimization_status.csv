@@ -1,1 +1,501 @@
 id,source,status,initial_wrong,verified_success,note
+0,mmlu_high_school_mathematics,Success,2,2,
+1,mmlu_high_school_mathematics,Success,2,1,
+2,mmlu_high_school_mathematics,Success,2,2,
+3,mmlu_high_school_mathematics,Success,5,1,
+4,mmlu_high_school_mathematics,Success,1,1,
+5,mmlu_high_school_mathematics,Success,3,3,
+6,mmlu_high_school_mathematics,Failed (Verification),4,0,All candidates failed
+7,mmlu_high_school_mathematics,Success,4,2,
+8,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+9,mmlu_high_school_mathematics,Failed (Verification),5,0,All candidates failed
+10,mmlu_high_school_mathematics,Success,2,1,
+11,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+12,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+13,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+14,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+15,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+16,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+17,mmlu_high_school_mathematics,Success,3,3,
+18,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+19,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+20,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+21,mmlu_high_school_mathematics,Failed (Verification),1,0,All candidates failed
+22,mmlu_high_school_mathematics,Failed (Verification),2,0,All candidates failed
+23,mmlu_high_school_mathematics,Failed (Verification),1,0,All candidates failed
+24,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+25,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+26,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+27,mmlu_high_school_mathematics,Failed (Verification),1,0,All candidates failed
+28,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+29,mmlu_high_school_mathematics,Failed (Verification),4,0,All candidates failed
+30,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+31,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+32,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+33,mmlu_high_school_mathematics,Failed (Verification),5,0,All candidates failed
+34,mmlu_high_school_mathematics,Failed (Verification),4,0,All candidates failed
+35,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+36,mmlu_high_school_mathematics,Failed (Verification),3,0,All candidates failed
+37,mmlu_high_school_mathematics,Success,1,1,
+38,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+39,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+40,mmlu_high_school_mathematics,Success,5,2,
+41,mmlu_high_school_mathematics,Success,1,1,
+42,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+43,mmlu_high_school_mathematics,Success,5,2,
+44,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+45,mmlu_high_school_mathematics,Success,3,1,
+46,mmlu_high_school_mathematics,Success,1,1,
+47,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+48,mmlu_high_school_mathematics,Success,3,2,
+49,mmlu_high_school_mathematics,Success,2,2,
+50,mmlu_high_school_mathematics,Success,1,1,
+51,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+52,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+53,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+54,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+55,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+56,mmlu_high_school_mathematics,Success,4,1,
+57,mmlu_high_school_mathematics,Failed (Verification),5,0,All candidates failed
+58,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+59,mmlu_high_school_mathematics,Failed (Verification),5,0,All candidates failed
+60,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+61,mmlu_high_school_mathematics,Success,1,1,
+62,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+63,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+64,mmlu_high_school_mathematics,Success,4,1,
+65,mmlu_high_school_mathematics,Success,1,1,
+66,mmlu_high_school_mathematics,Success,2,1,
+67,mmlu_high_school_mathematics,Failed (Verification),4,0,All candidates failed
+68,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+69,mmlu_high_school_mathematics,Failed (Verification),1,0,All candidates failed
+70,mmlu_high_school_mathematics,Success,2,2,
+71,mmlu_high_school_mathematics,Success,1,1,
+72,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+73,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+74,mmlu_high_school_mathematics,Success,1,1,
+75,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+76,mmlu_high_school_mathematics,Success,1,1,
+77,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+78,mmlu_high_school_mathematics,Success,5,1,
+79,mmlu_high_school_mathematics,Success,3,3,
+80,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+81,mmlu_high_school_mathematics,Success,5,2,
+82,mmlu_high_school_mathematics,Failed (Verification),2,0,All candidates failed
+83,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+84,mmlu_high_school_mathematics,Success,2,2,
+85,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+86,mmlu_high_school_mathematics,Failed (Verification),2,0,All candidates failed
+87,mmlu_high_school_mathematics,Failed (Verification),1,0,All candidates failed
+88,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+89,mmlu_high_school_mathematics,Success,2,1,
+90,mmlu_high_school_mathematics,Success,1,1,
+91,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+92,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+93,mmlu_high_school_mathematics,Success,1,1,
+94,mmlu_high_school_mathematics,Failed (Verification),5,0,All candidates failed
+95,mmlu_high_school_mathematics,Success,4,1,
+96,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+97,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+98,mmlu_high_school_mathematics,Success,1,1,
+99,mmlu_high_school_mathematics,Success,1,1,
+100,mmlu_high_school_world_history,Success,4,1,
+101,mmlu_high_school_world_history,Failed (Verification),4,0,All candidates failed
+102,mmlu_high_school_world_history,Failed (Verification),3,0,All candidates failed
+103,mmlu_high_school_world_history,Failed (Verification),1,0,All candidates failed
+104,mmlu_high_school_world_history,Success,5,1,
+105,mmlu_high_school_world_history,Success,1,1,
+106,mmlu_high_school_world_history,Success,3,2,
+107,mmlu_high_school_world_history,Success,4,1,
+108,mmlu_high_school_world_history,Success,4,2,
+109,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+110,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+111,mmlu_high_school_world_history,Success,2,1,
+112,mmlu_high_school_world_history,Success,2,2,
+113,mmlu_high_school_world_history,Success,1,1,
+114,mmlu_high_school_world_history,Failed (Verification),4,0,All candidates failed
+115,mmlu_high_school_world_history,Success,3,3,
+116,mmlu_high_school_world_history,Success,3,1,
+117,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+118,mmlu_high_school_world_history,Failed (Verification),4,0,All candidates failed
+119,mmlu_high_school_world_history,Success,3,2,
+120,mmlu_high_school_world_history,Skipped (All Correct),0,0,
+121,mmlu_high_school_world_history,Success,5,1,
+122,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+123,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+124,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+125,mmlu_high_school_world_history,Success,3,1,
+126,mmlu_high_school_world_history,Success,3,2,
+127,mmlu_high_school_world_history,Success,3,2,
+128,mmlu_high_school_world_history,Success,4,3,
+129,mmlu_high_school_world_history,Success,3,2,
+130,mmlu_high_school_world_history,Success,3,3,
+131,mmlu_high_school_world_history,Success,2,1,
+132,mmlu_high_school_world_history,Success,3,1,
+133,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+134,mmlu_high_school_world_history,Success,5,1,
+135,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+136,mmlu_high_school_world_history,Success,4,2,
+137,mmlu_high_school_world_history,Success,3,1,
+138,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+139,mmlu_high_school_world_history,Failed (Verification),3,0,All candidates failed
+140,mmlu_high_school_world_history,Success,3,1,
+141,mmlu_high_school_world_history,Success,5,1,
+142,mmlu_high_school_world_history,Success,2,2,
+143,mmlu_high_school_world_history,Failed (Verification),4,0,All candidates failed
+144,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+145,mmlu_high_school_world_history,Success,5,2,
+146,mmlu_high_school_world_history,Success,4,2,
+147,mmlu_high_school_world_history,Skipped (All Correct),0,0,
+148,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+149,mmlu_high_school_world_history,Failed (Verification),4,0,All candidates failed
+150,mmlu_high_school_world_history,Success,5,1,
+151,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+152,mmlu_high_school_world_history,Success,3,2,
+153,mmlu_high_school_world_history,Success,5,2,
+154,mmlu_high_school_world_history,Success,2,2,
+155,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+156,mmlu_high_school_world_history,Failed (Verification),4,0,All candidates failed
+157,mmlu_high_school_world_history,Success,4,2,
+158,mmlu_high_school_world_history,Skipped (All Correct),0,0,
+159,mmlu_high_school_world_history,Success,4,1,
+160,mmlu_high_school_world_history,Success,1,1,
+161,mmlu_high_school_world_history,Success,3,1,
+162,mmlu_high_school_world_history,Failed (Verification),3,0,All candidates failed
+163,mmlu_high_school_world_history,Failed (Verification),3,0,All candidates failed
+164,mmlu_high_school_world_history,Skipped (All Correct),0,0,
+165,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+166,mmlu_high_school_world_history,Failed (Verification),3,0,All candidates failed
+167,mmlu_high_school_world_history,Success,1,1,
+168,mmlu_high_school_world_history,Failed (Verification),2,0,All candidates failed
+169,mmlu_high_school_world_history,Failed (Verification),1,0,All candidates failed
+170,mmlu_high_school_world_history,Success,3,2,
+171,mmlu_high_school_world_history,Success,4,1,
+172,mmlu_high_school_world_history,Success,5,1,
+173,mmlu_high_school_world_history,Success,5,3,
+174,mmlu_high_school_world_history,Skipped (All Correct),0,0,
+175,mmlu_high_school_world_history,Failed (Verification),3,0,All candidates failed
+176,mmlu_high_school_world_history,Success,5,1,
+177,mmlu_high_school_world_history,Failed (Verification),4,0,All candidates failed
+178,mmlu_high_school_world_history,Success,3,2,
+179,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+180,mmlu_high_school_world_history,Success,2,2,
+181,mmlu_high_school_world_history,Failed (Verification),4,0,All candidates failed
+182,mmlu_high_school_world_history,Failed (Verification),3,0,All candidates failed
+183,mmlu_high_school_world_history,Success,3,1,
+184,mmlu_high_school_world_history,Success,4,1,
+185,mmlu_high_school_world_history,Failed (Verification),3,0,All candidates failed
+186,mmlu_high_school_world_history,Failed (Verification),2,0,All candidates failed
+187,mmlu_high_school_world_history,Failed (Verification),4,0,All candidates failed
+188,mmlu_high_school_world_history,Failed (Verification),4,0,All candidates failed
+189,mmlu_high_school_world_history,Failed (Verification),4,0,All candidates failed
+190,mmlu_high_school_world_history,Success,3,1,
+191,mmlu_high_school_world_history,Success,4,1,
+192,mmlu_high_school_world_history,Success,5,1,
+193,mmlu_high_school_world_history,Skipped (All Correct),0,0,
+194,mmlu_high_school_world_history,Success,5,1,
+195,mmlu_high_school_world_history,Success,1,1,
+196,mmlu_high_school_world_history,Failed (Verification),5,0,All candidates failed
+197,mmlu_high_school_world_history,Success,2,1,
+198,mmlu_high_school_world_history,Success,5,1,
+199,mmlu_high_school_world_history,Success,3,3,
+200,mmlu_high_school_physics,Failed (Verification),5,0,All candidates failed
+201,mmlu_high_school_physics,Success,5,1,
+202,mmlu_high_school_physics,Success,3,1,
+203,mmlu_high_school_physics,Success,4,1,
+204,mmlu_high_school_physics,Skipped (All Correct),0,0,
+205,mmlu_high_school_physics,Success,4,1,
+206,mmlu_high_school_physics,Skipped (All Correct),0,0,
+207,mmlu_high_school_physics,Failed (Verification),1,0,All candidates failed
+208,mmlu_high_school_physics,Success,5,3,
+209,mmlu_high_school_physics,Success,2,1,
+210,mmlu_high_school_physics,Success,5,1,
+211,mmlu_high_school_physics,Success,2,1,
+212,mmlu_high_school_physics,Success,4,2,
+213,mmlu_high_school_physics,Skipped (All Correct),0,0,
+214,mmlu_high_school_physics,Success,3,3,
+215,mmlu_high_school_physics,Success,4,1,
+216,mmlu_high_school_physics,Skipped (All Correct),0,0,
+217,mmlu_high_school_physics,Skipped (All Correct),0,0,
+218,mmlu_high_school_physics,Skipped (All Correct),0,0,
+219,mmlu_high_school_physics,Skipped (All Correct),0,0,
+220,mmlu_high_school_physics,Failed (Verification),3,0,All candidates failed
+221,mmlu_high_school_physics,Success,4,3,
+222,mmlu_high_school_physics,Skipped (All Correct),0,0,
+223,mmlu_high_school_physics,Skipped (All Correct),0,0,
+224,mmlu_high_school_physics,Success,3,2,
+225,mmlu_high_school_physics,Failed (Verification),4,0,All candidates failed
+226,mmlu_high_school_physics,Failed (Verification),1,0,All candidates failed
+227,mmlu_high_school_physics,Skipped (All Correct),0,0,
+228,mmlu_high_school_physics,Failed (Verification),3,0,All candidates failed
+229,mmlu_high_school_physics,Success,5,1,
+230,mmlu_high_school_physics,Failed (Verification),1,0,All candidates failed
+231,mmlu_high_school_physics,Success,3,1,
+232,mmlu_high_school_physics,Failed (Verification),1,0,All candidates failed
+233,mmlu_high_school_physics,Success,3,1,
+234,mmlu_high_school_physics,Failed (Verification),5,0,All candidates failed
+235,mmlu_high_school_physics,Success,2,1,
+236,mmlu_high_school_physics,Success,2,2,
+237,mmlu_high_school_physics,Success,3,2,
+238,mmlu_high_school_physics,Skipped (All Correct),0,0,
+239,mmlu_high_school_physics,Skipped (All Correct),0,0,
+240,mmlu_high_school_physics,Success,4,2,
+241,mmlu_high_school_physics,Success,2,1,
+242,mmlu_high_school_physics,Success,1,1,
+243,mmlu_high_school_physics,Success,3,3,
+244,mmlu_high_school_physics,Success,2,1,
+245,mmlu_high_school_physics,Success,5,1,
+246,mmlu_high_school_physics,Failed (Verification),5,0,All candidates failed
+247,mmlu_high_school_physics,Success,5,3,
+248,mmlu_high_school_physics,Success,3,1,
+249,mmlu_high_school_physics,Failed (Verification),2,0,All candidates failed
+250,mmlu_high_school_physics,Failed (Verification),4,0,All candidates failed
+251,mmlu_high_school_physics,Success,4,1,
+252,mmlu_high_school_physics,Success,1,1,
+253,mmlu_high_school_physics,Success,2,1,
+254,mmlu_high_school_physics,Success,1,1,
+255,mmlu_high_school_physics,Failed (Verification),4,0,All candidates failed
+256,mmlu_high_school_physics,Success,4,1,
+257,mmlu_high_school_physics,Skipped (All Correct),0,0,
+258,mmlu_high_school_physics,Failed (Verification),1,0,All candidates failed
+259,mmlu_high_school_physics,Success,1,1,
+260,mmlu_high_school_physics,Success,1,1,
+261,mmlu_high_school_physics,Failed (Verification),2,0,All candidates failed
+262,mmlu_high_school_physics,Success,4,1,
+263,mmlu_high_school_physics,Failed (Verification),4,0,All candidates failed
+264,mmlu_high_school_physics,Failed (Verification),5,0,All candidates failed
+265,mmlu_high_school_physics,Success,1,1,
+266,mmlu_high_school_physics,Failed (Verification),2,0,All candidates failed
+267,mmlu_high_school_physics,Failed (Verification),4,0,All candidates failed
+268,mmlu_high_school_physics,Success,4,4,
+269,mmlu_high_school_physics,Success,1,1,
+270,mmlu_high_school_physics,Success,3,2,
+271,mmlu_high_school_physics,Skipped (All Correct),0,0,
+272,mmlu_high_school_physics,Success,2,1,
+273,mmlu_high_school_physics,Failed (Verification),1,0,All candidates failed
+274,mmlu_high_school_physics,Success,1,1,
+275,mmlu_high_school_physics,Failed (Verification),3,0,All candidates failed
+276,mmlu_high_school_physics,Success,1,1,
+277,mmlu_high_school_physics,Failed (Verification),1,0,All candidates failed
+278,mmlu_high_school_physics,Skipped (All Correct),0,0,
+279,mmlu_high_school_physics,Skipped (All Correct),0,0,
+280,mmlu_high_school_physics,Success,1,1,
+281,mmlu_high_school_physics,Failed (Verification),4,0,All candidates failed
+282,mmlu_high_school_physics,Success,3,2,
+283,mmlu_high_school_physics,Success,1,1,
+284,mmlu_high_school_physics,Success,2,2,
+285,mmlu_high_school_physics,Success,1,1,
+286,mmlu_high_school_physics,Success,1,1,
+287,mmlu_high_school_physics,Success,4,2,
+288,mmlu_high_school_physics,Success,3,2,
+289,mmlu_high_school_physics,Failed (Verification),2,0,All candidates failed
+290,mmlu_high_school_physics,Failed (Verification),4,0,All candidates failed
+291,mmlu_high_school_physics,Success,2,1,
+292,mmlu_high_school_physics,Success,2,2,
+293,mmlu_high_school_physics,Success,5,1,
+294,mmlu_high_school_physics,Skipped (All Correct),0,0,
+295,mmlu_high_school_physics,Failed (Verification),3,0,All candidates failed
+296,mmlu_high_school_physics,Success,5,2,
+297,mmlu_high_school_physics,Success,2,2,
+298,mmlu_high_school_physics,Success,4,3,
+299,mmlu_high_school_physics,Skipped (All Correct),0,0,
+300,mmlu_professional_law,Failed (Verification),3,0,All candidates failed
+301,mmlu_professional_law,Success,5,1,
+302,mmlu_professional_law,Success,5,1,
+303,mmlu_professional_law,Success,1,1,
+304,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+305,mmlu_professional_law,Success,3,1,
+306,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+307,mmlu_professional_law,Failed (Verification),3,0,All candidates failed
+308,mmlu_professional_law,Success,4,3,
+309,mmlu_professional_law,Success,1,1,
+310,mmlu_professional_law,Success,1,1,
+311,mmlu_professional_law,Success,4,2,
+312,mmlu_professional_law,Success,3,2,
+313,mmlu_professional_law,Success,4,1,
+314,mmlu_professional_law,Skipped (All Correct),0,0,
+315,mmlu_professional_law,Failed (Verification),3,0,All candidates failed
+316,mmlu_professional_law,Success,5,1,
+317,mmlu_professional_law,Failed (Verification),3,0,All candidates failed
+318,mmlu_professional_law,Success,5,2,
+319,mmlu_professional_law,Success,1,1,
+320,mmlu_professional_law,Failed (Verification),3,0,All candidates failed
+321,mmlu_professional_law,Failed (Verification),3,0,All candidates failed
+322,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+323,mmlu_professional_law,Success,5,2,
+324,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+325,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+326,mmlu_professional_law,Success,3,1,
+327,mmlu_professional_law,Success,4,1,
+328,mmlu_professional_law,Success,3,2,
+329,mmlu_professional_law,Success,1,1,
+330,mmlu_professional_law,Success,3,2,
+331,mmlu_professional_law,Success,3,1,
+332,mmlu_professional_law,Success,4,1,
+333,mmlu_professional_law,Success,2,2,
+334,mmlu_professional_law,Failed (Verification),4,0,All candidates failed
+335,mmlu_professional_law,Success,4,2,
+336,mmlu_professional_law,Success,3,1,
+337,mmlu_professional_law,Success,5,1,
+338,mmlu_professional_law,Success,2,1,
+339,mmlu_professional_law,Failed (Verification),3,0,All candidates failed
+340,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+341,mmlu_professional_law,Success,4,1,
+342,mmlu_professional_law,Success,5,2,
+343,mmlu_professional_law,Success,2,1,
+344,mmlu_professional_law,Success,1,1,
+345,mmlu_professional_law,Success,5,1,
+346,mmlu_professional_law,Success,4,1,
+347,mmlu_professional_law,Success,3,2,
+348,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+349,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+350,mmlu_professional_law,Success,3,1,
+351,mmlu_professional_law,Success,3,1,
+352,mmlu_professional_law,Failed (Verification),4,0,All candidates failed
+353,mmlu_professional_law,Success,5,1,
+354,mmlu_professional_law,Success,5,3,
+355,mmlu_professional_law,Success,3,1,
+356,mmlu_professional_law,Failed (Verification),4,0,All candidates failed
+357,mmlu_professional_law,Failed (Verification),3,0,All candidates failed
+358,mmlu_professional_law,Success,2,2,
+359,mmlu_professional_law,Success,3,1,
+360,mmlu_professional_law,Success,5,2,
+361,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+362,mmlu_professional_law,Success,4,3,
+363,mmlu_professional_law,Success,5,2,
+364,mmlu_professional_law,Failed (Verification),2,0,All candidates failed
+365,mmlu_professional_law,Success,5,4,
+366,mmlu_professional_law,Success,2,1,
+367,mmlu_professional_law,Success,3,2,
+368,mmlu_professional_law,Success,3,1,
+369,mmlu_professional_law,Skipped (All Correct),0,0,
+370,mmlu_professional_law,Success,5,2,
+371,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+372,mmlu_professional_law,Success,4,1,
+373,mmlu_professional_law,Failed (Verification),4,0,All candidates failed
+374,mmlu_professional_law,Failed (Verification),4,0,All candidates failed
+375,mmlu_professional_law,Failed (Verification),4,0,All candidates failed
+376,mmlu_professional_law,Success,3,2,
+377,mmlu_professional_law,Success,2,1,
+378,mmlu_professional_law,Failed (Verification),4,0,All candidates failed
+379,mmlu_professional_law,Failed (Verification),3,0,All candidates failed
+380,mmlu_professional_law,Success,3,2,
+381,mmlu_professional_law,Failed (Verification),4,0,All candidates failed
+382,mmlu_professional_law,Success,2,1,
+383,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+384,mmlu_professional_law,Success,5,1,
+385,mmlu_professional_law,Failed (Verification),4,0,All candidates failed
+386,mmlu_professional_law,Failed (Verification),4,0,All candidates failed
+387,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+388,mmlu_professional_law,Success,3,2,
+389,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+390,mmlu_professional_law,Success,5,1,
+391,mmlu_professional_law,Success,4,2,
+392,mmlu_professional_law,Failed (Verification),3,0,All candidates failed
+393,mmlu_professional_law,Failed (Verification),1,0,All candidates failed
+394,mmlu_professional_law,Success,5,1,
+395,mmlu_professional_law,Failed (Verification),5,0,All candidates failed
+396,mmlu_professional_law,Failed (Verification),2,0,All candidates failed
+397,mmlu_professional_law,Success,3,3,
+398,mmlu_professional_law,Success,2,1,
+399,mmlu_professional_law,Success,5,3,
+400,mmlu_business_ethics,Success,4,4,
+401,mmlu_business_ethics,Success,5,1,
+402,mmlu_business_ethics,Success,3,3,
+403,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+404,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+405,mmlu_business_ethics,Success,5,1,
+406,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+407,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+408,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+409,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+410,mmlu_business_ethics,Success,2,1,
+411,mmlu_business_ethics,Success,3,1,
+412,mmlu_business_ethics,Success,4,1,
+413,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+414,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+415,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+416,mmlu_business_ethics,Success,3,1,
+417,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+418,mmlu_business_ethics,Failed (Verification),2,0,All candidates failed
+419,mmlu_business_ethics,Failed (Verification),3,0,All candidates failed
+420,mmlu_business_ethics,Success,3,2,
+421,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+422,mmlu_business_ethics,Skipped (All Correct),0,0,
+423,mmlu_business_ethics,Success,3,2,
+424,mmlu_business_ethics,Success,2,2,
+425,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+426,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+427,mmlu_business_ethics,Success,2,1,
+428,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+429,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+430,mmlu_business_ethics,Success,1,1,
+431,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+432,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+433,mmlu_business_ethics,Success,4,1,
+434,mmlu_business_ethics,Success,5,1,
+435,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+436,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+437,mmlu_business_ethics,Failed (Verification),3,0,All candidates failed
+438,mmlu_business_ethics,Success,1,1,
+439,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+440,mmlu_business_ethics,Success,4,1,
+441,mmlu_business_ethics,Success,1,1,
+442,mmlu_business_ethics,Success,2,2,
+443,mmlu_business_ethics,Failed (Verification),3,0,All candidates failed
+444,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+445,mmlu_business_ethics,Success,4,3,
+446,mmlu_business_ethics,Skipped (All Correct),0,0,
+447,mmlu_business_ethics,Failed (Verification),3,0,All candidates failed
+448,mmlu_business_ethics,Success,5,1,
+449,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+450,mmlu_business_ethics,Skipped (All Correct),0,0,
+451,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+452,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+453,mmlu_business_ethics,Success,1,1,
+454,mmlu_business_ethics,Success,4,3,
+455,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+456,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+457,mmlu_business_ethics,Success,4,1,
+458,mmlu_business_ethics,Success,5,1,
+459,mmlu_business_ethics,Success,5,1,
+460,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+461,mmlu_business_ethics,Failed (Verification),2,0,All candidates failed
+462,mmlu_business_ethics,Success,5,3,
+463,mmlu_business_ethics,Success,2,2,
+464,mmlu_business_ethics,Success,5,1,
+465,mmlu_business_ethics,Success,2,2,
+466,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+467,mmlu_business_ethics,Success,2,2,
+468,mmlu_business_ethics,Success,2,2,
+469,mmlu_business_ethics,Success,4,1,
+470,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+471,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+472,mmlu_business_ethics,Skipped (All Correct),0,0,
+473,mmlu_business_ethics,Success,2,2,
+474,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+475,mmlu_business_ethics,Success,5,1,
+476,mmlu_business_ethics,Success,1,1,
+477,mmlu_business_ethics,Success,1,1,
+478,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+479,mmlu_business_ethics,Success,4,2,
+480,mmlu_business_ethics,Success,5,1,
+481,mmlu_business_ethics,Success,3,3,
+482,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+483,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+484,mmlu_business_ethics,Success,3,2,
+485,mmlu_business_ethics,Success,2,1,
+486,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+487,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+488,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+489,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+490,mmlu_business_ethics,Success,3,1,
+491,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+492,mmlu_business_ethics,Failed (Verification),3,0,All candidates failed
+493,mmlu_business_ethics,Success,5,1,
+494,mmlu_business_ethics,Failed (Verification),5,0,All candidates failed
+495,mmlu_business_ethics,Failed (Verification),4,0,All candidates failed
+496,mmlu_business_ethics,Failed (Verification),3,0,All candidates failed
+497,mmlu_business_ethics,Failed (Verification),1,0,All candidates failed
+498,mmlu_business_ethics,Success,3,1,
+499,mmlu_business_ethics,Success,4,1,

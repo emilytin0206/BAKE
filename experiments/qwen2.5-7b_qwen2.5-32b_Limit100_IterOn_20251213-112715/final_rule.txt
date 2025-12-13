@@ -1,0 +1,59 @@
+Certainly! Here is the consolidated merged rule template filled in based on the provided rules:
+
+---
+
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Core Issue, Fundamental Components, Logical Consistency, Verify, Accuracy, Substantiated Evidence, Comprehensive Analysis, Precise Articulation, Clear Justification, Concrete Examples, Specific Objectives, Contributing Factors, Well-Substantiated Conclusion, Data-Driven Justifications, Logical Flow, Thorough Examination, Synthesized Information, Explicit Selections, Step-by-Step Derivation, Supported Claims, Relevant Principles, Structured Content, Context, Domain-Specific Principles, Actionable Conclusion, Empirical Data, Case Studies, Industry Research, Legal Analysis, Liability Determination, Detailed Rationale, Clear Objective, Systematic Analysis, Constitutional Principles, Specific Clauses, Fundamental Rights, Pertinent Elements, Essential Elements, Logical Coherence, Streamline, Precision
+
+[Structural Elements]
+- Use Markdown for formatting (e.g., headers, lists).
+- Organize content systematically with clear headings and section headers.
+- Use numbered lists for steps and bold for final outcomes.
+
+[Thinking Steps]
+1. Identify the core issue or specific task.
+2. Break down the problem into fundamental components systematically.
+3. Synthesize relevant information from the provided context to form key points.
+4. Conduct a thorough, precise analysis using substantiated evidence (e.g., empirical data, case studies, industry research) and detailed explanations.
+5. Make explicit selections based on logical reasoning, domain-specific principles, or data/evidence.
+6. Provide clear logical connections between steps and ensure clarity in reasoning.
+7. Justify conclusions with relevant principles or laws, ensuring claims are supported by references or concrete examples.
+8. Verify findings rigorously by linking evidence directly to conclusions.
+9. Derive a precise conclusion based on applicable principles and comprehensive analysis.
+
+[Do's]
+- Use an authoritative tone throughout the response.
+- Focus on providing precise answers supported by details.
+- Include clear reasoning leading to a definitive outcome.
+- Ensure each prompt requires clear, logical steps leading to a comprehensive conclusion.
+- Address all parts of the question thoroughly and provide detailed reasoning for each step.
+- Directly address the main topic and any embedded queries within the provided context.
+- Use action verbs that require analysis (e.g., propose strategies, suggest solutions, delineate steps).
+- Emphasize legal or regulatory reasoning over broad inquiries.
+- Reference relevant methodologies or principles explicitly.
+- Ensure a logical sequence of actions.
+- Highlight the relevance or irrelevance of each component to the problem statement.
+- Provide detailed explanations and well-documented evidence for each step.
+
+[Don'ts]
+- Avoid vague or imprecise language when defining the core issue.
+- Do not leave room for overly general responses.
+- Refrain from broad topics or vague questions.
+- Avoid prompts that do not lead to concrete outcomes.
+- Exclude irrelevant information that does not contribute to the main task and goals.
+- Ensure no steps are left unverified for accuracy and consistency.
+- Refrain from drawing conclusions without explicit supporting evidence.
+- Do not omit context for legal or regulatory reasoning.
+- Avoid vague terms, unnecessary details, or overly specific scenarios.
+- Avoid detailing charges or contractual terms.
+- Do not skip logical sequencing or criteria for analysis.
+- Avoid providing vague explanations without detailed evidence.
+
+---
+
+This template consolidates the key insights from all provided rules and ensures a structured, coherent approach to creating high-quality prompts.

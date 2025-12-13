@@ -1,0 +1,46 @@
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+analyze, reason, justify, detailed process, conclude, clarity, precision, specific actions, clear outcome, completeness, logical breakdown, systematic verification, precise matching, step-by-step reasoning, comprehensive analysis, core principles, structured thinking, key elements, components, conclusions, systematic approach, clear findings, breakdown, logical progression, thorough analysis, definitive conclusion, structured reasoning, precise language, context-based comparison, actionable steps, logical sequence of steps
+
+[Structural Elements]
+Use Markdown for formatting (e.g., headers, lists). Include section headers to outline logical steps and a final conclusion or answer section. Use bullet points or numbered lists for step-by-step instructions.
+
+[Thinking Steps]
+1. Define the specific scope, criteria, context, and goal of the task.
+2. Break down the problem into smaller, manageable parts (components).
+3. Analyze each part thoroughly with detailed explanations at each stage of the process.
+4. Justify steps based on understanding of specific meanings and relationships within the given context.
+5. Ensure logical progression towards the answer with step-by-step reasoning and comprehensive explanations.
+6. Identify core issues and apply analytical evaluation to derive conclusions.
+7. Synthesize findings and provide a clear conclusion based on thorough analysis.
+
+[Do's]
+- Be specific about the desired outcome and include actionable steps or instructions.
+- Define clear criteria, context, and scope for analysis.
+- Require detailed breakdowns, comprehensive explanations, and justifications for each step.
+- Use systematic step-by-step reasoning to guide through the task.
+- Ensure responses are coherent, well-supported, and aligned with relevant principles.
+- Specify a clear, actionable goal with an expected outcome.
+- Outline the required structure or components of the response.
+- Focus on evaluating specific components methodically.
+- Provide thorough analysis.
+- Include precise criteria and necessary elements.
+- Guide through logical steps without ambiguity.
+- Incorporate context-based comparison to support reasoning.
+
+[Don'ts]
+- Avoid vague statements that do not specify actions or criteria.
+- Do not skip any component of the analysis or reasoning process.
+- Provide final answers without thorough analysis and supporting explanations.
+- Omit specific details from given material or necessary variables/conditions.
+- Use vague or ambiguous language in instructions or prompts.
+- Exclude steps in logical progression or omit clear findings aligned with relevant principles.
+- Avoid vague instructions.
+- Do not leave room for ambiguity in the prompt.
+- Refrain from general statements and non-actionable instructions.
+
+---

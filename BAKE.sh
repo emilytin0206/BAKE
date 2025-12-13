@@ -8,10 +8,10 @@
 # 格式：ScorerModel | OptimizerModel | Limit | EnableIterative(true/false)
 EXPERIMENTS=(
     # 實驗 1: 關閉迭代，只跑流程 (Baseline)
-    "qwen2.5:7b|qwen2.5:32b|100|true"
+    "qwen2.5:7b|qwen2.5:32b|300|true"
     
     # 實驗 2: 開啟迭代，測試熱替換效果
-    "qwen2.5:7b|qwen2.5:32b|100|false"
+    "qwen2.5:7b|qwen2.5:32b|300|false"
 )
 
 # 基礎輸出目錄
