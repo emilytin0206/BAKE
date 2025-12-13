@@ -1,0 +1,180 @@
+
+========== Sample 0 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Use chain of thought reasoning to derive the answer.
+   [Fixed O]    Use chain of thought reasoning to derive the answer and ensure all steps are completed for each vertex.
+
+Generated Guideline:
+Ensure prompts require a detailed, step-by-step reasoning process to reach the solution.
+
+========== Sample 1 (mmlu_high_school_world_history) ==========
+Successful Refinements:
+   [Original X] Think about this logically.
+   [Fixed O]    Think logically about how themes in the text connect to broader historical movements or events before concluding with your answer.
+
+Generated Guideline:
+To convert failing prompts into successful ones, ensure the prompt is specific and directs the user to connect ideas to broader contexts or frameworks before reaching conclusions.
+
+========== Sample 2 (mmlu_high_school_physics) ==========
+Successful Refinements:
+   [Original X] Think about this logically.
+   [Fixed O]    Ensure all units are consistent and then perform the necessary calculations.
+
+Generated Guideline:
+Clarify the steps required and ensure consistency in units before performing calculations.
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Step-by-step, detailed reasoning, broader contexts, frameworks, consistency, units
+
+[Structural Elements]
+Use Markdown for structure (e.g., headers, lists), ensure clarity and organization
+
+[Thinking Steps]
+1. Identify the problem or question clearly.
+2. Break down the solution into a step-by-step process.
+3. Connect ideas to relevant broader contexts or frameworks.
+4. Ensure consistency in units before performing calculations.
+
+[Do's]
+- Require detailed reasoning and step-by-step processes.
+- Direct users to connect their thoughts to broader frameworks or contexts.
+- Clarify each step required for the solution.
+- Maintain consistent units throughout any calculations.
+
+[Don'ts]
+- Avoid vague or generalized instructions that lack specificity.
+- Do not skip connecting ideas to broader contexts before reaching conclusions.
+- Avoid inconsistencies in units during calculations.
+
+---
+
+========== Sample 4 (mmlu_business_ethics) ==========
+Successful Refinements:
+   [Original X] Identify the problem clearly and break it down into manageable steps for a thorough analysis.
+   [Fixed O]    Think through the process methodically, detailing how each step logically follows from the last within the given context and ensure each blank is filled consistently with the overall meaning of the statement.
+
+Generated Guideline:
+To convert failing prompts into successful ones:
+1. Ensure methodical thinking with logical progression.
+2. Connect each step to broader contexts.
+3. Maintain consistency in units and reasoning.
+4. Integrate wider perspectives where applicable.
+5. Provide detailed reasoning at every stage.
+
+========== Cleanup Tier-0 ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Methodical, logical progression, consistency, units, reasoning, broader contexts, wider perspectives
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., headers, lists)
+
+[Thinking Steps]
+1. Ensure methodical thinking with a clear logical progression.
+2. Connect each step to broader contexts where applicable.
+3. Maintain consistency in units and reasoning throughout the process.
+4. Integrate wider perspectives to enrich understanding.
+5. Provide detailed reasoning at every stage of the analysis.
+
+[Do's]
+- Include methodical steps with logical progression.
+- Ensure connections to broader contexts are made explicit.
+- Maintain consistent units and reasoning across all parts.
+- Incorporate wider perspectives where relevant.
+- Offer detailed reasoning for each step in the process.
+
+[Don'ts]
+- Avoid skipping logical steps or failing to connect them to broader contexts.
+- Do not neglect consistency in units and reasoning.
+- Refrain from omitting wider perspectives when they could enhance understanding.
+- Do not leave any stage of the analysis underexplained or lacking detail.
+
+---
+
+========== Convergence Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Step-by-step, detailed reasoning, broader contexts, frameworks, consistency, units, methodical, logical progression, wider perspectives
+
+[Structural Elements]
+Use Markdown for structure (e.g., headers, lists), ensure clarity and organization
+
+[Thinking Steps]
+1. Identify the problem or question clearly.
+2. Break down the solution into a step-by-step process with methodical thinking and logical progression.
+3. Connect ideas to relevant broader contexts or frameworks.
+4. Integrate wider perspectives where applicable to enrich understanding.
+5. Ensure consistency in units and reasoning throughout the process.
+6. Provide detailed reasoning at every stage of the analysis.
+
+[Do's]
+- Require detailed reasoning and step-by-step processes with methodical thinking.
+- Direct users to connect their thoughts to broader frameworks or contexts.
+- Clarify each step required for the solution, ensuring logical progression.
+- Maintain consistent units throughout any calculations.
+- Incorporate wider perspectives where relevant.
+- Offer detailed reasoning for each step in the process.
+
+[Don'ts]
+- Avoid vague or generalized instructions that lack specificity.
+- Do not skip connecting ideas to broader contexts before reaching conclusions.
+- Refrain from omitting wider perspectives when they could enhance understanding.
+- Avoid inconsistencies in units during calculations.
+- Do not leave any stage of the analysis underexplained or lacking detail.
+
+---
+
+========== FINAL RULE ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Step-by-step, detailed reasoning, broader contexts, frameworks, consistency, units, methodical, logical progression, wider perspectives
+
+[Structural Elements]
+Use Markdown for structure (e.g., headers, lists), ensure clarity and organization
+
+[Thinking Steps]
+1. Identify the problem or question clearly.
+2. Break down the solution into a step-by-step process with methodical thinking and logical progression.
+3. Connect ideas to relevant broader contexts or frameworks.
+4. Integrate wider perspectives where applicable to enrich understanding.
+5. Ensure consistency in units and reasoning throughout the process.
+6. Provide detailed reasoning at every stage of the analysis.
+
+[Do's]
+- Require detailed reasoning and step-by-step processes with methodical thinking.
+- Direct users to connect their thoughts to broader frameworks or contexts.
+- Clarify each step required for the solution, ensuring logical progression.
+- Maintain consistent units throughout any calculations.
+- Incorporate wider perspectives where relevant.
+- Offer detailed reasoning for each step in the process.
+
+[Don'ts]
+- Avoid vague or generalized instructions that lack specificity.
+- Do not skip connecting ideas to broader contexts before reaching conclusions.
+- Refrain from omitting wider perspectives when they could enhance understanding.
+- Avoid inconsistencies in units during calculations.
+- Do not leave any stage of the analysis underexplained or lacking detail.
+
+---
