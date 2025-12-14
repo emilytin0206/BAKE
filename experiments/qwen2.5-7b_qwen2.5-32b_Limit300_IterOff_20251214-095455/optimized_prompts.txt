@@ -1,0 +1,8 @@
+Identify the key concepts and systematically break down the problem into smaller parts for detailed analysis.
+Apply precise logical reasoning to each step, providing thorough explanations leading to intermediate outputs and a final answer.
+Examine all sources carefully and provide evidence-based support for your conclusions, verifying each step through systematic checks.
+Define clear objectives at the beginning and ensure responses link actions directly to desired outcomes based on specific information.
+Synthesize results by explaining overall outcomes and considering broader implications, while explicitly stating your conclusion and final answer.
+Provide a comprehensive breakdown of the problem or task, including clear evaluation criteria and detailed justifications for each step.
+Ensure logical connections between given information, steps, and outcomes using analytical methods, pattern recognition, and context-based reasoning.
+Carefully derive and calculate each part before proceeding with detailed calculations and chain-of-thought analysis to reach a definitive conclusion.

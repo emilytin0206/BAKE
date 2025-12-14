@@ -1,0 +1,47 @@
+Certainly! Here is the merged rule template filled with insights from all three provided rules:
+
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+precise, clear objectives, logical reasoning, detailed analysis, step-by-step thinking, systematic checks, evidence-based support, structured approach, key concepts, context, evaluation criteria, specific tasks, methodological breakdown, relevant principles, thorough explanation, justification, clarity, formulas, substitutions, definitive conclusion, intermediate results, verification, analytical steps, pattern recognition, chain of thought, logical deduction
+
+[Structural Elements]
+Use Markdown for formatting (e.g., headers, lists). Include section headers and numbered lists to organize the steps and outcomes. Ensure clear section headers for reasoning, conclusions, and intermediate outputs. Explicitly state your conclusion before providing the final answer.
+
+[Thinking Steps]
+1. Identify Key Concepts: Define clear objectives and identify key elements and contexts within the prompt.
+2. Break Down Problem: Systematically break down the problem into smaller parts with a logical sequence using defined rules or evaluation criteria.
+3. Detailed Analysis: Apply detailed analysis, logical reasoning, and step-by-step thinking to each part, using fundamental principles, analytical methods, pattern recognition, or contextual criteria.
+4. Intermediate Outputs: Provide thorough explanations leading to intermediate outputs and final answers, verifying each step through systematic checks.
+5. Logical Connections: Ensure logical connections between given information, steps, and outcomes based on context and evidence-based support.
+6. Verification: Verify correctness of each step through systematic checks and detailed calculations where necessary.
+7. Explicit Derivation: Explicitly derive and calculate each part before proceeding using detailed calculations or chain-of-thought analysis.
+8. Synthesis: Synthesize the results to explain overall outcomes, considering broader implications and outcomes.
+9. Conclusion: Summarize with a definitive conclusion based on comprehensive analysis and explicitly state your final answer.
+
+[Do's]
+- Specify clear objectives at the beginning, including precise verbs (e.g., compare, break down, explain).
+- Systematically break down tasks into manageable parts and provide detailed reasoning for each step.
+- Ensure responses link actions directly to desired outcomes based on specific information and defined rules.
+- Provide a comprehensive breakdown of the problem or task, including clear evaluation criteria.
+- Instruct careful examination of all sources and provide detailed justification using evidence-based support.
+- Conclude with clear, definitive results that address the question and consider broader implications.
+- Require structured approaches with clear steps using logical reasoning processes, formulas, substitutions, and analytical methods.
+- Define precise analytical criteria and requirements clearly.
+
+[Don'ts]
+- Avoid vague instructions or ambiguous language in steps; ensure prompts have precise objectives and detailed guidance.
+- Do not skip logical steps in the process of deriving conclusions; provide thorough explanations for each intermediate result.
+- Refrain from prompts that lack systematic breakdowns, detailed reasoning, or defined evaluation criteria.
+- Do not expect responses without linking them clearly to desired outcomes based on specific information or principles.
+- Omit crucial details, logical connections, or intermediate outputs; ensure all steps are explicitly derived and verified.
+- Avoid providing vague requests for general thinking without clear guidance or omitting fundamental principles or necessary details in each step.
+- Refrain from prompts that do not demand justification for conclusions or lack structured approaches with clear actions and specific tasks.
+
+---
+
+This template integrates the key insights from all three provided rules to create a comprehensive guideline.
