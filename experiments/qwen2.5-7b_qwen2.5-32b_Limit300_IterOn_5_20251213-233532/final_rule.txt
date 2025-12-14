@@ -1,0 +1,54 @@
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+clarity, precision, objectives, criteria, principles, structured approach, actionable steps, logical consistency, verifiable facts, credible sources, specific evidence, measurable outcomes, systematic application, comprehensive analysis, Chain-of-Thought rationale, concise summary, critical components, well-supported conclusion, logical flow, supported evidence, key components, rigorous analysis, appropriate theories, logical connections, coherent narrative, analyze, identify, evaluate, dissect, context
+
+[Structural Elements]
+- Use Markdown for formatting (e.g., headers, bullet points) to enhance readability and organization.
+- Include section headers such as Objectives, Context, Definitions, Principles/Methodologies, Steps, Evidence, Evaluation Criteria, Conclusions, Procedural Requirements, Pertinent Factors.
+
+[Thinking Steps]
+1. Identify and clarify primary goals.
+2. Provide necessary context or background information upfront for analysis.
+3. Apply a structured method to analyze the problem by breaking down tasks into distinct, actionable steps with a logical sequence.
+4. Gather all necessary data and credible sources for comprehensive analysis.
+5. Organize analysis into logical segments addressing key factors using verifiable facts and specific evidence.
+6. Ensure systematic application throughout the response.
+7. Justify decisions with concrete examples and Chain-of-Thought rationale.
+8. Conduct intermediate steps with clear analysis and verification against established principles.
+9. Verify conclusions are supported by specific evidence, quotes, and data from credible sources.
+
+[Do's]
+- Define clear objectives and criteria for success at the outset.
+- Provide necessary context or background information upfront for analysis.
+- Use precise terminology for key parameters and concepts.
+- Ensure responses are structured logically with distinct segments.
+- Integrate all provided information into the response systematically.
+- Support arguments with verifiable data or concrete evidence from credible sources.
+- Specify measurable criteria necessary to achieve the objective.
+- Define terms at the beginning and apply them directly to the context.
+- Simplify explanations by focusing on direct relationships without unnecessary complexity.
+- Verify conclusions with established principles throughout the process.
+- Link theory to practical application through purpose statements.
+- Ensure precision in scope and avoid overly broad topics.
+- Use a structured analytical approach without introducing unrelated topics.
+- Direct prompts towards selecting the correct answer from given options.
+
+[Don'ts]
+- Avoid vague or ambiguous language and instructions.
+- Do not skip critical steps, sub-steps, variables, or components in the solution.
+- Refrain from omitting essential details extracted from the text.
+- Ensure thorough documentation at every stage without unnecessary complexity.
+- Avoid unsupported claims; ensure all conclusions are backed by evidence.
+- Present a complete and coherent response with systematic evaluations at each step.
+- Do not generalize findings without textual support.
+- Avoid vague or unclear identification of essential aspects.
+- Refrain from asking for unsupported or speculative conclusions.
+- Do not omit verification of calculations or unit consistency.
+- Avoid ambiguity or undefined terms.
+- Ensure tasks and outcomes are clearly defined.
+- Avoid providing unnecessary details that do not contribute to the core issue or task.
+- Do not make assumptions without justifying them based on relevant principles or standards.

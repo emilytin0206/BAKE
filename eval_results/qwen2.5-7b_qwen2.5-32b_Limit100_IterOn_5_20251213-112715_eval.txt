@@ -1,5 +1,0 @@
-Evaluation Report for qwen2.5-7b_qwen2.5-32b_Limit100_IterOn_5_20251213-112715
-Model: qwen2.5:7b
-Subjects: high_school_mathematics, high_school_world_history, high_school_physics, professional_law, business_ethics
-==================================================
-

@@ -1,0 +1,3 @@
+Timestamp,Role,Model,Input Tokens,Output Tokens,Total Tokens,Est. Cost ($)
+2025-12-14 09:54:53,scorer,qwen2.5:7b,1984505,4171118,6155623,0.00000
+2025-12-14 09:54:53,optimizer,qwen2.5:32b,1216649,406399,1623048,0.00000
