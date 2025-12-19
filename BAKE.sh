@@ -1,6 +1,6 @@
 #!/bin/bash
 # ==========================================
-# 🧪 BAKE Experiment Runner (Auto-Naming v2)
+# 🧪 BAKE Experiment Runner (Auto-Naming v3)
 # ==========================================
 
 # 1. 參數設定 (Settings)
@@ -18,9 +18,9 @@ EVAL_MODEL="qwen2.5:7b"
 OPT_MODEL="qwen2.5:32b"
 
 # ==========================================
-# 🧠 Auto-Naming Logic (Strict Format)
+# 🧠 Auto-Naming Logic (Strict Format with Prefix)
 # ==========================================
-# 格式: <target_model>_<opt_model>_<dataset>_<subset>_<limit>_<iter>_<iter_count>_<date>
+# 格式: BAKE_<target>_<opt>_<dataset>_<subset>_<limit>_<iter>_<iter_count>_<date>
 
 # 1. 處理模型名稱 (移除冒號)
 T_MODEL_SAFE=${EVAL_MODEL//:/-}
@@ -57,8 +57,9 @@ fi
 # 5. 取得時間
 DATE_LABEL=$(date +"%Y%m%d-%H%M%S")
 
-# 6. 組合最終名稱
-EXP_NAME="${T_MODEL_SAFE}_${O_MODEL_SAFE}_${DS_LABEL}_${SUB_LABEL}_${LIM_LABEL}_${MODE_LABEL}_${COUNT_LABEL}_${DATE_LABEL}"
+# 6. 組合最終名稱 (加上 BAKE 前綴)
+# [修改] 這裡加上了 "BAKE_"
+EXP_NAME="BAKE_${T_MODEL_SAFE}_${O_MODEL_SAFE}_${DS_LABEL}_${SUB_LABEL}_${LIM_LABEL}_${MODE_LABEL}_${COUNT_LABEL}_${DATE_LABEL}"
 OUTPUT_DIR="experiments/${EXP_NAME}"
 
 # ==========================================
@@ -69,8 +70,8 @@ echo "========================================"
 echo "🔥 Starting Experiment"
 echo "📂 Output Dir: $OUTPUT_DIR"
 echo "----------------------------------------"
-echo "📊 Format Check: <target>_<opt>_<dataset>_<subset>_<limit>_<iter>_<iter_count>_<date>"
-echo "👉 Generated:    $EXP_NAME"
+echo "📊 Format: BAKE_<target>_<opt>_<dataset>_<subset>_<limit>_<iter>_<count>_<date>"
+echo "👉 Generated: $EXP_NAME"
 echo "========================================"
 
 # 建構指令
