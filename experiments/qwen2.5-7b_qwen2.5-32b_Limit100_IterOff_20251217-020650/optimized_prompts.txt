@@ -1,0 +1,8 @@
+Identify the key components of the ethical dilemma and evaluate their implications step-by-step.
+Analyze the provided data using a structured approach to determine the precise actions required for resolution.
+Break down the task into manageable steps, providing detailed explanations for each component leading to a clear final conclusion.
+Conduct a targeted analysis of the given situation, incorporating relevant principles and current research findings to form a comprehensive explanation.
+Specify the action needed based on logical breakdowns and reasoning, ensuring clarity in your tasks and outcomes.
+Derive the solution by identifying core theories and linking them with empirical details for each step in a sequential manner.
+Evaluate the task using chain-of-thought reasoning, verifying conclusions against established knowledge and theoretical frameworks.
+Provide a detailed explanation of the steps involved in solving the problem, including intermediary calculations and ethical considerations.

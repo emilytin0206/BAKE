@@ -1,0 +1,29 @@
+Evaluation Report
+Model: qwen2.5:7b
+Data Split: validation (Full)
+Subjects: ['high_school_mathematics', 'high_school_world_history', 'high_school_physics', 'professional_law', 'business_ethics']
+
+Prompt #1 Accuracy: 32.41% (82/253)
+Prompt: Outline the detailed process for solving the equation, ensuring clarity and precision in each step....
+------------------------------
+Prompt #2 Accuracy: 32.81% (83/253)
+Prompt: Break down the marketing strategy into its key components and analyze each part thoroughly to justif...
+------------------------------
+Prompt #3 Accuracy: 30.43% (77/253)
+Prompt: Define the scope of the project clearly and identify specific actions needed to achieve a clear outc...
+------------------------------
+Prompt #4 Accuracy: 32.41% (82/253)
+Prompt: Apply systematic verification methods to ensure logical progression towards the answer with comprehe...
+------------------------------
+Prompt #5 Accuracy: 32.41% (82/253)
+Prompt: Identify core issues within the dataset and use structured reasoning to derive actionable steps for ...
+------------------------------
+Prompt #6 Accuracy: 15.42% (39/253)
+Prompt: Provide a step-by-step reasoning process that leads to a definitive conclusion, supported by thoroug...
+------------------------------
+Prompt #7 Accuracy: 0.00% (0/253)
+Prompt: Justify each step in your decision-making process with detailed explanations based on context-based ...
+------------------------------
+Prompt #8 Accuracy: 0.00% (0/253)
+Prompt: Conduct a comprehensive analysis of the financial report, synthesizing findings into clear conclusio...
+------------------------------

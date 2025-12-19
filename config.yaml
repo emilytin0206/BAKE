@@ -58,14 +58,15 @@ datasets:
 - name: "mmlu"
     # [關鍵] 改成 list，指定具代表性的不同領域
   subsets: 
-      - "high_school_mathematics"  # 數學
-      - "high_school_world_history"      # 歷史 (文科)
-      - "high_school_physics"      # 物理 (理科)
-      - "professional_law"         # 法律 (邏輯與條文)
-      - "business_ethics"      # 商業 (常識判斷)
+      - "all"  # 化學
+      # - "high_school_mathematics"  # 數學
+      # - "high_school_world_history"      # 歷史 (文科)
+      # - "high_school_physics"      # 物理 (理科)
+      # - "professional_law"         # 法律 (邏輯與條文)
+      # - "business_ethics"      # 商業 (常識判斷)
   split: "test"
   offset: 0
-  limit: 2                 # MMLU 取 10 題
+  limit: 100                # [修改] 設為 -1 代表讀取該學科的所有題目 (無限制)
 
 execution:
   concurrency: 5

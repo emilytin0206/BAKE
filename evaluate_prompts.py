@@ -14,10 +14,10 @@ from tqdm import tqdm
 CONF_API_URL = "http://140.113.86.14:11434/api/chat"
 CONF_MODEL_NAME = "qwen2.5:14b"
 CONF_TEMPERATURE = 0.0
-CONF_DEFAULT_LIMIT = -1  # [修正] 預設為 -1，代表跑全部資料
+CONF_DEFAULT_LIMIT = 300 #[修正] 預設為 -1，代表跑全部資料
 CONF_DEFAULT_SPLIT = "validation"
 
-CONF_DEFAULT_SUBJECTS = [
+CONF_DEFAULT_SUBJECTS = [         
     "high_school_mathematics",
     "high_school_world_history",
     "high_school_physics",

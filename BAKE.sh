@@ -8,8 +8,8 @@
 # 格式：Scorer | Optimizer | Limit | EnableIterative | IterCount(新參數)
 EXPERIMENTS=(
     
-    "qwen2.5:7b|qwen2.5:32b|300|true|5"
-    "qwen2.5:7b|qwen2.5:32b|300|false|5"
+    "qwen2.5:7b|qwen2.5:32b|100|true|5"
+    "qwen2.5:7b|qwen2.5:32b|100|false|5"
 
 )
 

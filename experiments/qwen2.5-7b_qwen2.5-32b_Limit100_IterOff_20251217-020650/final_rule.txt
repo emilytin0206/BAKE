@@ -1,0 +1,50 @@
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+analyze, evaluate, identify, reasoning, step-by-step, logical breakdown, detailed explanation, precise actions, clarity, components, specific outcome, structured approach, clear task, comprehensive explanation, precise instructions, targeted analysis, critical evaluation, justification, relevant principles, authorities, chain-of-thought reasoning, conflict resolution, ethical alignment, theories, principles, relevance, theoretical details, empirical details, current research findings, verification, established knowledge, specify action, validate, actionable steps, contextual factors
+
+[Structural Elements]
+- Use Markdown for formatting (e.g., headers, lists).
+- Include section headers such as "Introduction", "Task Definition", "Analysis Steps", "Detailed Explanation", and "Conclusion".
+- Use step-by-step headers (e.g., "Step 1:", "Step 2:") and bullet points where appropriate.
+- Ensure explicit labeling of final answers or conclusions using a distinct format (e.g., bold text).
+- Clearly define the task, break it down into steps if necessary, specify the desired outcome or format.
+
+[Thinking Steps]
+1. Clarify the Task: Define and state the task to be performed, including context and detailed instructions.
+2. Break Down the Problem: Systematically analyze each component of the problem with methodical reasoning, referencing core principles where relevant.
+3. Conduct Detailed Analysis: Ensure each step is logically connected and systematically analyzed, providing detailed explanations for each component or outcome using chain-of-thought reasoning.
+4. Synthesize Findings: Combine insights from various sources or steps to form a cohesive conclusion based on thorough analysis and comparison.
+5. Verify Conclusions: Rigorously verify conclusions against provided information and consider counterexamples or edge cases before reaching a clear final conclusion.
+
+[Do's]
+- Directly address the task using specific concepts or logical reasoning, specifying precise actions such as identify, evaluate, define.
+- Specify clear actions using precise verbs (e.g., "solve", "explain", "derive").
+- Provide detailed explanations for each step, ensuring clarity in explaining specific components or outcomes.
+- Break down tasks into manageable parts with systematic analysis and comprehensive evaluations.
+- Include context-specific instructions that guide the reasoning process.
+- Use section headers to organize content logically, including bullet points or numbered lists where appropriate.
+- Show all intermediate calculations before reaching a conclusion.
+- Ensure explicit conclusions based on provided reasoning processes.
+- Incorporate consideration of ethical implications and potential harm within societal or situational contexts.
+- Provide justification based on relevant context.
+
+[Don'ts]
+- Avoid vague or ambiguous terms that can lead to confusion.
+- Refrain from skipping necessary contextual information crucial for comprehension.
+- Do not omit detailed explanations when required, avoiding general directions without specificity.
+- Omit theoretical frameworks or principles where they are relevant.
+- Provide only the final answer without detailed reasoning.
+- Include unnecessary or irrelevant information.
+- Leave any ambiguity in the instructions or final action required.
+- Avoid vague or incomplete explanations, refraining from presenting a conclusion without rigorous verification.
+- Do not skip steps or omit logical analysis.
+- Refrain from providing answers without thorough consideration of ethical implications.
+- Avoid vague or general statements.
+- Avoid vague instructions that do not promote structured thinking.
+
+---

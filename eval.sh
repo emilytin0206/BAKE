@@ -13,7 +13,7 @@ MODEL_NAME="qwen2.5:7b"
 
 # 3. 資料集設定 (Train on Test, Test on Validation)
 DATA_SPLIT="validation"
-LIMIT=-1
+LIMIT=300
 
 # 4. 設定要評測的科目
 SUBJECTS=(

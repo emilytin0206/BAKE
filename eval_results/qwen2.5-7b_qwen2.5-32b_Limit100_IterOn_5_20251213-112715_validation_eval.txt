@@ -1,0 +1,29 @@
+Evaluation Report
+Model: qwen2.5:7b
+Data Split: validation (Full)
+Subjects: ['high_school_mathematics', 'high_school_world_history', 'high_school_physics', 'professional_law', 'business_ethics']
+
+Prompt #1 Accuracy: 36.36% (92/253)
+Prompt: Identify the core issue in contract disputes and systematically break down contributing factors for ...
+------------------------------
+Prompt #2 Accuracy: 29.64% (75/253)
+Prompt: Synthesize relevant legal principles and empirical data to justify your conclusion regarding patent ...
+------------------------------
+Prompt #3 Accuracy: 33.60% (85/253)
+Prompt: Conduct a thorough examination of market trends using industry research and case studies to propose ...
+------------------------------
+Prompt #4 Accuracy: 28.06% (71/253)
+Prompt: Break down the fundamental components of the tax code affecting small businesses, then derive precis...
+------------------------------
+Prompt #5 Accuracy: 34.78% (88/253)
+Prompt: Provide clear logical connections between financial statements and performance indicators, ensuring ...
+------------------------------
+Prompt #6 Accuracy: 33.99% (86/253)
+Prompt: Justify your recommendations for a new policy using relevant constitutional clauses and detailed rat...
+------------------------------
+Prompt #7 Accuracy: 37.55% (95/253)
+Prompt: Streamline the process for determining liability in traffic accidents by systematically analyzing co...
+------------------------------
+Prompt #8 Accuracy: 34.39% (87/253)
+Prompt: Propose solutions for improving cybersecurity measures based on a thorough analysis of recent breach...
+------------------------------

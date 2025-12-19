@@ -1,4 +1,4 @@
-from datasets import load_dataset
+from datasets import load_dataset, get_dataset_config_names
 
 def format_mmlu_question(question, choices):
     options = ["A", "B", "C", "D"]
@@ -20,7 +20,11 @@ def load_mixed_datasets(datasets_config):
         if name == "gsm8k":
             print(f"[DataLoader] Loading GSM8K (limit={limit})...")
             ds = load_dataset("gsm8k", "main", split=split)
-            selected = list(ds)[offset : offset + limit]
+            if limit > 0:
+                selected = list(ds)[offset : offset + limit]
+            else:
+                selected = list(ds)[offset:]
+                
             for item in selected:
                 mixed_data.append({
                     "question": item["question"],
@@ -30,24 +34,40 @@ def load_mixed_datasets(datasets_config):
                 })
 
         elif name == "mmlu":
-            # [關鍵修改] 讀取 subsets 列表
             target_subsets = cfg.get('subsets', [])
             
-            # 如果使用者只填了單個 string (相容舊設定)，轉成 list
             if isinstance(target_subsets, str):
                 target_subsets = [target_subsets]
                 
-            # 如果沒填，給一個預設值
+            # [新增功能] 如果設定為 "all"，自動抓取所有 MMLU 子集名稱
+            if "all" in target_subsets:
+                print("[DataLoader] Detected 'all' in subsets. Fetching all MMLU configs...")
+                try:
+                    all_configs = get_dataset_config_names("cais/mmlu")
+                    # 過濾掉 'all' (總集) 和 'auxiliary_train' (輔助訓練集)，只保留各個學科
+                    target_subsets = [c for c in all_configs if c not in ["all", "auxiliary_train"]]
+                except Exception as e:
+                    print(f"  [Error] Failed to fetch MMLU configs: {e}")
+                    target_subsets = ["high_school_mathematics"] # Fallback
+
             if not target_subsets:
                 target_subsets = ["high_school_mathematics"]
 
-            print(f"[DataLoader] Loading MMLU subsets: {target_subsets} (limit per subset={limit})...")
+            print(f"[DataLoader] Loading MMLU subsets (Total: {len(target_subsets)})...")
+            if limit <= 0:
+                print(f"  ↳ Limit set to {limit}, loading ALL data per subset.")
+            else:
+                print(f"  ↳ Limit set to {limit} per subset.")
 
             for sub in target_subsets:
                 try:
-                    # 載入特定子集
                     ds = load_dataset("cais/mmlu", sub, split=split)
-                    selected = list(ds)[offset : offset + limit]
+                    
+                    # [關鍵修改] 判斷是否讀取全部資料
+                    if limit > 0:
+                        selected = list(ds)[offset : offset + limit]
+                    else:
+                        selected = list(ds)[offset:] # 讀取全部
                     
                     options_map = ["A", "B", "C", "D"]
                     for item in selected:
@@ -58,7 +78,7 @@ def load_mixed_datasets(datasets_config):
                             "question": q_text,
                             "answer": a_text,
                             "type": "multiple_choice",
-                            "source": f"mmlu_{sub}" # 標記來源，讓 Log 更清楚
+                            "source": f"mmlu_{sub}"
                         })
                 except Exception as e:
                     print(f"  [Warn] Failed to load MMLU subset '{sub}': {e}")

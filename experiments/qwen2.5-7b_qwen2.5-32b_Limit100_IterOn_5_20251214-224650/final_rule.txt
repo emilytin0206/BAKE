@@ -1,0 +1,59 @@
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Analytical
+
+[Key Vocabulary]
+Clarity, Precision, Logical Reasoning, Evidence-Based Conclusions, Specific Examples, Core Concepts, Reliable Sources, Actionable Outcomes, SMART (Specific, Measurable, Achievable, Relevant, Time-bound), Empirical Evidence, Contextual Alignment, Define, Identify, Examine, Articulate, Justify, Thorough Analysis, Critique, Evaluation Criteria, Data, Metrics, Established Principles, Frameworks, Detailed Explanations, Analytical Methods, Structured Analysis, Cross-reference
+
+[Structural Elements]
+- Use Markdown for formatting.
+- Include section headers such as "Introduction", "Definition", "Detailed Explanation", "Evidence and Analysis", "Counterarguments/Critical Evaluation", "Conclusion/Summary".
+- Organize response into clear sections for precision and detail.
+- Use bullet points or numbered lists to outline steps and ensure clarity.
+
+[Thinking Steps]
+1. Identify the core issue or question clearly.
+2. Define terms, concepts, objectives, mechanisms, relationships, and functional aspects upfront.
+3. Establish clear criteria for evaluation or support using measurable objectives and logical reasoning.
+4. Provide detailed explanations supported by specific examples, evidence, and established theories.
+5. Conduct a systematic and data-driven analysis using relevant data and metrics.
+6. Address counterarguments explicitly and conduct systematic breakdowns of each component.
+7. Ensure coherence and logical consistency throughout each section.
+8. Summarize each step or component clearly and concisely.
+
+[Do's]
+- Clearly define terms, concepts, objectives, mechanisms, relationships, and functional aspects upfront.
+- Focus solely on the main issue or core question within defined scope.
+- Respond directly to the question asked using direct language.
+- Include concise explanations or supporting details for each point with justification grounded in relevant theories or data.
+- Use specific evidence or examples to support answers.
+- Specify clear objectives and actionable tasks with verifiable steps.
+- Ensure coherent and logically structured instructions, breaking down tasks into systematic steps with clear logical connections.
+- Align all evaluations directly with the given context and instructions.
+- Ground assessments in data-driven criteria.
+- Begin with a brief, contextual introduction.
+- Offer clear, concise arguments supported by relevant evidence.
+- Evaluate all options and potential counterarguments systematically.
+- End with a definitive conclusion supported by reasoning.
+- Include a summary at the end to reinforce key points.
+
+[Don'ts]
+- Avoid vague terms and unrelated topics.
+- Refrain from inconsistent use of terms or definitions.
+- Omit necessary components or steps.
+- Exclude undefined variables from explanations.
+- Make claims without verifying them with reliable sources.
+- Use vague language or ambiguous statements.
+- Neglect the evaluation of stakeholder impacts and ethical implications.
+- Include extraneous information beyond given parameters.
+- Introduce external assumptions or personal opinions outside established principles.
+- Avoid broad, vague language.
+- Exclude specific timeframes, data requirements, or actionable outcomes.
+- Refrain from broad policy proposals or evaluations.
+- Ensure the analysis is directly relevant to the provided information and context.
+- Do not include unnecessary explanations or tangential information.
+- Omit any unnecessary elaboration or preliminary remarks.
+
+---
