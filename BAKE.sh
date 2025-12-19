@@ -1,77 +1,98 @@
 #!/bin/bash
+# ==========================================
+# 🧪 BAKE Experiment Runner (Auto-Naming v2)
+# ==========================================
+
+# 1. 參數設定 (Settings)
+# ------------------------------------------
+TASK="mmlu"                       # "mmlu" 或 "gsm8k"
+SUBSETS="high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics" 
+                                  # 若為 "all" 代表全部，否則用逗號分隔
+SPLIT="test"
+LIMIT=100                         # -1 代表全部
+ITERATIVE="true"                  # "true" 開啟迭代, "false" 關閉
+ITER_COUNT=5                      # 迭代產生的 Prompt 數量
+
+# 模型設定 (注意: 腳本會自動將冒號 ':' 轉為 '-')
+EVAL_MODEL="qwen2.5:7b"
+OPT_MODEL="qwen2.5:32b"
 
 # ==========================================
-# BAKE 實驗自動化腳本 (v3: 含 Iterative Count 標記)
+# 🧠 Auto-Naming Logic (Strict Format)
+# ==========================================
+# 格式: <target_model>_<opt_model>_<dataset>_<subset>_<limit>_<iter>_<iter_count>_<date>
+
+# 1. 處理模型名稱 (移除冒號)
+T_MODEL_SAFE=${EVAL_MODEL//:/-}
+O_MODEL_SAFE=${OPT_MODEL//:/-}
+
+# 2. 處理 Dataset 與 Subset
+if [ "$TASK" == "mmlu" ]; then
+    DS_LABEL="MMLU"
+    if [ "$SUBSETS" == "all" ]; then
+        SUB_LABEL="All"
+    else
+        # 計算逗號分隔的子集數量
+        IFS=',' read -ra ADDR <<< "$SUBSETS"
+        COUNT=${#ADDR[@]}
+        SUB_LABEL="${COUNT}Sub"
+    fi
+else
+    DS_LABEL="${TASK^^}"  # 轉大寫 (GSM8K)
+    SUB_LABEL="NA"        # GSM8K 沒有 subset
+fi
+
+# 3. 處理 Limit
+LIM_LABEL="Lim${LIMIT}"
+
+# 4. 處理 Iter 與 Count
+if [ "$ITERATIVE" == "true" ]; then
+    MODE_LABEL="Iter"
+    COUNT_LABEL="${ITER_COUNT}"
+else
+    MODE_LABEL="Base"
+    COUNT_LABEL="0"
+fi
+
+# 5. 取得時間
+DATE_LABEL=$(date +"%Y%m%d-%H%M%S")
+
+# 6. 組合最終名稱
+EXP_NAME="${T_MODEL_SAFE}_${O_MODEL_SAFE}_${DS_LABEL}_${SUB_LABEL}_${LIM_LABEL}_${MODE_LABEL}_${COUNT_LABEL}_${DATE_LABEL}"
+OUTPUT_DIR="experiments/${EXP_NAME}"
+
+# ==========================================
+# 🚀 Execution
 # ==========================================
 
-# 1. 定義實驗參數陣列
-# 格式：Scorer | Optimizer | Limit | EnableIterative | IterCount(新參數)
-EXPERIMENTS=(
-    
-    "qwen2.5:7b|qwen2.5:32b|100|true|5"
-    "qwen2.5:7b|qwen2.5:32b|100|false|5"
-
-)
-
-# 基礎輸出目錄
-BASE_DIR="experiments"
-mkdir -p "$BASE_DIR"
-
 echo "========================================"
-echo "🚀 Starting Batch Experiments"
-echo "Queue size: ${#EXPERIMENTS[@]}"
+echo "🔥 Starting Experiment"
+echo "📂 Output Dir: $OUTPUT_DIR"
+echo "----------------------------------------"
+echo "📊 Format Check: <target>_<opt>_<dataset>_<subset>_<limit>_<iter>_<iter_count>_<date>"
+echo "👉 Generated:    $EXP_NAME"
 echo "========================================"
 
-count=1
-total=${#EXPERIMENTS[@]}
+# 建構指令
+CMD="python main.py --output_dir $OUTPUT_DIR --task $TASK --limit $LIMIT --split $SPLIT"
 
-for exp in "${EXPERIMENTS[@]}"; do
-    # [修改] 讀取第 5 個參數 ITER_COUNT
-    IFS='|' read -r SCORER OPTIMIZER LIMIT ITERATIVE ITER_COUNT <<< "$exp"
-    
-    SAFE_SCORER=$(echo "$SCORER" | tr ':' '-')
-    SAFE_OPT=$(echo "$OPTIMIZER" | tr ':' '-')
-    TIMESTAMP=$(date +"%Y%m%d-%H%M%S")
-    
-    # [修改] 檔名與參數邏輯
-    if [ "$ITERATIVE" = "true" ]; then
-        # 檔名加上數量，例如: IterOn_5
-        MODE_STR="IterOn_${ITER_COUNT}"
-        # 傳遞參數給 main.py
-        ITERATIVE_FLAG="--iterative --iterative_prompt_count $ITER_COUNT"
-    else
-        MODE_STR="IterOff"
-        ITERATIVE_FLAG=""
-    fi
-    
-    DIR_NAME="${SAFE_SCORER}_${SAFE_OPT}_Limit${LIMIT}_${MODE_STR}_${TIMESTAMP}"
-    OUTPUT_PATH="$BASE_DIR/$DIR_NAME"
-    
-    echo ""
-    echo "[${count}/${total}] Running Experiment: $DIR_NAME"
-    echo "   🔹 Scorer: $SCORER"
-    echo "   🔹 Optimizer: $OPTIMIZER"
-    echo "   🔹 Limit: $LIMIT"
-    echo "   🔹 Mode: $MODE_STR (Count: $ITER_COUNT)"
-    echo "   📂 Saving to: $OUTPUT_PATH"
-    
-    # 執行 Python
-    python3 main.py \
-        --scorer_model "$SCORER" \
-        --optimizer_model "$OPTIMIZER" \
-        --dataset_limit "$LIMIT" \
-        --output_dir "$OUTPUT_PATH" \
-        $ITERATIVE_FLAG
-        
-    if [ $? -eq 0 ]; then
-        echo "✅ Experiment ${count} Completed Successfully."
-    else
-        echo "❌ Experiment ${count} Failed."
-    fi
-    
-    ((count++))
-    sleep 2
-done
+if [ "$TASK" == "mmlu" ]; then
+    CMD="$CMD --subsets $SUBSETS"
+fi
 
-echo ""
-echo "🎉 All experiments finished!"
+if [ ! -z "$EVAL_MODEL" ]; then
+    CMD="$CMD --eval_model $EVAL_MODEL"
+fi
+
+if [ ! -z "$OPT_MODEL" ]; then
+    CMD="$CMD --opt_model $OPT_MODEL"
+fi
+
+if [ "$ITERATIVE" == "true" ]; then
+    CMD="$CMD --iterative --iterative_count $ITER_COUNT"
+fi
+
+# 執行
+$CMD
+
+echo "✅ Done! Results saved in $OUTPUT_DIR"
