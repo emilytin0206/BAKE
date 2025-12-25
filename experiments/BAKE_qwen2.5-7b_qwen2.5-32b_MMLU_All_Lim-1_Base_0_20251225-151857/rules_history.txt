@@ -39,3 +39,37 @@ Use clear headings and subheadings to organize steps and evaluations.
 - Refrain from rushing to conclusions without thorough analysis.
 
 ---
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+precise, actionable, clear directives, thoroughly examine, logical breakdown, final answer
+
+[Structural Elements]
+Use Markdown for formatting if applicable; include section headers for clarity.
+
+[Thinking Steps]
+1. Specify precise actions or calculations needed.
+2. Clarify the goal or expected outcome.
+3. Break down the problem into manageable steps.
+4. Examine all options thoroughly.
+5. Reach and state a final answer after analysis or explanation.
+
+[Do's]
+- Include clear directives for thorough examination of all options.
+- Ensure instructions are actionable and directed towards solving the problem effectively.
+- Specify precise actions, calculations, and logical breakdowns.
+- Conclude with a final answer.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not skip steps in the logical breakdown process.
+- Ensure that there is no ambiguity about what the expected outcome is.
+- Do not omit stating the final answer after analysis or explanation.
+
+---

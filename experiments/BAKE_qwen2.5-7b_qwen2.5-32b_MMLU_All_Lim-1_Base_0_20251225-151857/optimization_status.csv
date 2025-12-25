@@ -16,3 +16,8 @@ id,source,status,initial_wrong,verified_success,note
 14,mmlu_abstract_algebra,Success,5,3,
 15,mmlu_abstract_algebra,Skipped (All Correct),0,0,
 16,mmlu_abstract_algebra,Success,2,2,
+17,mmlu_abstract_algebra,Failed (Verification),1,0,All candidates failed
+18,mmlu_abstract_algebra,Skipped (All Correct),0,0,
+19,mmlu_abstract_algebra,Skipped (All Correct),0,0,
+20,mmlu_abstract_algebra,Success,2,2,
+21,mmlu_abstract_algebra,Skipped (All Correct),0,0,
