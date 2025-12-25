@@ -6,10 +6,11 @@
 # 1. 參數設定 (Settings)
 # ------------------------------------------
 TASK="mmlu"                       # "mmlu" 或 "gsm8k"
-SUBSETS="high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics" 
+SUBSETS="all"
+# SUBSETS="high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics" 
                                   # 若為 "all" 代表全部，否則用逗號分隔
 SPLIT="test"
-LIMIT=100                         # -1 代表全部
+LIMIT=-1                         # -1 代表全部
 ITERATIVE="true"                  # "true" 開啟迭代, "false" 關閉
 ITER_COUNT=5                      # 迭代產生的 Prompt 數量
 
