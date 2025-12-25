@@ -1,0 +1,57 @@
+bake:
+  group_size: 3
+  iterative: false
+  iterative_prompt_count: 5
+  max_output_prompts: 8
+dataset:
+  active_task: mmlu
+  gsm8k:
+    limit: 10
+    offset: 0
+    split: train
+  mmlu:
+    limit: -1
+    offset: 0
+    split: test
+    subsets:
+    - all
+evaluation:
+  api_key: ollama
+  base_url: http://localhost:11434/v1
+  max_tokens: 1024
+  model_name: qwen2.5:7b
+  pricing:
+    input_price: 0.0
+    output_price: 0.0
+  provider: ollama
+  temperature: 0.0
+execution:
+  concurrency: 5
+  max_retries: 3
+  retry_delay: 1.0
+initial_prompts:
+- Let's think step by step.
+- Think about this logically.
+- Solve this problem by breaking it down into smaller parts.
+- Take a deep breath and work on this problem step-by-step.
+- Please provide a detailed explanation followed by the final answer.
+optimizer:
+  api_key: ollama
+  base_url: http://localhost:11434/v1
+  max_tokens: 2048
+  model_name: qwen2.5:32b
+  pricing:
+    input_price: 2.5
+    output_price: 10.0
+  provider: ollama
+  temperature: 0.7
+paths:
+  cost_log: logs/cost_report.csv
+  detailed_log: logs/detailed_results.jsonl
+  meta_prompt_dir: meta_prompt
+  opt_status: logs/optimization_status.csv
+  output_file: optimized_prompts.txt
+  prompt_history: logs/prompt_history.jsonl
+  rule_evolution: logs/rule_evolution.jsonl
+  rules_log: logs/rules_history.txt
+  trace_log: logs/refinement_trace.jsonl

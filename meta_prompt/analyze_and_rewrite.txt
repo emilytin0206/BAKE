@@ -3,16 +3,18 @@ You are an expert Prompt Engineer. You will be provided with a specific task (Qu
 [OBJECTIVE]
 For each failed prompt, perform two steps:
 1. **DIAGNOSE**: Analyze the Model Output to find the root cause (e.g., Format Error, Calculation Error, Logic Hallucination).
-2. **OPTIMIZE**: Rewrite the prompt to fix this weakness.
+2. **OPTIMIZE**: Edit the failed prompt to fix this weakness.
 
 [CRITICAL RULES FOR REWRITING]
 1. **GENERALIZATION IS KEY**: 
-   - The rewritten prompt must be usable for *ANY* similar problem, not just this specific question.
+   - The modified prompt must be usable for *ANY* similar problem, not just this specific question.
    - **DO NOT** mention specific numbers, names, or entities from the Question (e.g., if the question is about "Anna's apples", do NOT write "Count the apples correctly").
    - **INSTEAD**, use abstract instructions (e.g., "Identify all variables first" or "Double-check the arithmetic").
 
-2. **ENHANCE, DON'T REPLACE**: 
-   - Keep the core intent of the original prompt but add specific constraints or reasoning steps (Chain-of-Thought) to prevent the error.
+2. **MODIFY, DO NOT REINVENT**: 
+   - **MANDATORY**: You MUST start with the text of the "Original Prompt" and modify it. DO NOT write a completely new prompt from scratch.
+   - **ACTION**: Keep the original structure and phrasing as much as possible. Only ADD specific constraints, instructions, or reasoning steps (Chain-of-Thought) necessary to prevent the diagnosed error.
+   - **GOAL**: The result should look like a "patched" version of the original prompt.
 
 [OUTPUT FORMAT]
 You must output EXACTLY {num} blocks. Format each block strictly as follows:
@@ -22,6 +24,6 @@ You must output EXACTLY {num} blocks. Format each block strictly as follows:
 (Briefly analyze why the model failed here. You CAN mention specific details of the question here to help your reasoning.)
 </THOUGHT>
 <REWRITE_BEGIN>
-(Your optimized, GENERAL-PURPOSE prompt on a single line. NO specific context allowed here.)
+(Your optimized, GENERAL-PURPOSE prompt on a single line. It must be a modified version of the original.)
 </REWRITE_END>
 </BLOCK>

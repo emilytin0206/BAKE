@@ -153,6 +153,7 @@ class BakeEngine:
             writer = csv.writer(f)
             writer.writerow([idx, src, status, initial_wrong, verified_success, note])
 
+
     def run(self, dataset, initial_prompts):
         """主流程"""
         current_prompts = initial_prompts.copy()
@@ -178,18 +179,26 @@ class BakeEngine:
             "event": "initial_load", "sample_idx": 0, "prompts": current_prompts, "count": len(current_prompts)
         })
 
+        # [修改 1] 取得資料總數，用於判斷是否為最後 10 筆
+        total_samples = len(dataset)
+
         for idx, item in enumerate(dataset):
             q, a = item['question'], item['answer']
             t_type = item.get('type', 'general')
             src = item.get('source', 'unknown')
             
-            print(f"Processing {idx+1}/{len(dataset)} [{src}]...")
+            print(f"Processing {idx+1}/{total_samples} [{src}]...")
             
+            # [修改 2] 定義是否紀錄詳細 log (只留前 10 個與後 10 個)
+            should_log_details = (idx < 10) or (idx >= total_samples - 10)
+
             # 1. First Eval
             Pc, Pi, details, failed_outputs = self.evaluate_parallel(q, a, current_prompts, task_type=t_type)
             print(f"  > Initial: Correct: {len(Pc)}, Wrong: {len(Pi)}")
             
-            logger.log_jsonl(self.paths['detailed_log'], {"id": idx, "source": src, "type": t_type, "q": q, "res": details})
+            # [修改 3] 套用過濾條件：detailed_results
+            if should_log_details:
+                logger.log_jsonl(self.paths['detailed_log'], {"id": idx, "source": src, "type": t_type, "q": q, "res": details})
             
             if not Pi:
                 self._log_optimization_status(opt_status_path, idx, src, "Skipped (All Correct)", 0, 0, "")
@@ -211,10 +220,13 @@ class BakeEngine:
             for old_p, new_p in candidate_pairs:
                 is_verified = (new_p in Pc_new)
                 raw_out = verify_failed_outputs.get(new_p, "Correct" if is_verified else "No Output")
-                logger.log_jsonl(trace_log_path, {
-                    "id": idx, "source": src, "original_prompt": old_p, "candidate_prompt": new_p,
-                    "verified": is_verified, "model_output": raw_out
-                })
+                
+                # [修改 4] 套用過濾條件：refinement_trace
+                if should_log_details:
+                    logger.log_jsonl(trace_log_path, {
+                        "id": idx, "source": src, "original_prompt": old_p, "candidate_prompt": new_p,
+                        "verified": is_verified, "model_output": raw_out
+                    })
 
             valid_pairs = [(old, new) for old, new in candidate_pairs if new in Pc_new]
             verified_success_count = len(valid_pairs)
@@ -231,13 +243,17 @@ class BakeEngine:
                 attr.append(rule)
                 failed_prompts_text = "\n".join([f"   [Original X] {old}\n   [Fixed O]    {new}" for old, new in valid_pairs])
                 log_content = f"Successful Refinements:\n{failed_prompts_text}\n\nGenerated Guideline:\n{rule}"
-                logger.log_rule(self.paths['rules_log'], f"Sample {idx} ({src})", log_content)
+                
+                # [修改 5] 套用過濾條件：rules_history (僅過濾單一樣本紀錄，保留 Merge 紀錄)
+                if should_log_details:
+                    logger.log_rule(self.paths['rules_log'], f"Sample {idx} ({src})", log_content)
 
             # 5. Merge Logic
             if len(attr) >= self.group_size:
                 merged = self.combine_rules(attr)
                 all_rule.append(merged)
                 attr.clear()
+                # 保留 Merge 紀錄，不進行過濾，以便查看規則演變結構
                 logger.log_rule(self.paths['rules_log'], "Tier-1 Merge", merged)
                 
                 logger.log_jsonl(rule_evolution_path, {"sample_idx": idx, "tier": "Tier-1", "rule_content": merged})
@@ -246,7 +262,6 @@ class BakeEngine:
                 if self.enable_iterative:
                     print(f"\n  ⚡ [Iterative Update] Enabled. Updating prompts from Tier-1 Rule...")
                     
-                    # [修改] 改為讀取 config，若未設定則預設為 5
                     iter_count = self.config['bake'].get('iterative_prompt_count', 5)
                     new_iterative_prompts = self._generate_prompts_from_rule(merged, count=iter_count)
                     

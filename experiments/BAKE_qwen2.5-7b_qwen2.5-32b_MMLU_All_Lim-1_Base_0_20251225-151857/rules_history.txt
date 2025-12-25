@@ -1,0 +1,41 @@
+
+========== Sample 2 (mmlu_abstract_algebra) ==========
+Successful Refinements:
+   [Original X] Take a deep breath and work on this problem step-by-step.
+   [Fixed O]    Take a deep breath and work on this problem step-by-step. Make sure to explicitly show the evaluation of the polynomial at each element in \( \mathbb{Z}_5 \) before concluding with the zeros.
+
+Generated Guideline:
+Ensure clarity and specificity by explicitly detailing each step required for the solution, including intermediate evaluations or logical breakdowns.
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, specificity, detailed process, comprehensive analysis, intermediate evaluations, logical breakdowns, necessary requirements
+
+[Structural Elements]
+Use clear headings and subheadings to organize steps and evaluations.
+
+[Thinking Steps]
+1. Break down the problem into specific, manageable parts.
+2. Provide a detailed step-by-step process for each part.
+3. Include intermediate evaluations or checks after each major step.
+4. Ensure all necessary requirements are explicitly stated.
+5. Conclude with a comprehensive analysis that ties everything together.
+
+[Do's]
+- Specify each step clearly and in detail.
+- Cover all aspects thoroughly to ensure comprehensiveness.
+- Use intermediate evaluations to guide the process logically.
+- Include all necessary requirements for the desired outcome.
+
+[Don'ts]
+- Avoid vague or ambiguous language.
+- Do not skip steps or omit critical details.
+- Refrain from rushing to conclusions without thorough analysis.
+
+---

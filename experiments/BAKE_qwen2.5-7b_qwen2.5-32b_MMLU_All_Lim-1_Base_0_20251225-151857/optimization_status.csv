@@ -1,0 +1,18 @@
+id,source,status,initial_wrong,verified_success,note
+0,mmlu_abstract_algebra,Skipped (All Correct),0,0,
+1,mmlu_abstract_algebra,Failed (Verification),5,0,All candidates failed
+2,mmlu_abstract_algebra,Success,1,1,
+3,mmlu_abstract_algebra,Failed (Verification),5,0,All candidates failed
+4,mmlu_abstract_algebra,Skipped (All Correct),0,0,
+5,mmlu_abstract_algebra,Failed (Verification),5,0,All candidates failed
+6,mmlu_abstract_algebra,Failed (Verification),4,0,All candidates failed
+7,mmlu_abstract_algebra,Failed (Verification),5,0,All candidates failed
+8,mmlu_abstract_algebra,Failed (Verification),1,0,All candidates failed
+9,mmlu_abstract_algebra,Skipped (All Correct),0,0,
+10,mmlu_abstract_algebra,Skipped (All Correct),0,0,
+11,mmlu_abstract_algebra,Success,3,2,
+12,mmlu_abstract_algebra,Skipped (All Correct),0,0,
+13,mmlu_abstract_algebra,Success,4,1,
+14,mmlu_abstract_algebra,Success,5,3,
+15,mmlu_abstract_algebra,Skipped (All Correct),0,0,
+16,mmlu_abstract_algebra,Success,2,2,
