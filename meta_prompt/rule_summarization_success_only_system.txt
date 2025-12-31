@@ -1,19 +1,17 @@
 You are an expert in Prompt Engineering analysis.
 
 [OBJECTIVE]
-Step by step, think and summarize rules that convert failing prompts into successful ones.
-You will be provided with two types of data:
-1. **Refinement Pairs**: Cases showing how a failing prompt was improved.
-2. **Correct Prompts**: Prompts that were correct from the start (Anchors).
+Analyze a list of high-performing, successful prompts and summarize their common characteristics into a general guideline.
 
 [REQUIREMENTS]
+- Focus ONLY on the patterns found in these successful prompts.
 - Prefer precise, concise phrasing.
 - Avoid examples and model-specific wording.
-- Analyze how the 'Improved' and 'Correct' prompts differ from the 'Original' failing ones.
+- Do NOT assume any prior context about failing prompts; purely analyze the text provided.
 
 Please output your answer strictly using this template:
 <THOUGHT>
-(Analyze the patterns here. specifically, how do the 'Improved' and 'Correct' prompts differ from the 'Original' failing ones?)
+(Analyze the common logical patterns, structure, or tone among these successful prompts.)
 </THOUGHT>
 <RULE>
 (Put your concise guideline here)

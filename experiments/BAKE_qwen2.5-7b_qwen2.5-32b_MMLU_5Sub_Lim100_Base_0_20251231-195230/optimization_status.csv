@@ -1,2 +1,35 @@
 id,source,status,initial_wrong,verified_success,note
 0,mmlu_high_school_mathematics,Success,2,2,
+1,mmlu_high_school_mathematics,Failed (Verification),1,0,All candidates failed
+2,mmlu_high_school_mathematics,Success,3,3,
+3,mmlu_high_school_mathematics,Failed (Verification),3,0,All candidates failed
+4,mmlu_high_school_mathematics,Success,1,1,
+5,mmlu_high_school_mathematics,Failed (Verification),1,0,All candidates failed
+6,mmlu_high_school_mathematics,Success,3,2,
+7,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+8,mmlu_high_school_mathematics,Failed (Verification),5,0,All candidates failed
+9,mmlu_high_school_mathematics,Failed (Verification),5,0,All candidates failed
+10,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+11,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+12,mmlu_high_school_mathematics,Success,1,1,
+13,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+14,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+15,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+16,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+17,mmlu_high_school_mathematics,Success,2,1,
+18,mmlu_high_school_mathematics,Failed (Verification),1,0,All candidates failed
+19,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+20,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+21,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+22,mmlu_high_school_mathematics,Failed (Verification),3,0,All candidates failed
+23,mmlu_high_school_mathematics,Success,3,3,
+24,mmlu_high_school_mathematics,Success,4,4,
+25,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+26,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+27,mmlu_high_school_mathematics,Failed (Verification),1,0,All candidates failed
+28,mmlu_high_school_mathematics,Failed (Verification),1,0,All candidates failed
+29,mmlu_high_school_mathematics,Failed (Verification),5,0,All candidates failed
+30,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+31,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+32,mmlu_high_school_mathematics,Skipped (All Correct),0,0,
+33,mmlu_high_school_mathematics,Success,1,1,

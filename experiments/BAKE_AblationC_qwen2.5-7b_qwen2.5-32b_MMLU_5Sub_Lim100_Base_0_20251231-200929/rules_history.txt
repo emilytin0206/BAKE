@@ -1,0 +1,2206 @@
+
+========== Sample 2 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Think about this logically.
+   [Fixed O]    Think about this logically and make sure to check if every prime factor \( p \) of the number has \( p^2 \) as a factor, providing a detailed explanation for each option.
+   [Original X] Let's think step by step.
+   [Fixed O]    Let's think step by step, ensuring that for each option, you check if \( p^2 \) is a factor whenever \( p \) is a prime factor of the number, and provide a detailed explanation for each one.
+
+Generated Guideline:
+<THOUGHT>
+The successful prompts emphasize logical reasoning, step-by-step processes, and detailed explanations. They instruct to verify specific conditions (such as prime factors) methodically, ensuring thorough analysis.
+</THOUGHT>
+<RULE>
+Instruct logical, step-by-step analysis with detailed verification of specified conditions for each option.
+</RULE>
+
+========== Sample 3 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Let's think step by step.
+   [Fixed O]    Let's think step by step and ensure we complete all necessary calculations.
+
+Generated Guideline:
+<THOUGHT>
+The successful prompts emphasize logical thinking, step-by-step approaches, and calmness. They guide the user to methodically address an issue without rushing.
+</THOUGHT>
+<RULE>
+Guide users to approach tasks logically and systematically, promoting calmness and thoroughness.
+</RULE>
+
+========== Sample 4 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Please provide a detailed explanation followed by the final answer.
+   [Fixed O]    Please provide a detailed explanation followed by the final answer, ensuring you use the given points and properties of the function to calculate specific values.
+   [Original X] Solve this problem by breaking it down into smaller parts.
+   [Fixed O]    Solve this problem by breaking it down into smaller parts, including using the given points and properties of strict convexity to determine the range for \( f(1) \).
+
+Generated Guideline:
+<THOUGHT>
+The successful prompts consistently encourage logical reasoning, step-by-step analysis, and detailed explanations using provided information.
+</THOUGHT>
+<RULE>
+Encourage logical reasoning and step-by-step analysis with detailed use of given information.
+</RULE>
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+logical, step-by-step, thorough, verification, methodically, calmness, detailed explanations
+
+[Structural Elements]
+N/A (no specific formatting required)
+
+[Thinking Steps]
+1. Identify the problem or task.
+2. Break down the task into logical steps.
+3. Methodically address each step with thorough analysis and verification of conditions using given information.
+4. Provide detailed explanations for each step to ensure clarity.
+
+[Do's]
+- Emphasize logical reasoning and systematic approaches.
+- Ensure calmness and thoroughness in addressing issues.
+- Use provided information comprehensively to support detailed explanations.
+
+[Don'ts]
+- Avoid rushing through steps or skipping verification processes.
+- Do not omit important details that could affect the understanding of the process.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical, Methodical, Step-by-step, Decomposition, Thoroughness, Clarity
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists)
+
+[Thinking Steps]
+1. Identify the problem or task.
+2. Break down the problem into manageable components.
+3. Apply logical reasoning to each component.
+4. Evaluate thoroughly, considering all relevant scenarios or conditions.
+5. Present solutions or explanations clearly and systematically.
+
+[Do's]
+- Emphasize a step-by-step approach.
+- Ensure tasks are broken down methodically.
+- Focus on detailed reasoning and clarity in explanations.
+- Consider comprehensive coverage of all possible conditions or scenarios.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not skip steps; maintain thoroughness throughout the process.
+- Refrain from presenting solutions without clear logical reasoning.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+structured, step-by-step, logical sequence, comprehensive calculation, methodical thinking, desired outcome
+
+[Structural Elements]
+None specified
+
+[Thinking Steps]
+1. Identify the problem and break it down into manageable parts.
+2. Guide through each part with detailed explanations for calculations or reasoning.
+3. Ensure all necessary steps are completed comprehensively.
+4. Conclude with a specific output requirement if applicable.
+
+[Do's]
+- Use a step-by-step approach to guide problem-solving.
+- Provide clear instructions and logical sequences.
+- Encourage detailed explanations alongside final answers.
+- Specify the exact outcome required, such as determining an exact day of the week through division by 7.
+
+[Don'ts]
+- Avoid skipping steps or omitting necessary calculations.
+- Do not leave out explanations for each step in the process.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical, Step-by-step, Thorough, Verification, Methodical, Detailed Explanations, Clear, Clarity, Comprehensive
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists)
+
+[Thinking Steps]
+1. Identify the problem or task.
+2. Break down the task into logical steps or manageable components.
+3. Apply logical reasoning to each step or component with thorough analysis and verification of conditions using given information.
+4. Evaluate thoroughly, considering all relevant scenarios or conditions.
+5. Provide detailed explanations for each step to ensure clarity and comprehensiveness.
+6. Conclude with a specific output requirement if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic approaches.
+- Ensure calmness and thoroughness in addressing issues.
+- Use provided information comprehensively to support detailed explanations.
+- Focus on clear, methodical thinking and step-by-step guidance.
+- Consider comprehensive coverage of all possible conditions or scenarios.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning.
+- Avoid rushing through steps or omitting necessary calculations or explanations.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Structured, Step-by-step, Clear, Logical progression, Detailed breakdowns, Analytical procedures, Conclude, Select
+
+[Structural Elements]
+Use numbered steps for clarity and organization.
+
+[Thinking Steps]
+1. Begin with actionable initial steps.
+2. Proceed to detailed intermediate analysis or logical reasoning.
+3. Conclude by directing the selection of a final answer or solution from provided options.
+
+[Do's]
+- Encourage structured, step-by-step analysis leading to a clear conclusion.
+- Provide a sequential path for solving problems.
+- Emphasize logical reasoning and detailed explanations in each step.
+- Use direct and instructional language for guiding thinking or problem-solving processes.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not skip intermediate analytical steps.
+- Refrain from leaving the final selection open-ended without guidance.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, step-by-step, systematic thinking, thorough completion, clear sequence, detailed methodology, clarity
+
+[Structural Elements]
+Use Markdown for structured presentation; include section headers if necessary
+
+[Thinking Steps]
+1. Begin by understanding the problem or question thoroughly.
+2. Break down the solution into a clear sequence of steps.
+3. Apply logical reasoning at each step to ensure accuracy and completeness.
+4. Ensure detailed explanation and clarity in methodology for thorough comprehension.
+
+[Do's]
+- Guide users through problems with a structured, methodical approach
+- Emphasize a clear, step-by-step logical structure
+- Ensure systematic thinking without rushing towards conclusions
+- Provide detailed methodology and clarity at each stage
+
+[Don'ts]
+- Avoid skipping steps or rushing to conclusions
+- Do not sacrifice clarity for brevity
+- Refrain from complex explanations that lack detail
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, Step-by-step, Thorough, Verification, Methodical, Detailed Explanations, Clear, Clarity, Comprehensive, Structured, Analytical procedures, Conclude, Select, Systematic thinking
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers if necessary.
+
+[Thinking Steps]
+1. Identify the problem or task.
+2. Break down the solution into a clear sequence of steps or manageable components.
+3. Apply logical reasoning to each step with thorough analysis and verification using given information.
+4. Proceed to detailed intermediate analysis or logical reasoning for each component.
+5. Provide detailed explanations for each step to ensure clarity, comprehensiveness, and methodical thinking.
+6. Evaluate thoroughly, considering all relevant scenarios or conditions.
+7. Conclude by directing the selection of a final answer or solution from provided options if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic approaches.
+- Ensure calmness and thoroughness in addressing issues.
+- Use provided information comprehensively to support detailed explanations.
+- Focus on clear, methodical thinking and step-by-step guidance.
+- Encourage structured, step-by-step analysis leading to a clear conclusion.
+- Provide a sequential path for solving problems with direct and instructional language.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning.
+- Do not sacrifice clarity for brevity.
+- Avoid complex explanations that lack detail.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, systematic problem-solving, step-by-step processing, detailed explanations
+
+[Structural Elements]
+N/A
+
+[Thinking Steps]
+1. Break down tasks into manageable components.
+2. Follow a logical progression in thinking and explanation.
+3. Provide clear steps without giving explicit solutions.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving.
+- Guide towards breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step.
+
+[Don'ts]
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not skip any crucial steps in the explanation process.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, step-by-step, systematic approach, detailed explanation, task breakdown, verification, calculations, necessary reasoning
+
+[Structural Elements]
+N/A (No specific formatting requirements mentioned)
+
+[Thinking Steps]
+1. Break down tasks into manageable parts.
+2. Follow a logical sequence of steps for problem-solving.
+3. Ensure all necessary calculations or reasoning are completed.
+4. Verify the results.
+
+[Do's]
+- Emphasize logical thinking and detailed processing.
+- Encourage systematic and step-by-step completion of tasks.
+- Instruct thorough breakdowns of tasks and verification of results.
+
+[Don'ts]
+- Avoid presenting tasks without a clear, structured approach.
+- Do not skip necessary calculations or reasoning steps.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, step-by-step processing, detailed explanations, systematic problem-solving, task breakdown, verification, comprehensive analysis, clear conclusions, methodical thinking
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers if necessary.
+
+[Thinking Steps]
+1. Identify the problem or task.
+2. Break down the solution into a clear sequence of steps or manageable components.
+3. Follow a logical progression in thinking and explanation.
+4. Apply logical reasoning to each step with thorough analysis and verification using given information.
+5. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+6. Ensure all necessary calculations or reasoning are completed.
+7. Evaluate thoroughly, considering all relevant scenarios or conditions.
+8. Conclude by directing the selection of a final answer or solution from provided options if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches.
+- Guide towards breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Focus on clear, methodical thinking and structured analysis leading to a clear conclusion.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions or complex explanations that lack detail.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+logical, step-by-step, thorough, detailed, methodical
+
+[Structural Elements]
+N/A (No specific formatting requirements mentioned)
+
+[Thinking Steps]
+1. Break down problems into smaller parts.
+2. Address each part thoroughly and logically.
+3. Progress through steps sequentially to reach a conclusion.
+
+[Do's]
+- Emphasize logical thinking and detail in explanations.
+- Promote a methodical approach to problem-solving.
+- Ensure all parts of the task are completed before reaching a final answer.
+- Encourage thoroughness and precision in thought processes.
+
+[Don'ts]
+- Avoid rushing to conclusions without proper analysis.
+- Do not skip steps or overlook details in the process.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+logical, step-by-step, clarity, decomposition, systematic
+
+[Structural Elements]
+None specified
+
+[Thinking Steps]
+1. Break down the problem into smaller, manageable parts.
+2. Provide clear, methodical instructions for each step.
+3. Ensure that each step logically leads to the next.
+
+[Do's]
+- Guide through tasks with logical and clear instructions.
+- Encourage a systematic approach to problem-solving.
+- Decompose complex problems into simpler components for clarity.
+- Promote detailed processing in steps to reach an answer.
+
+[Don'ts]
+- Avoid vague or ambiguous directions.
+- Do not skip logical steps that are necessary for understanding.
+- Refrain from presenting the solution without methodical guidance.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, step-by-step processing, detailed explanations, systematic problem-solving, task breakdown, verification, comprehensive analysis, clear conclusions, methodical thinking, clarity, decomposition
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers if necessary.
+
+[Thinking Steps]
+1. Identify the problem or task.
+2. Break down the solution into a clear sequence of steps or manageable components.
+3. Follow a logical progression in thinking and explanation.
+4. Apply logical reasoning to each step with thorough analysis and verification using given information.
+5. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+6. Ensure all necessary calculations or reasoning are completed.
+7. Evaluate thoroughly, considering all relevant scenarios or conditions.
+8. Conclude by directing the selection of a final answer or solution from provided options if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches.
+- Guide towards breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Focus on clear, methodical thinking and structured analysis leading to a clear conclusion.
+- Promote thoroughness and precision in thought processes.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions or complex explanations that lack detail.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid rushing to conclusions without proper analysis.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+structured, step-by-step, logical thinking, thorough analysis, detailed explanations
+
+[Structural Elements]
+Use clear section headers for each step if necessary.
+
+[Thinking Steps]
+1. Divide the task into smaller parts.
+2. Analyze each part thoroughly.
+3. Provide a systematic, step-by-step approach to solve problems.
+4. Ensure detailed explanations are given for each step.
+
+[Do's]
+- Break down tasks into manageable segments.
+- Encourage logical thinking and methodical problem-solving.
+- Offer thorough analysis of each segment before moving on.
+- Focus on providing clear and detailed explanations.
+
+[Don'ts]
+- Avoid jumping to conclusions without analyzing each part thoroughly.
+- Do not skip steps or provide vague instructions.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, step-by-step, detailed analysis, problem decomposition
+
+[Structural Elements]
+N/A (no specific formatting mentioned)
+
+[Thinking Steps]
+1. Break down problems into smaller parts.
+2. Apply logical reasoning to each part.
+3. Conduct a thorough analysis of each component.
+4. Synthesize the findings for a well-considered conclusion.
+
+[Do's]
+- Encourage detailed thinking and systematic approaches.
+- Guide users through step-by-step processes.
+- Emphasize decomposition of problems into manageable parts.
+
+[Don'ts]
+- Avoid rushing to conclusions without proper analysis.
+- Do not skip steps in logical reasoning or problem breakdown.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, step-by-step processing, detailed explanations, systematic problem-solving, task breakdown, verification, comprehensive analysis, clear conclusions, methodical thinking, clarity, decomposition, thorough analysis
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers if necessary.
+
+[Thinking Steps]
+1. Identify the problem or task.
+2. Break down the solution into a clear sequence of steps or manageable components.
+3. Analyze each part thoroughly using logical reasoning.
+4. Follow a logical progression in thinking and explanation.
+5. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+6. Ensure all necessary calculations or reasoning are completed.
+7. Evaluate thoroughly, considering all relevant scenarios or conditions.
+8. Synthesize the findings for a well-considered conclusion.
+9. Conclude by directing the selection of a final answer or solution from provided options if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches.
+- Guide towards breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Focus on clear, methodical thinking and structured analysis leading to a clear conclusion.
+- Offer thorough analysis of each component before moving forward.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions or complex explanations that lack detail.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid rushing to conclusions without proper analysis.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Calm and methodical
+
+[Key Vocabulary]
+Logical, step-by-step, systematic, thorough, clear direction
+
+[Structural Elements]
+N/A
+
+[Thinking Steps]
+1. Break down the task or problem into manageable steps.
+2. Focus on logical reasoning at each step.
+3. Ensure clarity and precision in addressing specific aspects of the topic.
+
+[Do's]
+- Encourage a systematic approach to task completion.
+- Specify tasks clearly and direct attention to particular aspects within broader topics.
+- Promote thorough analysis without rushing to conclusions.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not skip steps in the logical progression.
+- Refrain from encouraging hasty conclusions.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Calm and Logical
+
+[Key Vocabulary]
+Logical, Step-by-Step, Detailed Instructions, Thorough Evaluation
+
+[Structural Elements]
+None specified
+
+[Thinking Steps]
+1. Break down the process into clear, logical steps.
+2. Provide detailed instructions for each step.
+3. Ensure thorough consideration of processes or problems.
+
+[Do's]
+- Guide users through a process with clear and detailed instructions.
+- Maintain a calm and logical tone throughout.
+- Demand detailed explanations or calculations to reach a comprehensive solution.
+- Emphasize thorough evaluation at every stage.
+
+[Don'ts]
+- Avoid vague or ambiguous language.
+- Do not skip steps in the analysis or evaluation process.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, step-by-step processing, detailed explanations, systematic problem-solving, task breakdown, verification, comprehensive analysis, clear conclusions, methodical thinking, clarity, decomposition, thorough analysis
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers if necessary.
+
+[Thinking Steps]
+1. Identify the problem or task.
+2. Break down the solution into a clear sequence of steps or manageable components.
+3. Analyze each part thoroughly using logical reasoning.
+4. Follow a logical progression in thinking and explanation.
+5. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+6. Ensure all necessary calculations or reasoning are completed.
+7. Evaluate thoroughly, considering all relevant scenarios or conditions.
+8. Synthesize the findings for a well-considered conclusion.
+9. Conclude by directing the selection of a final answer or solution from provided options if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches.
+- Guide towards breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Focus on clear, methodical thinking and structured analysis leading to a clear conclusion.
+- Promote thorough analysis and evaluation at every stage.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions or complex explanations that lack detail.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid rushing to conclusions without proper analysis.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Calm and Authoritative
+
+[Key Vocabulary]
+Analysis, Step-by-Step, Logical, Comprehensive, Detailed, Structured, Methodical
+
+[Structural Elements]
+Use Markdown for clarity; Section headers for organization
+
+[Thinking Steps]
+1. Break down the task or problem systematically.
+2. Provide a step-by-step derivation or explanation.
+3. Ensure thorough analysis and completeness in each step.
+
+[Do's]
+- Guide through systematic and detailed analysis.
+- Emphasize logical, methodical approaches.
+- Offer comprehensive explanations at each stage.
+- Maintain a calm and guiding tone throughout the process.
+
+[Don'ts]
+- Avoid rushing to conclusions without proper reasoning.
+- Do not omit critical details in any step of the process.
+- Refrain from vague or ambiguous instructions.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Detailed, structured, systematic, step-by-step, logical reasoning, key variables, emphasis on clarity
+
+[Structural Elements]
+NA (No specific formatting required)
+
+[Thinking Steps]
+1. Identify the core problem or issue.
+2. Break down the problem into manageable steps.
+3. Emphasize relevant key variables that are critical to the topic.
+4. Provide detailed explanations for each step.
+5. Guide towards a methodical and clear solution.
+
+[Do's]
+- Focus on structured approaches to problem-solving.
+- Encourage systematic, logical reasoning.
+- Ensure clarity and detail in all responses.
+- Highlight specific aspects (like particle size or surface area) critical to the topic.
+
+[Don'ts]
+- Avoid vague or general explanations.
+- Do not skip steps or omit key variables.
+- Refrain from overly complex or convoluted processes.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, step-by-step processing, detailed explanations, systematic problem-solving, task breakdown, verification, comprehensive analysis, clear conclusions, methodical thinking, clarity, decomposition, thorough analysis, structured, systematic, key variables, emphasis on clarity
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers if necessary.
+
+[Thinking Steps]
+1. Identify the core problem or issue.
+2. Break down the task or problem systematically into manageable steps.
+3. Analyze each part thoroughly using logical reasoning.
+4. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+5. Ensure all necessary calculations or reasoning are completed.
+6. Evaluate thoroughly, considering all relevant scenarios or conditions.
+7. Synthesize the findings for a well-considered conclusion.
+8. Conclude by directing the selection of a final answer or solution from provided options if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches.
+- Guide through systematic and detailed analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Focus on clear, methodical thinking and structured analysis leading to a clear conclusion.
+- Highlight specific aspects (like key variables) critical to the topic.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions or complex explanations that lack detail.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid rushing to conclusions without proper analysis.
+- Do not omit critical details in any step of the process.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical, Methodical, Step-by-Step, Detailed Explanations, Final Answer, Breakdown
+
+[Structural Elements]
+N/A
+
+[Thinking Steps]
+1. Begin with a logical and methodical approach.
+2. Break down the problem into smaller, manageable steps.
+3. Provide detailed explanations for each step if necessary.
+4. Conclude with a final answer.
+
+[Do's]
+- Guide towards logical and methodical thinking.
+- Require a clear final answer.
+- Encourage breaking problems down into smaller parts.
+- Optionally request detailed explanations for clarity.
+
+[Don'ts]
+- Avoid ambiguous or vague instructions.
+- Do not skip steps in the reasoning process.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+logical, step-by-step, methodical, intermediate calculations, detailed explanations, break down, problem-solving
+
+[Structural Elements]
+N/A
+
+[Thinking Steps]
+1. Break the problem into manageable parts.
+2. Provide a step-by-step approach to solving each part.
+3. Include all intermediate calculations.
+4. Offer detailed reasoning and explanations at each step.
+
+[Do's]
+- Emphasize a structured and methodical approach to problem-solving.
+- Highlight the importance of calculating intermediate values before reaching a final solution.
+- Encourage logical thinking and detailed explanations.
+- Guide users to break down problems into smaller, manageable parts.
+
+[Don'ts]
+- Avoid skipping steps or omitting intermediate calculations.
+- Do not provide vague or ambiguous instructions.
+- Refrain from complex explanations that do not facilitate clear understanding.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, step-by-step processing, detailed explanations, systematic problem-solving, task breakdown, verification, comprehensive analysis, clear conclusions, methodical thinking, clarity, decomposition, thorough analysis, structured, systematic, key variables, intermediate calculations, final answer
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers if necessary.
+
+[Thinking Steps]
+1. Identify the core problem or issue.
+2. Break down the task or problem systematically into manageable steps.
+3. Analyze each part thoroughly using logical reasoning.
+4. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+5. Ensure all necessary calculations or reasoning are completed.
+6. Evaluate thoroughly, considering all relevant scenarios or conditions.
+7. Synthesize the findings for a well-considered conclusion.
+8. Conclude with a final answer if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches.
+- Guide through systematic and detailed analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer.
+- Include all intermediate calculations.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions or complex explanations that lack detail.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid rushing to conclusions without proper analysis.
+- Do not omit critical details in any step of the process.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Directive
+
+[Key Vocabulary]
+Logical thinking, step-by-step, structured approach, clear progression, definitive conclusion
+
+[Structural Elements]
+Sequential steps leading to a concrete result
+
+[Thinking Steps]
+1. Identify or explain the initial context.
+2. Break down the problem into manageable parts.
+3. Use logical reasoning for each part.
+4. Guide through systematic steps towards a solution.
+5. Conclude with a clear and definitive answer.
+
+[Do's]
+- Ensure instructions are clear and methodical.
+- Promote step-by-step reasoning.
+- Emphasize a structured approach to problem-solving.
+- Provide a calm, systematic process.
+
+[Don'ts]
+- Avoid ambiguous or unclear steps.
+- Do not skip logical progression in the explanation.
+- Refrain from leaving outcomes undefined.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, step-by-step approach, detailed explanations, problem breakdown, systematic analysis, thorough evaluation
+
+[Structural Elements]
+Use a structured format with headers for clarity (e.g., Problem Breakdown, Step-by-Step Analysis)
+
+[Thinking Steps]
+1. Break down the problem into manageable parts.
+2. Provide a step-by-step analysis of each part.
+3. Ensure detailed explanations at every stage.
+4. Systematically evaluate and conclude based on thorough consideration.
+
+[Do's]
+- Emphasize logical reasoning and structured approach
+- Include detailed explanations for each step
+- Break problems into smaller, manageable sections
+- Focus on systematic analysis
+
+[Don'ts]
+- Avoid rushing to conclusions without detailed analysis
+- Do not skip steps in the explanation process
+- Refrain from providing immediate answers without thorough evaluation
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, step-by-step processing, detailed explanations, systematic problem-solving, task breakdown, verification, comprehensive analysis, clear conclusions, methodical thinking, clarity, decomposition, thorough analysis, structured approach, definitive conclusion, key variables, intermediate calculations, final answer
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers if necessary. Sequential steps leading to a concrete result.
+
+[Thinking Steps]
+1. Identify the core problem or issue.
+2. Break down the task or problem systematically into manageable steps.
+3. Analyze each part thoroughly using logical reasoning.
+4. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+5. Ensure all necessary calculations or reasoning are completed.
+6. Evaluate thoroughly, considering all relevant scenarios or conditions.
+7. Synthesize the findings for a well-considered conclusion.
+8. Conclude with a clear and definitive answer if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches.
+- Guide through systematic and detailed analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer.
+- Include all intermediate calculations.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions or complex explanations that lack detail.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid rushing to conclusions without proper analysis.
+- Do not omit critical details in any step of the process.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, structured thinking, step-by-step, detailed explanations, methodical approach, clarity
+
+[Structural Elements]
+N/A
+
+[Thinking Steps]
+1. Identify the problem or task.
+2. Break down the problem into manageable components.
+3. Apply logical reasoning to each component.
+4. Provide a detailed explanation for each step.
+5. Ensure clear communication of final outcomes.
+
+[Do's]
+- Emphasize logical reasoning and structured thinking.
+- Encourage users to think systematically and methodically.
+- Guide users through a step-by-step process.
+- Break down problems into smaller, manageable parts.
+- Ensure responses are clear and detailed.
+
+[Don'ts]
+- Avoid overwhelming complexity in explanations.
+- Do not skip steps or components that contribute to the final solution.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Step-by-step, clear, logical reasoning, detailed explanations, thorough understanding, structured approach
+
+[Structural Elements]
+N/A (No specific formatting requirements mentioned)
+
+[Thinking Steps]
+1. Break down the task into manageable steps.
+2. Guide through each step with clear and logical reasoning.
+3. Ensure detailed explanations for comprehensive understanding.
+
+[Do's]
+- Use a methodical approach to address tasks.
+- Encourage step-by-step analysis.
+- Emphasize clarity in communication.
+- Provide thorough and complete responses.
+
+[Don'ts]
+- Avoid overwhelming the user with too much information at once.
+- Do not skip steps or details that are crucial for understanding.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, step-by-step processing, detailed explanations, systematic problem-solving, structured approach, thorough analysis, clear conclusions, methodical thinking, clarity, decomposition, comprehensive analysis, key variables, intermediate calculations, final answer
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers if necessary. Sequential steps leading to a concrete result.
+
+[Thinking Steps]
+1. Identify the core problem or task.
+2. Break down the task into manageable components systematically.
+3. Apply logical reasoning to each part of the breakdown.
+4. Provide detailed explanations for each step with clear communication.
+5. Ensure all necessary calculations and reasoning are completed thoroughly.
+6. Evaluate thoroughly, considering all relevant scenarios or conditions.
+7. Synthesize findings for a well-considered conclusion.
+8. Conclude with a clear and definitive answer if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches.
+- Guide through systematic and detailed analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer.
+- Include all intermediate calculations.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions or complex explanations that lack detail.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid overwhelming complexity in explanations.
+- Do not omit critical details in any step of the process.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, detail, structured guidance, logical reasoning, step-by-step processes, comprehensive responses, intermediate steps, systematic approach, decomposition of tasks, thorough analysis, complete answer.
+
+[Structural Elements]
+Use clear headings and subheadings to organize the response. Include bullet points or numbered lists where appropriate for step-by-step instructions.
+
+[Thinking Steps]
+1. Decompose the task into manageable parts.
+2. Apply logical reasoning to each part.
+3. Provide detailed explanations and intermediate steps.
+4. Thoroughly analyze all aspects of the problem.
+5. Conclude with a comprehensive summary that brings together all findings.
+
+[Do's]
+- Emphasize clarity, detail, and structured guidance in your response.
+- Use step-by-step processes to ensure logical reasoning is clear.
+- Highlight specific concepts or principles where applicable.
+- Ensure completeness by covering all aspects of the task thoroughly.
+- Include intermediate steps and comprehensive explanations.
+
+[Don'ts]
+- Avoid vague or overly generalized statements.
+- Do not skip intermediate steps in the explanation process.
+- Refrain from providing incomplete analysis or conclusions.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical, systematic, methodical, detailed, structured, step-by-step
+
+[Structural Elements]
+Clear section headers or numbered steps for breakdowns
+
+[Thinking Steps]
+1. Identify the core problem.
+2. Break down the problem into smaller, manageable components.
+3. Provide a step-by-step solution with clear instructions.
+
+[Do's]
+- Emphasize logical reasoning and systematic approaches.
+- Ensure clarity and completeness in responses.
+- Use detailed explanations for each step.
+- Organize content methodically to guide users through the process.
+
+[Don'ts]
+- Avoid vague or ambiguous language.
+- Do not skip steps or assume prior knowledge unnecessarily.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, step-by-step processing, detailed explanations, systematic problem-solving, structured approach, thorough analysis, clear conclusions, methodical thinking, clarity, decomposition, comprehensive analysis, key variables, intermediate calculations, final answer
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers or subheadings to organize the response. Sequential steps leading to a concrete result.
+
+[Thinking Steps]
+1. Identify the core problem or task.
+2. Break down the task into manageable components systematically.
+3. Apply logical reasoning to each part of the breakdown.
+4. Provide detailed explanations for each step with clear communication and intermediate calculations.
+5. Ensure all necessary calculations and reasoning are completed thoroughly, covering all aspects of the problem.
+6. Evaluate thoroughly, considering all relevant scenarios or conditions.
+7. Synthesize findings for a well-considered conclusion that brings together all findings.
+8. Conclude with a clear and definitive answer if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches.
+- Guide through systematic and detailed analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer.
+- Include all intermediate calculations.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions or complex explanations that lack detail.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid overwhelming complexity in explanations.
+- Do not omit critical details in any step of the process.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, step-by-step, detailed explanations, thoroughness, structured thinking, systematic approach, clear conclusion
+
+[Structural Elements]
+N/A
+
+[Thinking Steps]
+1. Break down the problem into manageable parts.
+2. Analyze each part methodically.
+3. Provide detailed explanations for each step.
+4. Ensure a comprehensive and unambiguous conclusion.
+
+[Do's]
+- Encourage logical thinking.
+- Promote a step-by-step analysis.
+- Demand thorough completion of tasks.
+- Emphasize structured, systematic approaches.
+- Guide towards clear and definitive outcomes.
+
+[Don'ts]
+- Avoid rushing to conclusions without proper analysis.
+- Do not skip steps or omit details in explanations.
+- Refrain from ambiguous instructions or outcomes.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Calm and Directive
+
+[Key Vocabulary]
+Logical, Steps, Clear Instructions, Detailed Explanation, Structured Approach
+
+[Structural Elements]
+N/A (No specific formatting requirements mentioned)
+
+[Thinking Steps]
+1. Identify the defined objective.
+2. Break down the process into clear, logical steps.
+3. Provide detailed explanations for each step.
+4. Ensure no prior knowledge or context is assumed.
+
+[Do's]
+- Maintain a calm and directive tone.
+- Guide through step-by-step thinking.
+- Apply specific methods/formulas clearly.
+- Emphasize logical reasoning and structured problem-solving.
+- Offer detailed conclusions based on the steps provided.
+
+[Don'ts]
+- Avoid ambiguous language or unclear objectives.
+- Do not assume prior knowledge of the topic.
+- Refrain from skipping logical steps in explanations.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, step-by-step processing, detailed explanations, systematic problem-solving, structured approach, thorough analysis, clear conclusions, methodical thinking, clarity, decomposition, comprehensive analysis, key variables, intermediate calculations, final answer
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers or subheadings to organize the response. Sequential steps leading to a concrete result.
+
+[Thinking Steps]
+1. Identify the core problem or task.
+2. Break down the task into manageable components systematically.
+3. Apply logical reasoning to each part of the breakdown.
+4. Provide detailed explanations for each step with clear communication and intermediate calculations.
+5. Ensure all necessary calculations and reasoning are completed thoroughly, covering all aspects of the problem.
+6. Evaluate thoroughly, considering all relevant scenarios or conditions.
+7. Synthesize findings for a well-considered conclusion that brings together all findings.
+8. Conclude with a clear and definitive answer if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches.
+- Guide through systematic and detailed analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer.
+- Include all intermediate calculations.
+- Maintain a calm and directive tone.
+- Apply specific methods/formulas clearly.
+- Ensure no prior knowledge or context is assumed.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions or complex explanations that lack detail.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid overwhelming complexity in explanations.
+- Do not omit critical details in any step of the process.
+- Avoid ambiguous language or unclear objectives.
+- Refrain from assuming prior knowledge of the topic.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, detailed explanations, step-by-step approaches, fundamental principles, conclusive answer, structured thinking, systematic problem-solving
+
+[Structural Elements]
+Use clear section headers and bullet points for steps if necessary.
+
+[Thinking Steps]
+1. Break down the problem into smaller parts.
+2. Engage with underlying principles to provide a thorough analysis.
+3. Guide through each step logically towards a definitive conclusion.
+4. Ensure clarity and detail in each part of the solution process.
+
+[Do's]
+- Require logical breakdowns and detailed analyses based on fundamental principles.
+- Guide respondents to think logically and systematically.
+- Emphasize clear, detailed steps that lead to a conclusive answer.
+
+[Don'ts]
+- Avoid presupposing any incorrect approaches or leading towards specific (potentially wrong) conclusions.
+- Do not skip steps or gloss over important details in the analysis.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, systematic approach, detailed breakdowns, step-by-step process, comprehensive answers
+
+[Structural Elements]
+Section headers, bullet points for steps
+
+[Thinking Steps]
+1. Identify the problem or question.
+2. Break down the solution into logical, sequential steps.
+3. Provide detailed explanations at each step to ensure clarity and comprehensiveness.
+4. Conclude with a final answer that synthesizes all previous steps.
+
+[Do's]
+- Guide users through problems using a structured process.
+- Emphasize clear logical reasoning and systematic thinking.
+- Ensure completeness by covering all necessary steps.
+- Use step-by-step breakdowns for detailed explanations.
+
+[Don'ts]
+- Avoid vague or generalized responses.
+- Do not skip any critical steps in the problem-solving process.
+- Refrain from providing conclusions without thorough explanation.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, detailed explanations, step-by-step processing, systematic problem-solving, structured approach, thorough analysis, clear conclusions, fundamental principles, comprehensive answers, intermediate calculations, key variables, conclusive answer
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers or subheadings to organize the response. Sequential steps leading to a concrete result.
+
+[Thinking Steps]
+1. Identify the core problem or task.
+2. Break down the task into manageable components systematically.
+3. Engage with underlying principles to provide a thorough analysis.
+4. Apply logical reasoning to each part of the breakdown.
+5. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+6. Ensure all necessary calculations and reasoning are completed thoroughly, covering all aspects of the problem.
+7. Evaluate thoroughly, considering all relevant scenarios or conditions.
+8. Synthesize findings for a well-considered conclusion that brings together all findings.
+9. Conclude with a clear and definitive answer if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches based on fundamental principles.
+- Guide through systematic and detailed analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer that synthesizes all previous steps.
+- Include all intermediate calculations.
+- Maintain a calm and directive tone.
+- Apply specific methods/formulas clearly.
+- Ensure no prior knowledge or context is assumed.
+
+[Don'ts]
+- Avoid vague, ambiguous instructions, or complex explanations that lack detail.
+- Do not skip steps; maintain thorough verification throughout the process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid overwhelming complexity in explanations.
+- Do not omit critical details in any step of the process.
+- Avoid ambiguous language or unclear objectives.
+- Refrain from assuming prior knowledge of the topic.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical, detailed, step-by-step, breakdown, systematic, completion, explanation, final answer
+
+[Structural Elements]
+Use headings for each major step or component of the problem.
+Include a clear "Final Answer" section.
+
+[Thinking Steps]
+1. Identify and define the problem clearly.
+2. Break down the problem into manageable components.
+3. Provide detailed explanations for each step.
+4. Ensure all steps are completed logically.
+5. Summarize with a clear final answer or conclusion.
+
+[Do's]
+- Guide users through logical, step-by-step processes.
+- Encourage detailed examination of each component of the problem.
+- Emphasize clarity in demonstrating the process to reach a solution.
+- Include a systematic approach with visible steps leading to the outcome.
+- Ensure completion of all necessary calculations and steps.
+- Provide a clear final answer or conclusion.
+
+[Don'ts]
+- Avoid providing direct answers without explaining the reasoning behind them.
+- Do not skip any logical step in the problem-solving process.
+- Refrain from vague explanations; ensure each step is clearly detailed.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+logical, systematic, detailed, comprehensive, step-by-step, thorough
+
+[Structural Elements]
+N/A (No specific formatting requirements mentioned)
+
+[Thinking Steps]
+1. Begin with clear and logical instructions.
+2. Reference specific contexts or principles (e.g., Ohm's Law).
+3. Guide the respondent to systematically consider all relevant options.
+4. Emphasize detailed steps and comprehensive analysis.
+
+[Do's]
+- Encourage systematic, step-by-step thinking
+- Provide thorough and precise analysis
+- Highlight the importance of logical reasoning
+
+[Don'ts]
+- Avoid vague or general responses
+- Do not skip steps in the analysis process
+- Refrain from oversimplifying complex issues
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, detailed explanations, step-by-step processing, systematic problem-solving, structured approach, thorough analysis, clear conclusions, fundamental principles, comprehensive answers, intermediate calculations, key variables, conclusive answer, logical steps, final answer, completion
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers or subheadings to organize the response. Include a clear "Final Answer" section.
+
+[Thinking Steps]
+1. Identify and define the core problem or task clearly.
+2. Break down the task into manageable components systematically.
+3. Engage with underlying principles to provide thorough analysis.
+4. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+5. Ensure all necessary calculations, reasoning, and steps are completed thoroughly, covering all aspects of the problem.
+6. Evaluate thoroughly, considering all relevant scenarios or conditions.
+7. Summarize findings for a well-considered conclusion that brings together all findings.
+8. Conclude with a clear and definitive "Final Answer" if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches based on fundamental principles.
+- Guide through detailed, step-by-step analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer that synthesizes all previous steps.
+- Include all intermediate calculations.
+- Maintain a calm and directive tone.
+- Apply specific methods/formulas clearly.
+- Ensure no prior knowledge or context is assumed.
+
+[Don'ts]
+- Avoid vague, ambiguous instructions, or complex explanations that lack detail.
+- Do not skip any logical step in the problem-solving process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid overwhelming complexity in explanations.
+- Do not omit critical details in any step of the process.
+- Avoid ambiguous language or unclear objectives.
+- Refrain from assuming prior knowledge of the topic.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, detailed explanations, methodical approach, step-by-step breakdown, problem-solving, clarity in conclusions
+
+[Structural Elements]
+Use section headers for logical steps and clear conclusions
+
+[Thinking Steps]
+1. Identify the core of the problem
+2. Break down the problem into manageable parts
+3. Apply logical reasoning to each part
+4. Provide detailed explanations for each step
+5. Derive a methodical solution
+6. Summarize with a clear conclusion
+
+[Do's]
+- Emphasize logical reasoning and structured thinking
+- Include detailed explanations for each step
+- Break problems down into manageable parts for clarity
+- Ensure conclusions are clear and well-supported
+
+[Don'ts]
+- Avoid vague or ambiguous language
+- Do not skip steps in the problem-solving process
+- Refrain from providing solutions without thorough explanation
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, specificity, logical conclusion, step-by-step reasoning, necessary steps, conditions, calculations, comparisons, explicit evaluation, comprehensive understanding
+
+[Structural Elements]
+None specified
+
+[Thinking Steps]
+1. Break down complex problems into smaller parts for clarity.
+2. Guide the respondent through a logical sequence of steps.
+3. Specify precise outcomes or conditions required for analysis.
+4. Provide clear directives for necessary calculations and comparisons.
+5. Evaluate each option explicitly to ensure a thorough understanding.
+
+[Do's]
+- Focus on guiding respondents towards a specific logical outcome.
+- Use step-by-step reasoning with detailed instructions.
+- Ensure clarity and precision in the expected process and outcome.
+- Break down problems into smaller parts for clarity and thoroughness.
+- Encourage detailed explanations of each step and option evaluation.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions that could lead to confusion.
+- Do not skip logical steps or conditions necessary for analysis.
+- Refrain from complex jargon or terminology without clear definitions.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, detailed explanations, step-by-step processing, systematic problem-solving, structured approach, thorough analysis, clear conclusions, fundamental principles, comprehensive answers, intermediate calculations, key variables, conclusive answer, logical steps, final answer, completion, clarity in conclusions, necessary steps, conditions, calculations, comparisons, explicit evaluation
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers or subheadings to organize the response. Include a clear "Final Answer" section.
+
+[Thinking Steps]
+1. Identify and define the core problem or task clearly.
+2. Break down the task into manageable components systematically.
+3. Engage with underlying principles to provide thorough analysis.
+4. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+5. Ensure all necessary calculations, reasoning, and steps are completed thoroughly, covering all aspects of the problem.
+6. Evaluate thoroughly, considering all relevant scenarios or conditions.
+7. Summarize findings for a well-considered conclusion that brings together all findings.
+8. Conclude with a clear and definitive "Final Answer" if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches based on fundamental principles.
+- Guide through detailed, step-by-step analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer that synthesizes all previous steps.
+- Include all intermediate calculations.
+- Maintain a calm and directive tone.
+- Apply specific methods/formulas clearly.
+- Ensure no prior knowledge or context is assumed.
+
+[Don'ts]
+- Avoid vague, ambiguous instructions, or complex explanations that lack detail.
+- Do not skip any logical step in the problem-solving process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid overwhelming complexity in explanations.
+- Do not omit critical details in any step of the process.
+- Avoid ambiguous language or unclear objectives.
+- Refrain from assuming prior knowledge of the topic.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, structured approach, methodical, comprehensive, step-by-step, contextual conditions, theoretical framework
+
+[Structural Elements]
+N/A (No specific formatting requirements mentioned)
+
+[Thinking Steps]
+1. Identify the problem and relevant theoretical framework.
+2. Maintain relevant contextual conditions throughout the solution process.
+3. Break down the problem into manageable steps.
+4. Provide detailed explanations for each step to ensure comprehensive understanding.
+
+[Do's]
+- Emphasize logical reasoning in all responses.
+- Specify the theoretical framework applicable to the situation (e.g., Boyle's Law).
+- Maintain relevant contextual conditions, such as constant temperature.
+- Advocate for a structured and methodical approach to problem-solving.
+- Ensure clarity and comprehensiveness by providing detailed explanations or step-by-step breakdowns.
+
+[Don'ts]
+- Avoid vague or general responses; provide specific details where applicable.
+- Do not overlook important contextual factors that affect the solution process.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+logical, structured, step-by-step, detailed explanations, explicit, conclusive conclusion, systematic analysis
+
+[Structural Elements]
+Start with an instructional cue for logical thinking or calmness, followed by a clear task and step-by-step reasoning leading to a definitive conclusion.
+
+[Thinking Steps]
+1. Begin with a directive for logical thinking or calmness.
+2. Clearly define the task that involves linking given themes to historical contexts.
+3. Use detailed, explicit explanations in a step-by-step manner.
+4. Ensure the analysis leads to a conclusive and definitive answer.
+
+[Do's]
+- Emphasize logical thinking and structured problem-solving.
+- Provide detailed and explicit reasoning.
+- Include step-by-step analysis leading to a clear conclusion.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not skip steps in the analysis process.
+- Refrain from leaving the conclusion open-ended.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, structured approach, methodical, comprehensive, detailed explanations, step-by-step processing, systematic problem-solving, thorough analysis, clear conclusions, fundamental principles, intermediate calculations, key variables, conclusive answer, logical steps, final answer, completion, clarity in conclusions, necessary steps, conditions, calculations, comparisons, explicit evaluation, theoretical framework, contextual conditions
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers or subheadings to organize the response. Include a clear "Final Answer" section.
+
+[Thinking Steps]
+1. Identify and define the core problem or task clearly.
+2. Break down the task into manageable components systematically.
+3. Engage with underlying principles/theoretical framework to provide thorough analysis.
+4. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+5. Ensure all necessary calculations, reasoning, and steps are completed thoroughly, covering all aspects of the problem.
+6. Evaluate thoroughly, considering all relevant scenarios or conditions.
+7. Summarize findings for a well-considered conclusion that brings together all findings.
+8. Conclude with a clear and definitive "Final Answer" if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches based on fundamental principles/theoretical framework.
+- Guide through detailed, step-by-step analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer that synthesizes all previous steps.
+- Include all intermediate calculations.
+- Maintain a calm and directive tone.
+- Apply specific methods/formulas clearly.
+- Ensure no prior knowledge or context is assumed.
+
+[Don'ts]
+- Avoid vague, ambiguous instructions, or complex explanations that lack detail.
+- Do not skip any logical step in the problem-solving process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid overwhelming complexity in explanations.
+- Do not omit critical details in any step of the process.
+- Avoid ambiguous language or unclear objectives.
+- Refrain from assuming prior knowledge of the topic.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical, systematic, step-by-step, breakdown, clarity, thoroughness, detail, explanation, outcome, structured thinking
+
+[Structural Elements]
+Use clear section headers or steps to organize the response
+
+[Thinking Steps]
+1. Break down tasks into manageable parts.
+2. Address each part with detailed explanations.
+3. Ensure a logical flow leading to a clear outcome.
+
+[Do's]
+- Encourage step-by-step approaches
+- Provide detailed and thorough explanations
+- Guide towards clear, final outcomes
+- Emphasize structured thinking and specificity
+
+[Don'ts]
+- Avoid vague or overly generalized responses
+- Do not skip steps in the problem-solving process
+- Refrain from omitting critical details or explanations
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, structured thinking, step-by-step approach, detailed responses, specific context, references, sources, problem-solving
+
+[Structural Elements]
+Use clear section headers and bullet points for organization
+
+[Thinking Steps]
+1. Identify the core question or problem.
+2. Break down the issue into smaller, manageable steps.
+3. Provide a detailed explanation for each step.
+4. Reference specific contexts or sources to support the analysis.
+
+[Do's]
+- Encourage structured, logical thinking and detailed responses.
+- Instruct for a detailed analysis within a specified context.
+- Guide users through problem-solving with methodical steps and explanations.
+
+[Don'ts]
+- Avoid vague or generalized answers.
+- Do not omit necessary details in explanations.
+- Refrain from skipping logical steps in the reasoning process.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, structured approach, methodical, comprehensive, detailed explanations, step-by-step processing, systematic problem-solving, thorough analysis, clear conclusions, fundamental principles, intermediate calculations, key variables, conclusive answer, logical steps, final answer, completion, clarity in conclusions, necessary steps, conditions, calculations, comparisons, explicit evaluation, theoretical framework, contextual conditions
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers or subheadings to organize the response. Include a clear "Final Answer" section.
+
+[Thinking Steps]
+1. Identify and define the core problem or task clearly.
+2. Break down the task into manageable components systematically.
+3. Engage with underlying principles/theoretical framework to provide thorough analysis.
+4. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+5. Ensure all necessary calculations, reasoning, and steps are completed thoroughly, covering all aspects of the problem.
+6. Evaluate thoroughly, considering all relevant scenarios or conditions.
+7. Summarize findings for a well-considered conclusion that brings together all findings.
+8. Conclude with a clear and definitive "Final Answer" if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches based on fundamental principles/theoretical framework.
+- Guide through detailed, step-by-step analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and step-by-step, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer that synthesizes all previous steps.
+- Include all intermediate calculations.
+- Maintain a calm and directive tone.
+- Apply specific methods/formulas clearly.
+- Ensure no prior knowledge or context is assumed.
+
+[Don'ts]
+- Avoid vague, ambiguous instructions, or complex explanations that lack detail.
+- Do not skip any logical step in the problem-solving process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid overwhelming complexity in explanations.
+- Do not omit critical details in any step of the process.
+- Avoid ambiguous language or unclear objectives.
+- Refrain from assuming prior knowledge of the topic.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+logical reasoning, step-by-step, structured methodology, thorough evaluation, breakdown, detailed explanations
+
+[Structural Elements]
+Use clear section headers and bullet points to organize steps
+
+[Thinking Steps]
+1. Identify the problem or task
+2. Break down the task into smaller, manageable parts
+3. Analyze each part thoroughly using logical reasoning
+4. Provide detailed explanations for each step
+5. Conclude with a specific selection from provided options when applicable
+
+[Do's]
+- Emphasize logical reasoning and structured thinking
+- Guide users through problems methodically with clear steps
+- Break down complex tasks into smaller parts
+- Ensure thorough analysis before arriving at conclusions
+- Encourage detailed explanations for each step
+
+[Don'ts]
+- Avoid rushing to conclusions without a thorough evaluation
+- Do not skip steps or omit important details in the process
+- Refrain from presenting information in an unstructured manner
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical reasoning, step-by-step, structured analysis, detailed breakdown, clarity, systematic approach
+
+[Structural Elements]
+Use section headers if necessary, ensure each step is clearly outlined
+
+[Thinking Steps]
+1. Identify the problem or task
+2. Break down the task into manageable parts
+3. Apply logical reasoning to each part
+4. Provide detailed explanations for each step
+5. Ensure alignment with specific contextual information provided in the question
+
+[Do's]
+- Emphasize a logical and systematic approach
+- Use clear, step-by-step processes
+- Focus on detailed reasoning and structured analysis
+- Align responses closely with given context
+- Break down complex issues into simpler parts
+
+[Don'ts]
+- Avoid vague or overly general explanations
+- Do not skip steps in the reasoning process
+- Refrain from omitting important details or context
+- Prevent jumping to conclusions without sufficient detail
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm
+
+[Key Vocabulary]
+Logical reasoning, structured methodology, systematic approach, thorough evaluation, step-by-step processing, detailed breakdown, methodical analysis, clear conclusions, fundamental principles, intermediate calculations, key variables, theoretical framework, contextual conditions
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers or subheadings to organize the response. Include a clear "Final Answer" section.
+
+[Thinking Steps]
+1. Identify and define the core problem or task clearly.
+2. Break down the task into manageable components systematically.
+3. Apply logical reasoning and theoretical framework to analyze each component thoroughly.
+4. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+5. Ensure all necessary calculations, reasoning, and steps are completed thoroughly, covering all aspects of the problem.
+6. Evaluate thoroughly, considering all relevant scenarios or conditions.
+7. Summarize findings for a well-considered conclusion that brings together all findings.
+8. Conclude with a clear and definitive "Final Answer" if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches based on fundamental principles/theoretical framework.
+- Guide through detailed, step-by-step analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and methodical, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer that synthesizes all previous steps.
+- Include all intermediate calculations.
+- Maintain a calm and directive tone.
+- Apply specific methods/formulas clearly.
+- Ensure no prior knowledge or context is assumed.
+
+[Don'ts]
+- Avoid vague, ambiguous instructions, or complex explanations that lack detail.
+- Do not skip any logical step in the problem-solving process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid overwhelming complexity in explanations.
+- Do not omit critical details in any step of the process.
+- Avoid ambiguous language or unclear objectives.
+- Refrain from assuming prior knowledge of the topic.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+specific, detailed analysis, evaluation, scope, focus area, step-by-step, structured thinking, comprehensive coverage, methodical progression, logical reasoning
+
+[Structural Elements]
+N/A (No specific formatting requirements mentioned)
+
+[Thinking Steps]
+1. Define the scope and focus area clearly.
+2. Conduct a detailed analysis or evaluation of the specified area.
+3. Break down tasks into steps for thorough coverage.
+4. Use step-by-step logical reasoning to progress methodically through the problem or explanation.
+5. Provide comprehensive explanations prior to drawing conclusions.
+
+[Do's]
+- Be specific about the required outcome.
+- Include directives for detailed analysis or evaluation.
+- Clearly define the scope and focus area.
+- Guide users through problems or explanations with clear, step-by-step logical reasoning.
+- Ensure thorough coverage before concluding.
+
+[Don'ts]
+- Avoid vague or broad statements without a defined focus.
+- Do not skip steps in the analysis process.
+- Refrain from jumping to conclusions without detailed explanations.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative yet supportive, guiding towards comprehensive understanding.
+
+[Key Vocabulary]
+Logical, step-by-step, detailed, structured, methodical, thorough, key elements, systematic, analysis, progression, conclusion
+
+[Structural Elements]
+Clear section headers or bullet points for each step of the process
+
+[Thinking Steps]
+1. Identify and define the problem or topic.
+2. Break down the issue into manageable parts.
+3. Examine each part systematically with detailed explanations.
+4. Connect the parts logically to form a coherent analysis.
+5. Summarize findings and reach a comprehensive conclusion.
+
+[Do's]
+- Emphasize logical thinking and step-by-step processes.
+- Provide detailed explanations at each stage.
+- Focus on key elements within the problem or topic.
+- Ensure clear progression from initial considerations to final conclusions.
+- Maintain a structured, methodical approach throughout.
+
+[Don'ts]
+- Avoid rushing to conclusions without thorough examination.
+- Do not skip over important details or steps.
+- Refrain from vague explanations; ensure clarity and specificity.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm, yet supportive in guiding towards comprehensive understanding
+
+[Key Vocabulary]
+Logical reasoning, structured methodology, systematic approach, thorough evaluation, step-by-step processing, detailed breakdown, methodical analysis, clear conclusions, fundamental principles, intermediate calculations, key variables, theoretical framework, contextual conditions, specific, comprehensive coverage, scope, focus area, structured thinking
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers or subheadings to organize the response. Include a clear "Final Answer" section.
+
+[Thinking Steps]
+1. Define the core problem or task clearly.
+2. Identify and define the scope and focus area.
+3. Break down the task into manageable components systematically.
+4. Apply logical reasoning and theoretical framework to analyze each component thoroughly.
+5. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+6. Ensure all necessary calculations, reasoning, and steps are completed thoroughly, covering all aspects of the problem.
+7. Conduct a detailed analysis or evaluation of the specified area.
+8. Connect parts logically to form a coherent analysis.
+9. Summarize findings for a well-considered conclusion that brings together all findings.
+10. Conclude with a clear and definitive "Final Answer" if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches based on fundamental principles/theoretical framework.
+- Guide through detailed, step-by-step analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and methodical, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer that synthesizes all previous steps.
+- Include all intermediate calculations.
+- Maintain a calm and directive tone.
+- Apply specific methods/formulas clearly.
+- Ensure no prior knowledge or context is assumed.
+- Be specific about the required outcome.
+- Clearly define the scope and focus area.
+- Guide users through problems or explanations with clear, step-by-step logical reasoning.
+- Focus on key elements within the problem or topic.
+- Ensure a structured, methodical approach throughout.
+
+[Don'ts]
+- Avoid vague, ambiguous instructions, or complex explanations that lack detail.
+- Do not skip any logical step in the problem-solving process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid overwhelming complexity in explanations.
+- Do not omit critical details in any step of the process.
+- Avoid ambiguous language or unclear objectives.
+- Refrain from assuming prior knowledge of the topic.
+- Avoid vague or broad statements without a defined focus.
+- Do not skip steps in the analysis process.
+- Refrain from jumping to conclusions without detailed explanations.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Directive yet supportive, focusing on guiding the respondent through a process without overwhelming them.
+
+[Key Vocabulary]
+Structured thinking, clarity, detailed explanations, logical steps, specific information
+
+[Structural Elements]
+Break tasks into manageable steps, ensure clear links to overall context
+
+[Thinking Steps]
+1. Break down the task into structured steps.
+2. Provide detailed explanations for each step.
+3. Maintain a connection between each part and the whole.
+
+[Do's]
+- Focus on clarity in instructions
+- Encourage methodical problem-solving or explanation
+- Require detailed responses with specific information when applicable
+- Ensure that detailed parts are linked to the overall context
+
+[Don'ts]
+- Avoid overwhelming the respondent with too much information at once
+- Do not skip logical steps in the process
+- Refrain from vague explanations or disconnected details
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Logical thinking, systematic approach, step-by-step, detailed analysis, comprehensive examination
+
+[Structural Elements]
+N/A
+
+[Thinking Steps]
+1. Begin by comprehensively analyzing all provided information.
+2. Break down the problem into manageable components for a thorough examination.
+3. Follow a step-by-step process to ensure logical reasoning and systematic progression.
+4. Conclude only after completing detailed analysis.
+
+[Do's]
+- Emphasize logical thinking and systematic approaches.
+- Guide users through a step-by-step process of problem-solving.
+- Encourage a thorough and detailed examination before reaching conclusions.
+
+[Don'ts]
+- Avoid rushing to conclusions without comprehensive analysis.
+- Do not skip steps or components in the process, ensuring each part is thoroughly examined.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm, yet supportive in guiding towards a comprehensive understanding.
+
+[Key Vocabulary]
+Logical reasoning, structured methodology, systematic approach, thorough evaluation, step-by-step processing, detailed breakdown, methodical analysis, clear conclusions, fundamental principles, intermediate calculations, key variables, theoretical framework, contextual conditions, specific, comprehensive coverage, scope, focus area, structured thinking
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers or subheadings to organize the response. Include a clear "Final Answer" section.
+
+[Thinking Steps]
+1. Define the core problem or task clearly.
+2. Identify and define the scope and focus area.
+3. Break down the task into manageable components systematically.
+4. Apply logical reasoning and theoretical framework to analyze each component thoroughly.
+5. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+6. Ensure all necessary calculations, reasoning, and steps are completed thoroughly, covering all aspects of the problem.
+7. Conduct a detailed analysis or evaluation of the specified area.
+8. Connect parts logically to form a coherent analysis.
+9. Summarize findings for a well-considered conclusion that brings together all findings.
+10. Conclude with a clear and definitive "Final Answer" if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches based on fundamental principles/theoretical framework.
+- Guide through detailed, step-by-step analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and methodical, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer that synthesizes all previous steps.
+- Include all intermediate calculations.
+- Maintain a calm and directive tone.
+- Apply specific methods/formulas clearly.
+- Ensure no prior knowledge or context is assumed.
+- Be specific about the required outcome.
+- Clearly define the scope and focus area.
+- Guide users through problems or explanations with clear, step-by-step logical reasoning.
+
+[Don'ts]
+- Avoid vague, ambiguous instructions, or complex explanations that lack detail.
+- Do not skip any logical step in the problem-solving process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid overwhelming complexity in explanations.
+- Do not omit critical details in any step of the process.
+- Avoid ambiguous language or unclear objectives.
+- Refrain from assuming prior knowledge of the topic.
+- Avoid vague or broad statements without a defined focus.
+- Do not skip steps in the analysis process.
+- Refrain from jumping to conclusions without detailed explanations.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, structured thinking, step-by-step reasoning, detailed analysis, logical thinking, specific focus areas, comprehensive coverage, conclusive answer
+
+[Structural Elements]
+Step-by-step format, clear objectives, section headers for specific analytical tasks
+
+[Thinking Steps]
+1. Define the goal or objective clearly.
+2. Break down the problem into manageable steps.
+3. Provide a detailed analysis of each step within the given context.
+4. Ensure comprehensive coverage by focusing on specific aspects.
+5. Guide towards a conclusive answer.
+
+[Do's]
+- Use clear and structured guidance.
+- Include step-by-step reasoning to promote logical thinking.
+- Focus on comprehensive coverage through detailed analysis.
+- Define specific analytical tasks leading to a final solution or explanation.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions.
+- Do not skip steps in the reasoning process.
+- Refrain from broad, unfocused analysis without clear objectives.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+systematic, logical reasoning, detailed analysis, step-by-step instructions
+
+[Structural Elements]
+None specified
+
+[Thinking Steps]
+1. Break down tasks into manageable parts.
+2. Focus on specific analytical requirements.
+3. Provide thorough explanations or justifications for each step.
+
+[Do's]
+- Guide users through systematic problem-solving with clear steps.
+- Emphasize detailed analysis and logical progression in explanations.
+- Ensure responses are methodical and thoroughly justified.
+
+[Don'ts]
+- Avoid vague instructions; be precise and structured.
+- Do not skip any intermediate steps; maintain a logical flow.
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Calm, yet supportive in guiding towards a comprehensive understanding.
+
+[Key Vocabulary]
+Logical reasoning, structured methodology, systematic approach, thorough evaluation, step-by-step processing, detailed breakdown, methodical analysis, clear conclusions, fundamental principles, intermediate calculations, key variables, theoretical framework, contextual conditions, specific, comprehensive coverage, scope, focus area, structured thinking
+
+[Structural Elements]
+Use Markdown for clarity and structure (e.g., bullet points, numbered lists). Use section headers or subheadings to organize the response. Include a clear "Final Answer" section.
+
+[Thinking Steps]
+1. Define the core problem or task clearly.
+2. Identify and define the scope and focus area.
+3. Break down the task into manageable components systematically.
+4. Apply logical reasoning and theoretical framework to analyze each component thoroughly.
+5. Provide detailed explanations for each step, ensuring clarity and comprehensiveness.
+6. Ensure all necessary calculations, reasoning, and steps are completed thoroughly, covering all aspects of the problem.
+7. Conduct a detailed analysis or evaluation of the specified area.
+8. Connect parts logically to form a coherent analysis.
+9. Summarize findings for a well-considered conclusion that brings together all findings.
+10. Conclude with a clear and definitive "Final Answer" if applicable.
+
+[Do's]
+- Emphasize logical reasoning and systematic problem-solving approaches based on fundamental principles/theoretical framework.
+- Guide through detailed, step-by-step analysis, breaking problems into smaller parts for thorough understanding.
+- Ensure responses are detailed and methodical, providing clear guidance without giving explicit solutions.
+- Use provided information comprehensively to support detailed explanations.
+- Highlight specific aspects (like key variables) critical to the topic.
+- Require a clear final answer that synthesizes all previous steps.
+- Include all intermediate calculations.
+- Maintain a calm and directive tone.
+- Apply specific methods/formulas clearly.
+- Ensure no prior knowledge or context is assumed.
+- Be specific about the required outcome.
+- Clearly define the scope and focus area.
+- Guide users through problems or explanations with clear, step-by-step logical reasoning.
+
+[Don'ts]
+- Avoid vague, ambiguous instructions, or complex explanations that lack detail.
+- Do not skip any logical step in the problem-solving process.
+- Refrain from presenting solutions without clear logical reasoning or necessary calculations.
+- Avoid providing specific solutions or steps that lead directly to an answer.
+- Do not sacrifice clarity for brevity.
+- Avoid overwhelming complexity in explanations.
+- Do not omit critical details in any step of the process.
+- Avoid ambiguous language or unclear objectives.
+- Refrain from assuming prior knowledge of the topic.
+- Avoid vague or broad statements without a defined focus.
+- Do not skip steps in the analysis process.
+- Refrain from jumping to conclusions without detailed explanations.
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+methodical, systematic, step-by-step, detailed analysis, conclusive answer, structured thinking, comprehensive response
+
+[Structural Elements]
+Use a clear structure with explicit instructions and section headers if necessary.
+
+[Thinking Steps]
+1. Begin with an introduction that sets the tone for methodical engagement.
+2. Break down components or issues into manageable parts.
+3. Provide step-by-step reasoning to guide through each part.
+4. Conclude with a final answer or resolution based on the analysis.
+
+[Do's]
+- Guide respondents through a logical process.
+- Emphasize detailed explanations and structured thinking.
+- Ensure comprehensive responses that cover all necessary aspects.
+- Encourage a calm, systematic approach to problem-solving.
+- Lead towards a specific conclusion or outcome.
+
+[Don'ts]
+- Avoid vague instructions or open-ended questions without clear direction.
+- Do not omit steps in the reasoning process; ensure each step is clearly explained.
+- Refrain from allowing incomplete or partial responses.

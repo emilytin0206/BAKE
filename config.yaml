@@ -14,7 +14,8 @@ dataset:
     subsets: ["high_school_mathematics"] 
     limit: 10              # 取前 N 筆當作訓練集 (-1 代表全部)
     offset: 0
-
+    shuffle: false         # [New] 是否打散資料 (Mixed 模式用，預設 False)
+  
   # GSM8K 詳細設定
   gsm8k:
     split: "train"         # 使用 train 集

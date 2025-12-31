@@ -10,11 +10,15 @@ dataset:
     offset: 0
     split: train
   mmlu:
-    limit: -1
+    limit: 100
     offset: 0
     split: test
     subsets:
-    - all
+    - high_school_mathematics
+    - high_school_chemistry
+    - high_school_physics
+    - high_school_world_history
+    - business_ethics
 evaluation:
   api_key: ollama
   base_url: http://localhost:11434/v1

@@ -1,6 +1,7 @@
 # utils/data_loader.py
 
 from datasets import load_dataset, get_dataset_config_names
+import random 
 
 def format_mmlu_question(question, choices):
     options = ["A", "B", "C", "D"]
@@ -10,16 +11,43 @@ def format_mmlu_question(question, choices):
     formatted += "Answer:" 
     return formatted
 
+def resolve_mmlu_subsets(config):
+    """
+    解析設定檔中的 subsets，處理 "all" 的情況並回傳完整的子集列表。
+    """
+    target_subsets = config.get('subsets', [])
+    
+    if isinstance(target_subsets, str):
+        target_subsets = [target_subsets]
+        
+    # 處理 "all"
+    if "all" in target_subsets:
+        try:
+            print("  ↳ [Resolver] Detected 'all'. Fetching MMLU configs...")
+            all_configs = get_dataset_config_names("cais/mmlu")
+            # 排除非題目的 config
+            target_subsets = [c for c in all_configs if c not in ["all", "auxiliary_train"]]
+        except Exception as e:
+            print(f"  [Error] Failed to fetch MMLU configs: {e}")
+            target_subsets = ["high_school_mathematics"] # Fallback
+
+    if not target_subsets:
+        target_subsets = ["high_school_mathematics"]
+        
+    return target_subsets
+
 def load_specific_dataset(task_name, config):
     """
     根據 active_task 與其 config 載入資料
+    config 中可包含 'shuffle': True/False
     """
     data_list = []
     limit = config.get('limit', 10)
     offset = config.get('offset', 0)
     split = config.get('split', 'train')
+    do_shuffle = config.get('shuffle', False) 
 
-    print(f"[DataLoader] Loading Task: {task_name} (Split: {split}, Limit: {limit})")
+    print(f"[DataLoader] Loading Task: {task_name} (Split: {split}, Limit: {limit}, Shuffle: {do_shuffle})")
 
     if task_name == "gsm8k":
         ds = load_dataset("gsm8k", "main", split=split)
@@ -38,24 +66,9 @@ def load_specific_dataset(task_name, config):
             })
 
     elif task_name == "mmlu":
-        target_subsets = config.get('subsets', [])
-        
-        if isinstance(target_subsets, str):
-            target_subsets = [target_subsets]
+        # 解析子集 (處理 'all' 或多個子集)
+        target_subsets = resolve_mmlu_subsets(config)
             
-        # 處理 "all"
-        if "all" in target_subsets:
-            print("  ↳ Detected 'all' subsets. Fetching MMLU configs...")
-            try:
-                all_configs = get_dataset_config_names("cais/mmlu")
-                target_subsets = [c for c in all_configs if c not in ["all", "auxiliary_train"]]
-            except Exception as e:
-                print(f"  [Error] Failed to fetch MMLU configs: {e}")
-                target_subsets = ["high_school_mathematics"]
-
-        if not target_subsets:
-            target_subsets = ["high_school_mathematics"]
-
         print(f"  ↳ Loading {len(target_subsets)} subsets...")
 
         for sub in target_subsets:
@@ -82,4 +95,13 @@ def load_specific_dataset(task_name, config):
                 print(f"  [Warn] Failed to load subset '{sub}': {e}")
 
     print(f"[DataLoader] Total samples loaded: {len(data_list)}")
+    
+    # 根據設定決定是否打散
+    if do_shuffle:
+        print("[DataLoader] 🔀 Shuffling all samples (Mixed Mode)...")
+        random.seed(42) 
+        random.shuffle(data_list)
+    else:
+        print("[DataLoader] ⬇️ Keeping original sequential order (Sequential Mode).")
+        
     return data_list
