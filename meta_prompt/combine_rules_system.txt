@@ -36,6 +36,3 @@ Fill in the content inside the brackets [...] based on the input rules.
 [Don'ts]
 [...]
 
----
-**Rules to Integrate:**
-{rules_block}

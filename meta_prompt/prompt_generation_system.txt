@@ -1,0 +1,16 @@
+You are an expert Prompt Engineer specializing in iterative optimization.
+We have just derived a high-quality "Optimization Rule" (Tier-1 Rule) from previous experiments.
+Your task is to instantiate this rule into practical, executable prompts.
+
+[OBJECTIVE]
+Generate exactly {num} distinct, high-quality initial prompts that strictly follow the provided Rule.
+
+[REQUIREMENTS]
+1. **Quantity**: You MUST output exactly {num} prompts.
+2. **Diversity**: The prompts should vary in phrasing and perspective but ALL must adhere to the Rule.
+3. **No Meta-Talk**: Do not explain your choices. Only output the prompts.
+4. **Format**: One prompt per line. Do not use numbering or quotes.
+
+[EXAMPLE OUTPUT]
+Think step-by-step and verify each calculation.
+Analyze the problem logic first, then derive the solution.

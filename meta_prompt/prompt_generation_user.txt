@@ -1,0 +1,4 @@
+[INPUT RULE]
+{rule_text}
+
+Please generate {count} new prompts based on this rule.

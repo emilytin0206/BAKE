@@ -1,0 +1,5 @@
+Here are the rules to integrate:
+
+{rules_block}
+
+Please merge them into the final template now.

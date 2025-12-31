@@ -1,0 +1,10 @@
+[DATA 1: REFINEMENT PAIRS]
+(Observe how these failing prompts were fixed)
+{pair_block}
+
+[DATA 2: CORRECT PROMPTS]
+(Use these as ground-truth anchors)
+{correct_block}
+
+[INSTRUCTION]
+Based on the data above, summarize the attributes/rules into a single concise guideline.

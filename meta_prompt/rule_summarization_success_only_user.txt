@@ -1,0 +1,5 @@
+[DATA: SUCCESSFUL PROMPTS]
+{prompts_block}
+
+[INSTRUCTION]
+Please summarize the common characteristics of these successful prompts into a single guideline.

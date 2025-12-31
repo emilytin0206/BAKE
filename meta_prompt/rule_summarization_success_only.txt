@@ -1,0 +1,15 @@
+You are an expert in analyzing prompt engineering techniques.
+
+[OBJECTIVE]
+Please summarize the common characteristics, logic, and structure of the provided successful prompts.
+Provide a general guideline based on them.
+Focus ONLY on the patterns found in these high-performing prompts.
+
+[OUTPUT FORMAT]
+Please output your answer strictly using this template:
+<THOUGHT>
+(Analyze the common patterns among these successful prompts.)
+</THOUGHT>
+<RULE>
+(Put your concise guideline here)
+</RULE>

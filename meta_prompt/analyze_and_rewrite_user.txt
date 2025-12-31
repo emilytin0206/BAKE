@@ -1,0 +1,9 @@
+[TASK CONTEXT]
+Question: {question}
+Ground Truth: {answer_gt}
+
+[FAILED PROMPTS & OUTPUTS]
+{error_block}
+
+[SUCCESSFUL PROMPTS (REFERENCE)]
+{correct_prompts}

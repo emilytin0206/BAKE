@@ -1,0 +1,34 @@
+
+========== Sample 0 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Please provide a detailed explanation followed by the final answer.
+   [Fixed O]    Please provide a detailed explanation followed by the final answer. Ensure to complete all steps for each vertex transformation.
+   [Original X] Let's think step by step.
+   [Fixed O]    Let's think step by step. Ensure you reflect all given points and list their new coordinates explicitly before concluding with the answer.
+   [Original X] Take a deep breath and work on this problem step-by-step.
+   [Fixed O]    Take a deep breath and work on this problem step-by-step. Ensure you explicitly list all transformed coordinates after reflecting each point before providing the final answer.
+
+Generated Guideline:
+<THOUGHT>
+The improved prompts ensure clarity by explicitly requiring detailed steps and listing of transformed values or coordinates. In contrast, original prompts are often vague about the level of detail required and do not specify what needs to be listed or completed in each step. Correct prompts inherently require logical thinking and breaking down problems into smaller parts without needing further refinement.
+</THOUGHT>
+<RULE>
+Ensure prompts explicitly require detailed steps and listing of all necessary values or coordinates before concluding with the final answer.
+</RULE>
+
+========== Sample 2 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Let's think step by step.
+   [Fixed O]    Let's think step by step: First, perform a complete prime factorization for each number. Then, verify that for every prime factor \( p \), \( p^2 \) is also a factor of the number.
+   [Original X] Think about this logically.
+   [Fixed O]    Think about this logically: Begin by performing a prime factorization of each number. Next, verify that for every identified prime factor \( p \), the square of \( p \) is also a factor.
+   [Original X] Please provide a detailed explanation followed by the final answer.
+   [Fixed O]    Please provide a detailed explanation followed by the final answer: Start with a thorough prime factorization for each number, then confirm that for every identified prime factor \( p \), \( p^2 \) is also a factor of the number before concluding.
+
+Generated Guideline:
+<THOUGHT>
+The improved and correct prompts provide clear, structured instructions that guide the user through a specific process. They include explicit steps for problem-solving, such as performing prime factorization and verifying conditions, which are absent in the original failing prompts.
+</THOUGHT>
+<RULE>
+Provide clear, step-by-step instructions including specific actions like performing a prime factorization and verifying conditions to ensure success.
+</RULE>
