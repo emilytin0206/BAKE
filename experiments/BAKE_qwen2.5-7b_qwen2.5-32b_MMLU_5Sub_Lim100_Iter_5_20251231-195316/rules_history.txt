@@ -1,0 +1,15 @@
+
+========== Sample 0 (mmlu_high_school_mathematics) ==========
+Successful Refinements:
+   [Original X] Take a deep breath and work on this problem step-by-step.
+   [Fixed O]    Take a deep breath and work on this problem step-by-step, ensuring you reflect each vertex correctly and verify which of the given options matches one of your results.
+   [Original X] Let's think step by step.
+   [Fixed O]    Let's think step by step, reflect each vertex of the pentagon across the line \(y = x\), and then verify which of the given options matches one of your reflected points.
+
+Generated Guideline:
+<THOUGHT>
+The 'Improved' and 'Correct' prompts specify clear actions or steps that ensure precision in problem-solving, such as reflecting vertices and verifying results against given options. They also provide structured guidance rather than vague encouragement to think step by step.
+</THOUGHT>
+<RULE>
+Specify precise actions and verification steps within the prompt to guide detailed execution.
+</RULE>

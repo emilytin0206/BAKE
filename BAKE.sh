@@ -11,7 +11,7 @@ SUBSETS="high_school_mathematics,high_school_chemistry,high_school_physics,high_
                                   # 若為 "all" 代表全部，否則用逗號分隔
 SPLIT="test"
 LIMIT=100                         # -1 代表全部
-ITERATIVE="false"                  # "true" 開啟迭代, "false" 關閉
+ITERATIVE="true"                  # "true" 開啟迭代, "false" 關閉
 ITER_COUNT=5                      # 迭代產生的 Prompt 數量
 
 # 模型設定 (注意: 腳本會自動將冒號 ':' 轉為 '-')

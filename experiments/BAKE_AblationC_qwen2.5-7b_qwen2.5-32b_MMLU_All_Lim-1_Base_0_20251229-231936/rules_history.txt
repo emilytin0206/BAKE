@@ -41247,3 +41247,327 @@ Use clear and specific instructions. Include phrases like "step by step," "detai
 - Avoid neglecting relevant contexts that are crucial for the question.
 
 ---
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, Step-by-step, Logical Reasoning, Detailed Explanation, Break Down, Final Answer, Action Verbs
+
+[Structural Elements]
+- Start with clear, direct instructions.
+- Use action verbs (e.g., work on, think about, solve).
+- Emphasize the process using phrases like "step-by-step" or "breaking it down into smaller parts."
+- Indicate specific response formats (e.g., detailed explanations, highlighted conclusions).
+
+[Thinking Steps]
+1. **Understand the Objective**: Clearly define what is expected from the response.
+2. **Break Down the Task**: Divide complex tasks into manageable steps.
+3. **Logical Thinking**: Encourage a structured and rational approach to problem-solving.
+4. **Specify Requirements**: Indicate detailed requirements for comprehensive coverage.
+
+[Do's]
+- Be specific in your request (e.g., clear expectation of step-by-step solutions or detailed explanations).
+- Promote structured thinking by breaking down tasks into smaller parts.
+- Stress logical reasoning to ensure thorough analysis and comprehensive responses.
+- Use action verbs to guide the responder’s actions.
+- Maintain a calm, thoughtful tone.
+
+[Don'ts]
+- Avoid ambiguity in your instructions.
+- Do not skip steps or omit necessary details.
+- Refrain from prompting vague or rushed responses.
+- Avoid using language that may induce anxiety or haste.
+
+---
+
+========== Recursive Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative yet supportive; use phrases like “Let's think” or “Take a deep breath.”
+
+[Key Vocabulary]
+Clarity, Step-by-step, Logical Reasoning, Detailed Explanation, Final Answer, Action Verbs, Comprehensive Analysis, Methodical Approach
+
+[Structural Elements]
+- Start with clear and direct language.
+- Use action verbs (e.g., work on, think about, solve).
+- Include section headers if necessary to organize the steps or questions (e.g., "Step 1", "Explanation").
+- Emphasize specific response formats (e.g., detailed explanations, highlighted conclusions).
+- Conclude with final output indication and reminder about accuracy and verification.
+- Use Markdown for formatting where necessary (e.g., headers, bullet points).
+
+[Thinking Steps]
+1. **Calm Introduction**: Provide a calming or motivating introduction to set the tone.
+2. **Clarify Expectations**: Clearly state what needs to be done and define specific expectations.
+3. **Break Down Tasks**: Divide complex tasks into smaller, manageable parts using action verbs.
+4. **Logical Reasoning**: Guide through logical reasoning with detailed explanations at each step.
+5. **Comprehensive Analysis**: Ensure thorough analysis of each part of the problem, addressing potential misconceptions or common errors.
+6. **Context Awareness**: Integrate relevant context (historical, cultural, scientific) where necessary.
+7. **Validation Steps**: Validate information by cross-referencing with authoritative sources if applicable.
+8. **Summarize Findings**: Reinforce key points and summarize findings before providing the final answer.
+
+[Do's]
+- Clearly define expectations (e.g., analysis, explanation, solution).
+- Guide users through step-by-step processes using phrases like "step-by-step" or "think logically."
+- Use directive language to ensure comprehensive coverage of each aspect.
+- Emphasize attention to detail and logical thinking.
+- Provide detailed instructions on the expected format, such as an explanation followed by a final answer.
+- Maintain a calm, thoughtful tone.
+- Employ action-oriented verbs to encourage engagement.
+- Ensure reliance on credible sources where necessary.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions that may lead to misinterpretation.
+- Do not skip logical steps; ensure each step is reasoned out well.
+- Refrain from overly complex language that increases cognitive load.
+- Avoid focusing solely on final answers without detailed explanations.
+- Prevent vagueness, ambiguity, and informal language; be precise and direct.
+- Do not omit specific problem-solving strategies relevant to the task.
+- Do not assume prior knowledge; guide through necessary steps instead.
+- Refrain from providing overly broad or irrelevant information.
+- Avoid skipping over critical thinking steps; ensure each part is thoroughly analyzed.
+
+---
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+step-by-step, break down, logical reasoning, detailed explanation, thorough analysis, final answer, context-specific instructions
+
+[Structural Elements]
+Use clear and direct directives, include section headers if necessary (e.g., "Step 1:", "Contextual Considerations:")
+
+[Thinking Steps]
+1. Clearly state the problem or question.
+2. Break down the task into manageable steps.
+3. Guide through logical reasoning for each step.
+4. Ensure a detailed explanation accompanies each answer.
+5. Include context-specific instructions if applicable.
+
+[Do's]
+- Be explicit about expectations (e.g., logical reasoning, detailed explanations).
+- Encourage structured responses by breaking tasks into steps.
+- Clearly state the need for a final answer.
+- Promote thorough analysis and breakdown of problems.
+- Use clear directives to guide the user systematically.
+
+[Don'ts]
+- Avoid ambiguity in instructions or expectations.
+- Do not skip detailing logical reasoning processes.
+- Avoid asking for quick conclusions without thorough analysis.
+- Do not overlook context-specific considerations that may influence responses.
+
+---
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative and Inviting
+
+[Key Vocabulary]
+Step-by-step, Clear, Detailed Explanation, Thorough Analysis, Structured Approach, Contextual Detailing, Reasoning, Break Down
+
+[Structural Elements]
+Use Markdown for structure (e.g., headers, bullet points), Provide context where necessary
+
+[Thinking Steps]
+1. Clearly define the task and expected outcome.
+2. Guide respondents to break down tasks into manageable parts or follow a step-by-step process.
+3. Encourage detailed analysis and thorough reasoning.
+4. Ensure specific instructions are provided for contextual relevance when needed.
+
+[Do's]
+- Be clear and direct about what is expected from the response.
+- Use phrases that encourage structured thinking, such as "step-by-step" or "breaking it down."
+- Request detailed explanations and justification before providing final answers.
+- Provide context to guide respondents on what kind of information or analysis is needed.
+
+[Don'ts]
+- Avoid ambiguity in instructions.
+- Do not rush towards conclusions without thorough reasoning.
+- Avoid surface-level responses; emphasize depth and detail.
+- Do not leave important contextual details out, especially for complex topics.
+
+---
+
+========== Recursive Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative yet supportive; use phrases like “Let's think” or “Take a deep breath.”
+
+[Key Vocabulary]
+Clarity, Step-by-step, Logical Reasoning, Detailed Explanation, Final Answer, Action Verbs, Comprehensive Analysis, Methodical Approach, Context-Specific Instructions
+
+[Structural Elements]
+- Start with clear and direct language.
+- Use action verbs (e.g., work on, think about, solve).
+- Include section headers if necessary to organize the steps or questions (e.g., "Step 1:", "Contextual Considerations:").
+- Emphasize specific response formats (e.g., detailed explanations, highlighted conclusions).
+- Conclude with final output indication and reminder about accuracy and verification.
+- Use Markdown for formatting where necessary (e.g., headers, bullet points).
+
+[Thinking Steps]
+1. **Calm Introduction**: Provide a calming or motivating introduction to set the tone.
+2. **Clarify Expectations**: Clearly state what needs to be done and define specific expectations.
+3. **Break Down Tasks**: Divide complex tasks into smaller, manageable parts using action verbs.
+4. **Logical Reasoning**: Guide through logical reasoning with detailed explanations at each step.
+5. **Comprehensive Analysis**: Ensure thorough analysis of each part of the problem, addressing potential misconceptions or common errors.
+6. **Context Awareness**: Integrate relevant context (historical, cultural, scientific) where necessary.
+7. **Validation Steps**: Validate information by cross-referencing with authoritative sources if applicable.
+8. **Summarize Findings**: Reinforce key points and summarize findings before providing the final answer.
+
+[Do's]
+- Clearly define expectations (e.g., analysis, explanation, solution).
+- Guide users through step-by-step processes using phrases like "step-by-step" or "think logically."
+- Use directive language to ensure comprehensive coverage of each aspect.
+- Emphasize attention to detail and logical thinking.
+- Provide detailed instructions on the expected format, such as an explanation followed by a final answer.
+- Maintain a calm, thoughtful tone.
+- Employ action-oriented verbs to encourage engagement.
+- Ensure reliance on credible sources where necessary.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions that may lead to misinterpretation.
+- Do not skip logical steps; ensure each step is reasoned out well.
+- Refrain from overly complex language that increases cognitive load.
+- Avoid focusing solely on final answers without detailed explanations.
+- Prevent vagueness, ambiguity, and informal language; be precise and direct.
+- Do not omit specific problem-solving strategies relevant to the task.
+- Do not assume prior knowledge; guide through necessary steps instead.
+- Refrain from providing overly broad or irrelevant information.
+- Avoid skipping over critical thinking steps; ensure each part is thoroughly analyzed.
+
+---
+
+========== Tier-1 Merge ==========
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative yet supportive
+
+[Key Vocabulary]
+structured, logical, detailed explanation, clear instructions, step-by-step, comprehensive analysis, final answer, methodical approach, calm down
+
+[Structural Elements]
+Use markdown for formatting (e.g., headers, lists)
+
+[Thinking Steps]
+1. Break down the problem into smaller parts.
+2. Approach tasks logically and thoroughly.
+3. Provide a detailed explanation followed by the final answer.
+4. Ensure comprehensive analysis of all possibilities before reaching conclusions.
+
+[Do's]
+- Encourage structured thinking to approach problems methodically.
+- Emphasize both the process (how conclusions are reached) and the outcome (final answers).
+- Use concrete examples to ground abstract concepts in reality.
+- Provide clear and directive language to avoid ambiguity.
+- Promote logical reasoning and critical thinking, encouraging users to think deeply about each step.
+- Clarify expectations and specify the format of the output.
+- Use a supportive tone to help users feel more relaxed and confident.
+
+[Don'ts]
+- Avoid overly complex or intimidating language.
+- Do not skip steps in reasoning or solving problems.
+- Do not focus solely on quick solutions; ensure thorough analysis.
+- Do not provide superficial answers; aim for depth and comprehensiveness.
+
+========== Tier-1 Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative
+
+[Key Vocabulary]
+Clarity, Specificity, Step-by-step, Verification, Explanation, Logical Thinking, Final Outcome, Detailed Instructions, Decomposition
+
+[Structural Elements]
+Use structured sections or bullet points to clearly outline steps and expectations.
+
+[Thinking Steps]
+1. Break down complex tasks into manageable parts.
+2. Provide detailed explanations for each step.
+3. Ensure logical progression from start to finish.
+4. Verify each part of the solution before concluding with a final answer.
+
+[Do's]
+- Be clear about what is expected in the response.
+- Guide with a structured, step-by-step approach.
+- Encourage thorough verification and explanation at each stage.
+- Promote systematic thinking by breaking down problems into smaller components.
+- Focus on reaching a definitive conclusion or outcome.
+
+[Don'ts]
+- Avoid vague instructions that can lead to ambiguity.
+- Do not skip steps in the reasoning process.
+- Refrain from leaving out final outcomes or conclusions.
+- Avoid complex tasks without breaking them down into simpler parts.
+
+---
+
+========== Recursive Merge ==========
+---
+**Merged Rule Template:**
+
+[Guiding Tone]
+Authoritative yet supportive
+
+[Key Vocabulary]
+Clarity, Step-by-step, Logical Reasoning, Detailed Explanation, Final Answer, Action Verbs, Comprehensive Analysis, Methodical Approach, Context-Specific Instructions, Verification
+
+[Structural Elements]
+- Use structured sections or bullet points to clearly outline steps and expectations.
+- Start with clear and direct language.
+- Include section headers if necessary (e.g., "Step 1:", "Contextual Considerations:").
+- Emphasize specific response formats (e.g., detailed explanations, highlighted conclusions).
+- Conclude with final output indication and reminder about accuracy and verification.
+- Use Markdown for formatting where necessary (e.g., headers, bullet points).
+
+[Thinking Steps]
+1. **Calm Introduction**: Provide a calming or motivating introduction to set the tone.
+2. **Clarify Expectations**: Clearly state what needs to be done and define specific expectations.
+3. **Break Down Tasks**: Divide complex tasks into smaller, manageable parts using action verbs.
+4. **Logical Reasoning**: Guide through logical reasoning with detailed explanations at each step.
+5. **Comprehensive Analysis**: Ensure thorough analysis of each part of the problem, addressing potential misconceptions or common errors.
+6. **Context Awareness**: Integrate relevant context (historical, cultural, scientific) where necessary.
+7. **Validation Steps**: Validate information by cross-referencing with authoritative sources if applicable.
+8. **Summarize Findings**: Reinforce key points and summarize findings before providing the final answer.
+
+[Do's]
+- Clearly define expectations (e.g., analysis, explanation, solution).
+- Guide users through step-by-step processes using phrases like "step-by-step" or "think logically."
+- Use directive language to ensure comprehensive coverage of each aspect.
+- Emphasize attention to detail and logical thinking.
+- Provide detailed instructions on the expected format, such as an explanation followed by a final answer.
+- Maintain a calm, thoughtful tone.
+- Employ action-oriented verbs to encourage engagement.
+- Ensure reliance on credible sources where necessary.
+
+[Don'ts]
+- Avoid vague or ambiguous instructions that may lead to misinterpretation.
+- Do not skip logical steps; ensure each step is reasoned out well.
+- Refrain from overly complex language that increases cognitive load.
+- Avoid focusing solely on final answers without detailed explanations.
+- Prevent vagueness, ambiguity, and informal language; be precise and direct.
+- Do not omit specific problem-solving strategies relevant to the task.
+- Do not assume prior knowledge; guide through necessary steps instead.
+- Refrain from providing overly broad or irrelevant information.
+- Avoid skipping over critical thinking steps; ensure each part is thoroughly analyzed.
+
+---

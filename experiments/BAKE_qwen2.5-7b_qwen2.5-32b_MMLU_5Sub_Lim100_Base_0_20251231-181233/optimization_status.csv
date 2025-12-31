@@ -1,5 +1,0 @@
-id,source,status,initial_wrong,verified_success,note
-0,mmlu_high_school_mathematics,Success,3,3,
-1,mmlu_high_school_mathematics,Failed (Verification),1,0,All candidates failed
-2,mmlu_high_school_mathematics,Success,3,3,
-3,mmlu_high_school_mathematics,Failed (Verification),3,0,All candidates failed
