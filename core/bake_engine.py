@@ -6,6 +6,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from utils import text_tools, logger
 
 class BakeEngine:
+    # 定義統一的預設 System Prompt
+    DEFAULT_SYS_MSG = "You are a helpful assistant."
+
     def __init__(self, scorer, optimizer, config, meta_prompts):
         self.scorer = scorer
         self.optimizer = optimizer
@@ -30,8 +33,8 @@ class BakeEngine:
             full_input = f"{p}\n\n{query}"
             for _ in range(self.max_retries):
                 try:
-                    # 取得原始回答
-                    raw = self.scorer.chat("You are a helpful assistant.", full_input)
+                    # [修改] 使用統一的預設 System Prompt
+                    raw = self.scorer.chat(self.DEFAULT_SYS_MSG, full_input)
                     # 判斷對錯
                     is_correct = text_tools.validate_answer(raw, answer_gt, task_type)
                     return (p, is_correct, raw)
@@ -67,15 +70,21 @@ class BakeEngine:
             )
         
         error_block = "\n".join(error_cases)
-        sys_msg = self.meta_prompts.get("analyze_and_rewrite", "")
         
-        user_msg = (
+        # [修改] 取得指令模板
+        template_text = self.meta_prompts.get("analyze_and_rewrite", "")
+        
+        # [修改] 將指令與任務內容合併到 User Message
+        full_user_msg = (
+            f"{template_text.format(num=len(wrong))}\n"
+            f"----------------------------------------\n"
             f"[TASK CONTEXT]\nQuestion: {question}\nGround Truth: {answer_gt}\n\n"
             f"[FAILED PROMPTS & OUTPUTS]\n{error_block}\n\n"
             f"[SUCCESSFUL PROMPTS (REFERENCE)]\n{correct}"
         )
 
-        response = self.optimizer.chat(sys_msg.format(num=len(wrong)), user_msg)
+        # [修改] System 使用預設值
+        response = self.optimizer.chat(self.DEFAULT_SYS_MSG, full_user_msg)
         improved = text_tools.extract_tags(response, "REWRITE")
         
         if not improved:
@@ -91,19 +100,25 @@ class BakeEngine:
         return pairs
 
     def extract_rule(self, correct, pairs):
-        """Step 3: 提取規則"""
         if not pairs: return ""
+        
+        # 1. 準備資料字串
+        pair_text = "\n".join([f"Original: {o}\nImproved: {n}" for o, n in pairs])
+        correct_text = "\n".join([f"- {c}" for c in correct])
+        
+        # 2. 讀取 Template
         tpl = self.meta_prompts.get("rule_summarization", "")
         
-        pair_text = "\n".join([f"Original: {o}\nImproved: {n}" for o, n in pairs])
-        
         try:
-            sys_msg = tpl.format(pairs_block=pair_text)
-        except Exception:
-            sys_msg = tpl
+            # [修改] 填入 txt 定義好的兩個變數位置
+            full_user_msg = tpl.format(pairs_block=pair_text, correct_block=correct_text)
+        except Exception as e:
+            print(f"  [⚠️ Template Format Error] {e}")
+            # Fallback: 萬一 txt 檔變數名寫錯，做個簡單串接避免 crash
+            full_user_msg = f"{tpl}\n\n[Pairs]:\n{pair_text}\n\n[Correct]:\n{correct_text}"
             
-        user_msg = f"Correct Prompts:\n{correct}"
-        return self.optimizer.chat(sys_msg, user_msg)
+        # 3. 發送請求 (System 使用預設值)
+        return self.optimizer.chat(self.DEFAULT_SYS_MSG, full_user_msg)
 
     def combine_rules(self, rules):
         """Step 4: 合併規則"""
@@ -113,11 +128,14 @@ class BakeEngine:
         block = "\n\n".join([f"Rule {i+1}:\n{r}" for i, r in enumerate(rules)])
         
         try:
-            sys_msg = tpl.format(rules_block=block)
+            instruction_content = tpl.format(rules_block=block)
         except Exception:
-            sys_msg = f"{tpl}\n\nRules:\n{block}"
+            instruction_content = f"{tpl}\n\nRules:\n{block}"
+        
+        # [修改] 合併指令與請求
+        full_user_msg = f"{instruction_content}\n\nPlease fill the template based on the rules above."
             
-        return self.optimizer.chat(sys_msg, "Please fill the template based on the rules above.")
+        return self.optimizer.chat(self.DEFAULT_SYS_MSG, full_user_msg)
 
     def _generate_prompts_from_rule(self, rule_text, count):
         """[Helper] 根據規則生成 Prompts"""
@@ -125,14 +143,16 @@ class BakeEngine:
         
         gen_tpl = self.meta_prompts.get("prompt_generation", "")
         try:
-            sys_msg = gen_tpl.format(rules_block=rule_text, num=count)
+            instruction_content = gen_tpl.format(rules_block=rule_text, num=count)
         except Exception:
-            sys_msg = gen_tpl.replace("{rules_block}", rule_text).replace("{num}", str(count))
+            instruction_content = gen_tpl.replace("{rules_block}", rule_text).replace("{num}", str(count))
             
-        user_msg = f"Please generate {count} new prompts based on the above rule now."
+        # [修改] 合併指令與請求
+        full_user_msg = f"{instruction_content}\n\nPlease generate {count} new prompts based on the above rule now."
         
         try:
-            raw = self.optimizer.chat(sys_msg, user_msg)
+            # [修改] System 使用預設值
+            raw = self.optimizer.chat(self.DEFAULT_SYS_MSG, full_user_msg)
             prompts = []
             for line in raw.split('\n'):
                 line = line.strip()
