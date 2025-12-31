@@ -7389,3 +7389,87 @@ id,source,status,initial_wrong,verified_success,note
 7387,mmlu_miscellaneous,Failed (Verification),4,0,All candidates failed
 7388,mmlu_miscellaneous,Skipped (All Correct),0,0,
 7389,mmlu_miscellaneous,Success,1,1,
+7390,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7391,mmlu_miscellaneous,Success,1,1,
+7392,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7393,mmlu_miscellaneous,Failed (Verification),5,0,All candidates failed
+7394,mmlu_miscellaneous,Success,2,1,
+7395,mmlu_miscellaneous,Failed (Verification),1,0,All candidates failed
+7396,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7397,mmlu_miscellaneous,Failed (Verification),1,0,All candidates failed
+7398,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7399,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7400,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7401,mmlu_miscellaneous,Failed (Verification),3,0,All candidates failed
+7402,mmlu_miscellaneous,Success,4,2,
+7403,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7404,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7405,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7406,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7407,mmlu_miscellaneous,Failed (Verification),5,0,All candidates failed
+7408,mmlu_miscellaneous,Failed (Verification),2,0,All candidates failed
+7409,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7410,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7411,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7412,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7413,mmlu_miscellaneous,Success,1,1,
+7414,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7415,mmlu_miscellaneous,Failed (Verification),4,0,All candidates failed
+7416,mmlu_miscellaneous,Success,1,1,
+7417,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7418,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7419,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7420,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7421,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7422,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7423,mmlu_miscellaneous,Success,1,1,
+7424,mmlu_miscellaneous,Success,1,1,
+7425,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7426,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7427,mmlu_miscellaneous,Success,1,1,
+7428,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7429,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7430,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7431,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7432,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7433,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7434,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7435,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7436,mmlu_miscellaneous,Success,1,1,
+7437,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7438,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7439,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7440,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7441,mmlu_miscellaneous,Failed (Verification),2,0,All candidates failed
+7442,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7443,mmlu_miscellaneous,Failed (Verification),5,0,All candidates failed
+7444,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7445,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7446,mmlu_miscellaneous,Failed (Verification),4,0,All candidates failed
+7447,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7448,mmlu_miscellaneous,Failed (Verification),3,0,All candidates failed
+7449,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7450,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7451,mmlu_miscellaneous,Failed (Verification),2,0,All candidates failed
+7452,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7453,mmlu_miscellaneous,Failed (Verification),5,0,All candidates failed
+7454,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7455,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7456,mmlu_miscellaneous,Success,1,1,
+7457,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7458,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7459,mmlu_miscellaneous,Success,3,1,
+7460,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7461,mmlu_miscellaneous,Failed (Verification),4,0,All candidates failed
+7462,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7463,mmlu_miscellaneous,Failed (Verification),1,0,All candidates failed
+7464,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7465,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7466,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7467,mmlu_miscellaneous,Failed (Verification),5,0,All candidates failed
+7468,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7469,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7470,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7471,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7472,mmlu_miscellaneous,Skipped (All Correct),0,0,
+7473,mmlu_miscellaneous,Failed (Verification),5,0,All candidates failed

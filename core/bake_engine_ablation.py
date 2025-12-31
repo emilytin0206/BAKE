@@ -6,7 +6,10 @@ class SuccessOnlyBakeEngine(BakeEngine):
     def extract_rule(self, correct, pairs):
         if not correct and not pairs: return ""
         
-        # 1. System Prompt
+        print("\n  🧪 [Ablation Mode] Running Success-Only Rule Extraction...")
+
+        # 1. 準備 System Message
+        # 請確保 meta_prompt/rule_summarization_success_only_system.txt 存在
         sys_msg = self.meta_prompts.get("rule_summarization_success_only_system", "")
 
         # 2. 準備資料
@@ -14,7 +17,8 @@ class SuccessOnlyBakeEngine(BakeEngine):
         all_success = list(set(correct + refined_success))
         prompts_block_str = "\n".join([f"- {p}" for p in all_success])
         
-        # 3. User Prompt
+        # 3. 準備 User Message
+        # 請確保 meta_prompt/rule_summarization_success_only_user.txt 存在
         user_tpl = self.meta_prompts.get("rule_summarization_success_only_user", "")
         
         try:
