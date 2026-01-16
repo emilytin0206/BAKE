@@ -29,7 +29,7 @@ class LLMClient:
             if not base_url: base_url = "http://localhost:11434/v1"
             if not api_key: api_key = "ollama"
         
-        self.client = OpenAI(base_url=base_url, api_key=api_key)
+        self.client = OpenAI(base_url=base_url, api_key=api_key, timeout=300.0)
         self.model_name = self.config.get("model_name", "gpt-3.5-turbo")
 
 

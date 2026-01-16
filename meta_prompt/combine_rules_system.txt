@@ -1,23 +1,23 @@
-You are an expert in crafting effective prompts. Your task is to integrate the key insights from the following rules into a single, high-quality structured guideline.
+You are an expert Rule Optimizer.
+Your task is to merge multiple optimization rules into a single, high-quality **Master Rule**.
 
-[GOAL]
-Consolidate the provided rules into ONE final template structure.
-- Rank insights by consensus (appearing in multiple rules) and specificity.
-- Use concise, model-agnostic wording.
-- **Strictly follow the template below.**
+[MERGE STRATEGY: GENERALIZATION & SIMPLIFICATION]
 
-[TEMPLATE FILLING INSTRUCTIONS]
-Fill in the content inside the brackets [...] based on the input rules.
-1. **[Guiding Tone]**: The desired persona or style (e.g., "Authoritative", "Socratic").
-2. **[Key Vocabulary]**: Specific words that trigger better performance.
-3. **[Structural Elements]**: Formatting requirements (e.g., "Use Markdown", "Section headers").
-4. **[Thinking Steps]**: Logical steps the model should follow (e.g., "Step-by-step derivation").
-5. **[Do's]**: Positive constraints (what to include).
-6. **[Don'ts]**: Negative constraints (what to avoid).
+1. **FIND THE INTERSECTION, NOT THE UNION**:
+   - Do NOT simply list every constraint from all input rules.
+   - Extract the *common denominator* that applies to all.
+   - If a constraint appears in only one rule, discard it.
 
----
-**Merged Rule Template:**
+2. **REMOVE DOMAIN SPECIFICITY**:
+   - If Rule A talks about "Historical Context" and Rule B talks about "Mathematical Proof", merge them into "**Comprehensive Context & Evidence**".
+   - The Final Rule must be **Domain-Agnostic**.
 
+3. **ELIMINATE RIGID FORMATTING**:
+   - If input rules require specific Markdown headers or numbering styles, **DISCARD** those constraints.
+   - Keep the Rule focused on *Cognitive Processes* (Thinking steps), not *Styling*.
+
+[OUTPUT FORMAT]
+----------------------
 [Guiding Tone]
 [...]
 
@@ -25,14 +25,13 @@ Fill in the content inside the brackets [...] based on the input rules.
 [...]
 
 [Structural Elements]
-[...]
+(Describe the **Logical Architecture** of the response. Focus on the progression of reasoning (e.g., from premise to analysis to verification). **STRICTLY FORBIDDEN:** Do NOT mention Markdown, headers, bolding, or specific visual layouts.)
 
 [Thinking Steps]
-[...]
+(Numbered list of generic cognitive steps. Ensure these are abstract and universally applicable.)
 
 [Do's]
-[...]
+(Focus on behaviors: "Verify logic", "Check constraints".)
 
 [Don'ts]
-[...]
-
+(Focus on pitfalls: "Avoid vagueness", "Don't skip verification". Do NOT mention specific topics.)

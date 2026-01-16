@@ -1,6 +1,7 @@
 import time
 import csv
 import os
+import re  # <--- [新增] 用於解析標籤
 from typing import List, Tuple
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from utils import text_tools, logger
@@ -93,7 +94,7 @@ class BakeEngine:
             )
         except Exception as e:
             print(f"  [⚠️ Template Error] refine_user: {e}")
-            # Fallback: 確保即使模板出錯也能繼續執行
+            # Fallback
             user_msg = f"Question: {question}\nFailed:\n{error_block_str}\nCorrect:\n{correct}"
 
         # 4. 發送請求
@@ -117,14 +118,11 @@ class BakeEngine:
         """Step 3: Extract Rule"""
         if not pairs: return ""
         
-        # 1. [System Message] 純指令
         sys_msg = self.meta_prompts.get("rule_summarization_system", "")
         
-        # 2. 準備資料字串
         pair_text = "\n".join([f"Original: {o}\nImproved: {n}" for o, n in pairs])
         correct_text = "\n".join([f"- {c}" for c in correct])
         
-        # 3. [User Message] 注入對照資料
         user_tpl = self.meta_prompts.get("rule_summarization_user", "")
         try:
             user_msg = user_tpl.format(
@@ -141,10 +139,7 @@ class BakeEngine:
         """Step 4: Combine Rules"""
         if not rules: return ""
         
-        # 1. [System Message]
         sys_msg = self.meta_prompts.get("combine_rules_system", "")
-        
-        # 2. [User Message]
         user_tpl = self.meta_prompts.get("combine_rules_user", "")
         
         block = "\n\n".join([f"Rule {i+1}:\n{r}" for i, r in enumerate(rules)])
@@ -157,17 +152,17 @@ class BakeEngine:
         return self.optimizer.chat(sys_msg, user_msg)
 
     def _generate_prompts_from_rule(self, rule_text, count):
-        """[Helper] 根據規則生成 Prompts"""
+        """[Helper] 根據規則生成 Prompts (支援 XML <prompt> 格式)"""
         if not rule_text: return []
         
-        # 1. [System Message] 格式化數量 {num}
+        # 1. System Message
         sys_tpl = self.meta_prompts.get("prompt_generation_system", "")
         try:
             sys_msg = sys_tpl.format(num=count)
         except:
             sys_msg = sys_tpl.replace("{num}", str(count))
             
-        # 2. [User Message] 注入規則內容
+        # 2. User Message
         user_tpl = self.meta_prompts.get("prompt_generation_user", "")
         try:
             user_msg = user_tpl.format(rule_text=rule_text, count=count)
@@ -177,19 +172,41 @@ class BakeEngine:
         try:
             raw = self.optimizer.chat(sys_msg, user_msg)
             
-            prompts = []
-            for line in raw.split('\n'):
-                line = line.strip()
-                if len(line) > 10 and not line.lower().startswith("here"):
-                    line = line.strip('"').strip("'")
-                    if line[0].isdigit():
-                        line = line.split('.', 1)[-1].strip()
-                        line = line.split(')', 1)[-1].strip()
-                    prompts.append(line)
+            # --- [修改] 使用 Regex 解析 <prompt> ---
+            prompts = re.findall(r'<prompt>(.*?)</prompt>', raw, re.DOTALL | re.IGNORECASE)
+            prompts = [p.strip() for p in prompts if p.strip()]
+
+            # Fallback: 舊邏輯 (如果模型沒輸出標籤)
+            if not prompts:
+                print("  [⚠️ Warning] No <prompt> tags found, falling back to line parsing.")
+                for line in raw.split('\n'):
+                    line = line.strip()
+                    if len(line) > 10 and not line.lower().startswith("here"):
+                        line = line.strip('"').strip("'")
+                        if line[0].isdigit():
+                            line = line.split('.', 1)[-1].strip()
+                            line = line.split(')', 1)[-1].strip()
+                        prompts.append(line)
+            
             return prompts[:count]
         except Exception as e:
             print(f"  [⚠️ Warning] Generate prompts failed: {e}")
             return []
+
+    def _save_flattened_prompts(self, prompts, filepath):
+        """
+        [Helper] 將 Prompts 壓平 (換行轉 \\n) 並存檔。
+        方便使用者直接拿這個檔案當作下一次實驗的 initial_prompts。
+        """
+        try:
+            with open(filepath, 'w', encoding='utf-8') as f:
+                for p in prompts:
+                    # 將實際換行符號轉為字串 "\\n"，保持一行一條
+                    flat_p = p.replace('\n', '\\n')
+                    f.write(flat_p + "\n")
+            print(f"  💾 Saved flattened prompts to: {filepath}")
+        except Exception as e:
+            print(f"  [⚠️ Error] Failed to save prompts: {e}")
 
     def _log_optimization_status(self, filepath, idx, src, status, initial_wrong, verified_success, note):
         with open(filepath, 'a', encoding='utf-8', newline='') as f:
@@ -197,7 +214,7 @@ class BakeEngine:
             writer.writerow([idx, src, status, initial_wrong, verified_success, note])
 
     def run(self, dataset, initial_prompts):
-        """主流程 (邏輯保持不變，僅確保呼叫介面一致)"""
+        """主流程"""
         current_prompts = initial_prompts.copy()
         attr, all_rule = [], []
         
@@ -206,6 +223,9 @@ class BakeEngine:
         prompt_history_path = self.paths.get('prompt_history', "logs/prompt_history.jsonl")
         rule_evolution_path = self.paths.get('rule_evolution', "logs/rule_evolution.jsonl")
         
+        # [新增] 用於儲存最新的 Iterative Prompts
+        current_iter_prompts_path = os.path.join(os.path.dirname(opt_status_path), "current_iter_prompts.txt")
+
         logger.init_files([
             self.paths['detailed_log'], self.paths['rules_log'], 
             opt_status_path, trace_log_path, prompt_history_path, rule_evolution_path
@@ -216,7 +236,6 @@ class BakeEngine:
                 writer = csv.writer(f)
                 writer.writerow(["id", "source", "status", "initial_wrong", "verified_success", "note"])
 
-        # 記錄初始 Prompts
         logger.log_jsonl(prompt_history_path, {
             "event": "initial_load", "sample_idx": 0, "prompts": current_prompts, "count": len(current_prompts)
         })
@@ -256,16 +275,6 @@ class BakeEngine:
             Pc_new, Pi_new, details_new, verify_failed_outputs = self.evaluate_parallel(q, a, new_prompts_to_test, task_type=t_type)
             print(f"  > Verification Result: {len(Pc_new)} succeeded.")
 
-            for old_p, new_p in candidate_pairs:
-                is_verified = (new_p in Pc_new)
-                raw_out = verify_failed_outputs.get(new_p, "Correct" if is_verified else "No Output")
-                
-                if should_log_details:
-                    logger.log_jsonl(trace_log_path, {
-                        "id": idx, "source": src, "original_prompt": old_p, "candidate_prompt": new_p,
-                        "verified": is_verified, "model_output": raw_out
-                    })
-
             valid_pairs = [(old, new) for old, new in candidate_pairs if new in Pc_new]
             verified_success_count = len(valid_pairs)
 
@@ -279,13 +288,11 @@ class BakeEngine:
             rule = self.extract_rule(Pc, valid_pairs)
             if rule:
                 attr.append(rule)
-                failed_prompts_text = "\n".join([f"   [Original X] {old}\n   [Fixed O]    {new}" for old, new in valid_pairs])
-                log_content = f"Successful Refinements:\n{failed_prompts_text}\n\nGenerated Guideline:\n{rule}"
-                
                 if should_log_details:
+                    log_content = f"Guideline:\n{rule}"
                     logger.log_rule(self.paths['rules_log'], f"Sample {idx} ({src})", log_content)
 
-            # 5. Merge Logic
+            # 5. Merge Logic (Iterative Update)
             if len(attr) >= self.group_size:
                 merged = self.combine_rules(attr)
                 all_rule.append(merged)
@@ -296,44 +303,48 @@ class BakeEngine:
                 if self.enable_iterative:
                     print(f"\n  ⚡ [Iterative Update] Enabled. Updating prompts from Tier-1 Rule...")
                     iter_count = self.config['bake'].get('iterative_prompt_count', 5)
+                    
+                    # [呼叫修改後的生成函式]
                     new_iterative_prompts = self._generate_prompts_from_rule(merged, count=iter_count)
                     
                     if new_iterative_prompts:
                         current_prompts = new_iterative_prompts
                         print(f"  🔄 Prompt Pool Updated: {len(current_prompts)} new prompts.")
+                        
+                        # [新增] 將新 Prompt 壓平並存檔，方便作為下一次的 initial prompt
+                        self._save_flattened_prompts(current_prompts, current_iter_prompts_path)
+                        
                         logger.log_jsonl(prompt_history_path, {
                             "event": "iterative_update", "sample_idx": idx, "prompts": current_prompts,
                             "derived_from_rule_tier": "Tier-1", "count": len(current_prompts)
                         })
                     else:
                         print("  ⚠️ Failed to generate new prompts, keeping old ones.")
-                else:
-                    print(f"  ℹ️ [Iterative Update] Disabled. Continuing with existing prompts.")
 
-            # Recursive Merge
+            # Recursive Merge (同原邏輯)
             while len(all_rule) >= self.group_size:
                 chunk = all_rule[:self.group_size]
                 merged = self.combine_rules(chunk)
                 all_rule = [merged] + all_rule[self.group_size:]
                 logger.log_rule(self.paths['rules_log'], "Recursive Merge", merged)
-                logger.log_jsonl(rule_evolution_path, {"sample_idx": idx, "tier": "Recursive/Tier-N", "rule_content": merged})
 
         # 6. Finalize
         print("\n=== Finalizing Rules ===")
         if attr: 
             tail = self.combine_rules(attr)
             all_rule.append(tail)
-            logger.log_rule(self.paths['rules_log'], "Cleanup Tier-0", tail)
             
         while len(all_rule) > 1:
             merged = self.combine_rules(all_rule[:self.group_size])
             all_rule = [merged] + all_rule[self.group_size:]
-            logger.log_rule(self.paths['rules_log'], "Convergence Merge", merged)
-            logger.log_jsonl(rule_evolution_path, {"sample_idx": "FINAL", "tier": "Convergence", "rule_content": merged})
             
         final_rule = all_rule[0] if all_rule else ""
         logger.log_rule(self.paths['rules_log'], "FINAL RULE", final_rule)
         
         final_prompts = self._generate_prompts_from_rule(final_rule, count=self.config['bake']['max_output_prompts'])
+        
+        # [新增] 最終結果也存一份 Flattened 版本
+        final_prompts_path = os.path.join(os.path.dirname(opt_status_path), "final_optimized_prompts.txt")
+        self._save_flattened_prompts(final_prompts, final_prompts_path)
         
         return final_prompts, final_rule

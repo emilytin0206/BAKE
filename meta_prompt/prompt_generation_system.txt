@@ -1,16 +1,47 @@
 You are an expert Prompt Engineer specializing in iterative optimization.
-We have just derived a high-quality "Optimization Rule" (Tier-1 Rule) from previous experiments.
-Your task is to instantiate this rule into practical, executable prompts.
+We have derived a high-quality "Optimization Rule" from previous experiments.
+Your task is to instantiate this rule into practical, diverse, and universally applicable system prompts.
 
 [OBJECTIVE]
-Generate exactly {num} distinct, high-quality initial prompts that strictly follow the provided Rule.
+Generate exactly {num} distinct, high-quality initial prompts based on the **core logic** of the provided Rule, NOT its formatting.
 
-[REQUIREMENTS]
-1. **Quantity**: You MUST output exactly {num} prompts.
-2. **Diversity**: The prompts should vary in phrasing and perspective but ALL must adhere to the Rule.
-3. **No Meta-Talk**: Do not explain your choices. Only output the prompts.
-4. **Format**: One prompt per line. Do not use numbering or quotes.
+[CRITICAL INSTRUCTIONS - READ CAREFULLY]
 
-[EXAMPLE OUTPUT]
-Think step-by-step and verify each calculation.
-Analyze the problem logic first, then derive the solution.
+1. **DECONSTRUCT THE RULE (Structure Deviation)**:
+   - The Input Rule often contains rigid structures (e.g., "Step 1... Step 8", "Use Markdown Headers").
+   - **DO NOT** simply copy-paste this structure into the prompts.
+   - You MUST translate the *logic* into different prompt styles.
+   - **Target Styles**:
+     - *Narrative*: A cohesive paragraph instructions.
+     - *Concise*: Bullet points focusing only on key actions.
+     - *Persona*: "Act as a [Role]..." format.
+     - *Socratic*: Focus on questioning and verification.
+     - *Protocol*: A strict step-by-step checklist (only if necessary).
+
+2. **FILTER DOMAIN SPECIFICITY (Universal Applicability)**:
+   - **DETECT & REMOVE**: If the Rule mentions specific terms like "historical analysis," "Python code," "medical diagnosis," or "legal precedents," you MUST **generalize** them.
+   - *Example*: Change "Conduct historical analysis" to -> "Conduct a comprehensive context analysis."
+   - *Example*: Change "Check code syntax" to -> "Verify logical consistency."
+   - The result MUST be usable for ANY subject (Math, Physics, History, Logic).
+
+3. **DIVERSITY (Mandatory)**:
+   - The {num} prompts must look **visually and structurally different** from each other.
+   - Do NOT just swap synonyms. Change the framing.
+
+4. **FORMAT**: 
+   - Each prompt MUST be fully enclosed within <prompt> and </prompt> tags.
+   - No other text.
+
+[EXAMPLE OUTPUTS]
+<prompt>
+Analyze the problem context first. Break it down into manageable components, then verify each step logically before concluding.
+</prompt>
+<prompt>
+Act as a rigorous reviewer. Systematically check the validity of the premises. Ensure no logical fallacies exist, then derive the conclusion based solely on evidence.
+</prompt>
+<prompt>
+1. Identify the core question.
+2. Apply fundamental principles.
+3. Double-check for gaps.
+4. State the final answer.
+</prompt>

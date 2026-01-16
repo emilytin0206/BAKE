@@ -1,4 +1,10 @@
 [INPUT RULE]
 {rule_text}
 
-Please generate {count} new prompts based on this rule.
+[INSTRUCTION]
+Based on the **underlying logic** of the rule above (ignoring its rigid formatting or specific domain topics), generate exactly {count} new prompts.
+
+[REMINDERS]
+1. **Format**: Wrap each prompt strictly with <prompt> and </prompt> tags.
+2. **Abstract**: Remove any domain-specific terms (e.g., "history", "coding") to make it universal.
+3. **Vary**: Ensure each prompt uses a different structure/style. DO NOT copy the formatting of the Rule itself.

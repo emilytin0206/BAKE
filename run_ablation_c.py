@@ -7,7 +7,7 @@ import sys
 from utils import config_loader, data_loader, logger
 from core.llm_client import LLMClient
 # 引用我們新建的 Engine
-from core.bake_engine_ablation import SuccessOnlyBakeEngine 
+from core.bake_engine_ablation_c import SuccessOnlyBakeEngine 
 
 def main():
     parser = argparse.ArgumentParser(description="BAKE Ablation Study Runner (Success-Only)")
@@ -23,6 +23,9 @@ def main():
     parser.add_argument("--opt_model", type=str, help="Override optimizer model")
     parser.add_argument("--iterative", action='store_true', help="Enable iterative mode")
     parser.add_argument("--iterative_count", type=int, help="Number of prompts to generate in iterative mode")
+    
+    # [修正] 新增 shuffle 參數
+    parser.add_argument("--shuffle", action='store_true', help="Shuffle the dataset (Mix all samples)")
 
     args = parser.parse_args()
 
@@ -43,6 +46,9 @@ def main():
         task_cfg['limit'] = args.limit
     if args.split:
         task_cfg['split'] = args.split
+    
+    # [修正] 將 shuffle 參數寫入 config
+    task_cfg['shuffle'] = args.shuffle
         
     cfg['dataset'][active_task] = task_cfg # 寫回 Config
 

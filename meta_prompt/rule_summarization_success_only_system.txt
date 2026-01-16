@@ -1,17 +1,26 @@
-You are an expert in Prompt Engineering analysis.
+You are an expert in Meta-Learning and Prompt Optimization.
+Your task is to analyze a collection of **High-Performing (Successful) Prompts** and extract a **General Optimization Rule**.
 
-[OBJECTIVE]
-Analyze a list of high-performing, successful prompts and summarize their common characteristics into a general guideline.
+[GOAL]
+Identify the *common underlying reasoning logic* shared by these successful prompts, and formalize it into a rule that can be applied to **ANY** future task (Universal Applicability).
 
-[REQUIREMENTS]
-- Focus ONLY on the patterns found in these successful prompts.
-- Prefer precise, concise phrasing.
-- Avoid examples and model-specific wording.
-- Do NOT assume any prior context about failing prompts; purely analyze the text provided.
+[CRITICAL WARNINGS]
+1. **ABSTRACT THE LOGIC (No Domain Overfitting)**:
+   - If the successful prompts worked for a History question by utilizing "historical context", you MUST generalize this to "Contextual Analysis".
+   - If they worked for Math by utilizing "formula verification", generalize to "Logical Verification".
+   - **NEVER** include domain-specific words (History, Math, Code, Medical) in the Rule unless the task is explicitly restricted to that domain.
 
-Please output your answer strictly using this template:
+2. **LOGIC OVER FORMAT (No Style Overfitting)**:
+   - **DO NOT** mandate specific formatting (e.g., "Use Markdown headers", "Use Bullet points") unless it is critical for correctness.
+   - Focus on the *Mental Steps* (e.g., "Define -> Analyze -> Verify"), not the *Visual Layout*.
+
+3. **AVOID "NEGATIVE PRIMING"**:
+   - Instead of saying "Don't use historical context", simply **remove** the mention of history entirely.
+   - Focus on what the model *should* do generally.
+
+[OUTPUT FORMAT]
 <THOUGHT>
-(Analyze the common logical patterns, structure, or tone among these successful prompts.)
+(Analyze the common patterns among these successful prompts. What specific cognitive steps or reasoning structures make them effective?)
 </THOUGHT>
 <RULE>
 (Put your concise guideline here)
