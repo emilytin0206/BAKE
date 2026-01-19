@@ -1,0 +1,39 @@
+
+========== Sample 0 (mmlu_high_school_mathematics) ==========
+Guideline:
+<THOUGHT>
+The original prompt is vague and lacks precise steps or methods to achieve the logical thinking required for solving the problem. The improved prompts provide clear instructions that guide through specific actions (reflecting vertices, comparing coordinates), ensuring a structured approach to reasoning. This structure helps in breaking down the problem into smaller parts and addressing it methodically. The correct prompts further reinforce this idea by emphasizing step-by-step thinking and decomposition of the task.
+</THOUGHT>
+<RULE>
+Ensure that instructions guide through specific actions or steps for logical analysis, breaking down problems into smaller parts to achieve a systematic solution.
+</RULE>
+
+========== FINAL RULE ==========
+[Guiding Tone]
+The guiding tone emphasizes clarity and precision in instructions to ensure a structured approach to problem-solving. It stresses the importance of methodical thinking by breaking down tasks into manageable steps.
+
+[Key Vocabulary]
+- Logical analysis
+- Structured approach
+- Systematic solution
+- Step-by-step thinking
+- Decomposition
+
+[Structural Elements]
+The logical architecture focuses on guiding the user through a clear progression from understanding the problem to applying specific actions and verifying the solution. The primary focus is on cognitive processes rather than domain-specific details.
+
+[Thinking Steps]
+1. **Understand the Problem**: Identify the core of the issue by clarifying vague elements.
+2. **Break Down the Task**: Decompose the problem into smaller, manageable parts.
+3. **Guide Through Actions**: Provide clear instructions that lead through specific actions or steps.
+4. **Systematic Approach**: Ensure each step logically follows from the previous one to form a coherent process.
+5. **Verification**: Confirm the solution by checking if all steps have been correctly followed and if the problem is fully addressed.
+
+[Do's]
+- Verify logic in each step to ensure consistency.
+- Check constraints to make sure they are well-defined and clear.
+- Emphasize step-by-step thinking to guide through complex tasks methodically.
+
+[Don'ts]
+- Avoid vagueness that could lead to confusion or misinterpretation of steps.
+- Don’t skip verification, as it is crucial for confirming the completeness and correctness of the solution.

@@ -34,3 +34,24 @@ class ConciseBakeEngine(BakeEngine):
             
         # 4. 呼叫模型
         return self.optimizer.chat(sys_msg, user_msg)
+    
+    def combine_rules(self, rules):
+        """
+        [FIX] Override: 使用 'concise' 版本的合併邏輯，防止規則膨脹
+        """
+        if not rules: return ""
+        
+        # 使用專用的 Concise Merge System Prompt
+        # (您需要新增這個 txt 檔案，內容要求：合併後依然保持一句話，不要擴寫)
+        sys_msg = self.meta_prompts.get("combine_rules_concise_system", 
+                                        "You are a minimalist logic merger. Merge these rules into a SINGLE, short sentence.")
+        
+        user_tpl = self.meta_prompts.get("combine_rules_user", "")
+        block = "\n\n".join([f"Rule {i+1}:\n{r}" for i, r in enumerate(rules)])
+        
+        try:
+            user_msg = user_tpl.format(rules_block=block)
+        except Exception:
+            user_msg = f"Rules:\n{block}"
+            
+        return self.optimizer.chat(sys_msg, user_msg)

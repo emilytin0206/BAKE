@@ -5,6 +5,7 @@ import argparse
 import sys
 import yaml
 import copy
+import json  # <--- [新增] 引入 json 模組
 from core.llm_client import LLMClient
 from core.bake_engine import BakeEngine
 from utils import config_loader, data_loader
@@ -94,6 +95,7 @@ def main():
 
     # --- 3. 路徑重導 ---
     # 將 log 路徑導向 output_dir
+    # 注意：雖然這裡有處理 output_file，但最後我們會用新的 JSON 邏輯覆蓋它
     for key in ['output_file', 'detailed_log', 'rules_log', 'cost_log', 'opt_status', 'trace_log', 'prompt_history', 'rule_evolution']:
         if key in cfg['paths']:
             filename = os.path.basename(cfg['paths'][key])
@@ -117,10 +119,29 @@ def main():
     try:
         final_prompts, final_rule = engine.run(dataset, cfg['initial_prompts'])
         
-        # 儲存結果
-        with open(cfg['paths']['output_file'], "w", encoding="utf-8") as f:
-            f.write("\n".join(final_prompts))
+        # ==========================================
+        # [修改] 儲存結果為 JSON 格式
+        # ==========================================
+        # 取得實驗名稱 (通常是 output_dir 的最後一層目錄名)
+        exp_name = os.path.basename(os.path.normpath(args.output_dir))
+        
+        # 構建 JSON 檔名: 實驗名稱.json (例如: 20260116_test.json)
+        json_filename = f"{exp_name}.json"
+        final_json_path = os.path.join(args.output_dir, json_filename)
+        
+        output_data = {
+            "prompts": final_prompts
+        }
+
+        # 使用 json.dump 輸出
+        # indent=4: 縮排整齊
+        # ensure_ascii=False: 支援非 ASCII (如中文)
+        with open(final_json_path, 'w', encoding='utf-8') as f:
+            json.dump(output_data, f, indent=4, ensure_ascii=False)
             
+        print(f"  💾 Final prompts saved to JSON: {final_json_path}")
+        
+        # 同時保留儲存 Rule 內容
         rule_path = os.path.join(args.output_dir, "final_rule.txt")
         with open(rule_path, "w", encoding="utf-8") as f:
             f.write(final_rule)
