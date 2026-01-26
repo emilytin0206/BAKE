@@ -1,84 +1,63 @@
-# config.yaml
-
-# ==========================================
-# 1. Dataset Configuration (資料集設定)
-# ==========================================
 dataset:
-  # 快速切換要執行的任務: "mmlu" 或 "gsm8k"
-  active_task: "mmlu" 
-  
-  # MMLU 詳細設定
+  active_task: mmlu
   mmlu:
-    split: "test"          # 使用 test 集
-    # 子集設定: ["all"] 代表全部，或指定 ["high_school_mathematics", "high_school_chemistry"]
-    subsets: ["high_school_mathematics"] 
-    limit: 10              # 取前 N 筆當作訓練集 (-1 代表全部)
+    split: test
+    subsets:
+    - high_school_mathematics
+    limit: 10
     offset: 0
-    shuffle: false         # [New] 是否打散資料 (Mixed 模式用，預設 False)
-  
-  # GSM8K 詳細設定
+    shuffle: false
   gsm8k:
-    split: "train"         # 使用 train 集
-    limit: 10              # 取前 N 筆當作訓練集
+    split: train
+    limit: 10
     offset: 0
-
-# ==========================================
-# 2. Evaluation Model (評估/執行模型)
-# ==========================================
 evaluation:
-  provider: "ollama"       # "openai" 或 "ollama"
-  model_name: "qwen2.5:7b"
-  base_url: "http://localhost:11434/v1"
-  api_key: "ollama"
+  provider: ollama
+  model_name: qwen2.5:7b
+  base_url: http://localhost:11434/v1
+  api_key: ollama
   temperature: 0.0
   max_tokens: 1024
-  # 定價 (USD per 1M tokens)
   pricing:
     input_price: 0.0
     output_price: 0.0
-
-# ==========================================
-# 3. Optimizer Model (優化模型)
-# ==========================================
 optimizer:
-  provider: "ollama"
-  model_name: "qwen2.5:32b"
-  base_url: "http://localhost:11434/v1"
-  api_key: "ollama"
+  provider: ollama
+  model_name: qwen2.5:32b
+  base_url: http://localhost:11434/v1
+  api_key: ollama
   temperature: 0.7
   max_tokens: 2048
   pricing:
-    input_price: 2.50
-    output_price: 10.00
-
-# ==========================================
-# 4. System Settings (系統與路徑)
-# ==========================================
+    input_price: 2.5
+    output_price: 10.0
 paths:
-  meta_prompt_dir: "meta_prompt"
-  output_file: "optimized_prompts.txt"
-  detailed_log: "logs/detailed_results.jsonl"
-  rules_log: "logs/rules_history.txt"
-  cost_log: "logs/cost_report.csv"
-  opt_status: "logs/optimization_status.csv"
-  trace_log: "logs/refinement_trace.jsonl"
-  prompt_history: "logs/prompt_history.jsonl"
-  rule_evolution: "logs/rule_evolution.jsonl"
-
+  meta_prompt_dir: meta_prompt
+  output_file: optimized_prompts.txt
+  detailed_log: logs/detailed_results.jsonl
+  rules_log: logs/rules_history.txt
+  cost_log: logs/cost_report.csv
+  opt_status: logs/optimization_status.csv
+  trace_log: logs/refinement_trace.jsonl
+  prompt_history: logs/prompt_history.jsonl
+  rule_evolution: logs/rule_evolution.jsonl
 execution:
   concurrency: 5
   max_retries: 3
   retry_delay: 1.0
-
 bake:
   group_size: 3
   max_output_prompts: 8
   iterative: false
   iterative_prompt_count: 5
-
 initial_prompts:
-  - "Let's think step by step."
-  - "Think about this logically."
-  - "Solve this problem by breaking it down into smaller parts."
-  - "Take a deep breath and work on this problem step-by-step."
-  - "Please provide a detailed explanation followed by the final answer."
+- Restate the task briefly, decompose it into minimal logical steps, solve each step,
+  and produce a result that directly satisfies the goal.
+- Solve the task with explicit reasoning, verifying correctness after each major step
+  and revising any inconsistent logic before proceeding.
+- Identify necessary assumptions, avoid unstated ones, reason only from given information,
+  and choose the most consistent interpretation.
+- Generate multiple solution strategies, compare them for correctness and efficiency,
+  select the strongest, and output only the final result.
+- Prioritize clarity and precision, keep reasoning concise, remove unnecessary complexity,
+  and ensure the output fully meets the task.
