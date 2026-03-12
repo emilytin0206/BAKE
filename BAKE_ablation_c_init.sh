@@ -4,10 +4,7 @@
 # ==========================================
 
 TASK="mmlu"
-# SUBSETS="other" 
-# SUBSETS="high_school_mathematics,high_school_world_history,high_school_physics,professional_law,business_ethics" 
-SUBSETS="high_school_mathematics,high_school_world_history,high_school_macroeconomics,high_school_physics,business_ethics" 
-
+SUBSETS="high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics" 
 SPLIT="test"
 LIMIT=100
 ITERATIVE="true"
@@ -16,6 +13,24 @@ SHUFFLE="false"
 
 EVAL_MODEL="qwen2.5:7b"
 OPT_MODEL="qwen2.5:32b"
+
+
+# =========== 👇Initial Prompt👇 ===========
+INIT_SRC="gemini"  # 您可以在這裡改成 "gemini"
+
+echo "############################################################"
+echo "▶️  Starting Ablation C for Source: $INIT_SRC"
+echo "############################################################"
+
+# 呼叫 update_config.py 來修改 config.yaml
+echo "🔄 Updating config.yaml with prompts from: $INIT_SRC"
+python3 update_config.py "$INIT_SRC"
+
+if [ $? -ne 0 ]; then
+    echo "❌ Failed to update config for $INIT_SRC. Exiting..."
+    exit 1
+fi
+# ==========================================
 
 # --- 自動標籤生成邏輯 (Auto Labeling) ---
 
@@ -51,11 +66,21 @@ fi
 # 6. Shuffle Label (SHUFFLE_LABEL)
 if [ "$SHUFFLE" == "true" ]; then SHUFFLE_LABEL="Shuffle"; else SHUFFLE_LABEL="Seq"; fi
 
+
+
+# 為了讓檔名區分來源，新增 INIT_LABEL
+if [ "$INIT_SRC" == "gpt4o" ]; then 
+    INIT_LABEL="InitGpt4o"
+else 
+    INIT_LABEL="InitGemini"
+fi
+
+
 # 7. Date Label
 DATE_LABEL=$(date +"%Y%m%d-%H%M%S")
 
 # --- 定義 EXP_NAME (Ablation C) ---
-EXP_NAME="BAKE_AblationC_${T_MODEL_SAFE}_${O_MODEL_SAFE}_${DS_LABEL}_${SUB_LABEL}_${LIM_LABEL}_${MODE_LABEL}_${COUNT_LABEL}_${SHUFFLE_LABEL}_${DATE_LABEL}"
+EXP_NAME="BAKE_AblationC_${INIT_LABEL}_${T_MODEL_SAFE}_${O_MODEL_SAFE}_${DS_LABEL}_${SUB_LABEL}_${LIM_LABEL}_${MODE_LABEL}_${COUNT_LABEL}_${SHUFFLE_LABEL}_${DATE_LABEL}"
 OUTPUT_DIR="experiments/${EXP_NAME}"
 
 echo "========================================"
@@ -83,4 +108,4 @@ if [ "$SHUFFLE" == "true" ]; then
 fi
 
 echo "Running: $CMD"
-$CMDollama
+$CMD

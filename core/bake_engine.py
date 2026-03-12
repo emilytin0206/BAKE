@@ -43,7 +43,7 @@ class BakeEngine:
                 try:
                     # [呼叫] 傳入 System 與 User
                     raw = self.scorer.chat(sys_tpl, full_input)
-                    is_correct = text_tools.validate_answer(raw, answer_gt, task_type)
+                    is_correct = text_tools.validate_answer(raw, answer_gt, task_type, input_text=query)
                     return (p, is_correct, raw)
                 except Exception:
                     time.sleep(self.config['execution'].get('retry_delay', 1.0))

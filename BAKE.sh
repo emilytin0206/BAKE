@@ -7,11 +7,15 @@
 # ------------------------------------------
 TASK="mmlu"                       # "mmlu" 或 "gsm8k"
 # SUBSETS="all"
-SUBSETS="high_school_mathematics,high_school_chemistry,high_school_physics,high_school_world_history,business_ethics" 
+# SUBSETS="high_school_mathematics,high_school_world_history,high_school_physics,professional_law,business_ethics" 
+
+SUBSETS="high_school_mathematics,high_school_world_history,high_school_macroeconomics,high_school_physics,business_ethics" 
+
                                   # 若為 "all" 代表全部，否則用逗號分隔
+# SUBSETS="other"
 SPLIT="test"
 LIMIT=100                         # -1 代表全部
-ITERATIVE="false"                  # "true" 開啟迭代, "false" 關閉
+ITERATIVE="true"                  # "true" 開啟迭代, "false" 關閉
 ITER_COUNT=5                      # 迭代產生的 Prompt 數量
 
 # [New] 實驗模式設定

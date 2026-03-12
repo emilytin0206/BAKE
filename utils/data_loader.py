@@ -1,5 +1,3 @@
-# utils/data_loader.py
-
 from datasets import load_dataset, get_dataset_config_names
 import random 
 
@@ -13,28 +11,69 @@ def format_mmlu_question(question, choices):
 
 def resolve_mmlu_subsets(config):
     """
-    解析設定檔中的 subsets，處理 "all" 的情況並回傳完整的子集列表。
+    解析設定檔中的 subsets，支援 "all"、領域名稱 (如 "social_sciences") 
+    或個別子集清單。
     """
+    # 定義 MMLU 四大領域對應的子集
+    MMLU_CATEGORIES = {
+        "stem": [
+            "abstract_algebra", "anatomy", "astronomy", "college_biology", "college_chemistry",
+            "college_computer_science", "college_mathematics", "college_physics", "computer_security",
+            "conceptual_physics", "electrical_engineering", "elementary_mathematics", "high_school_biology",
+            "high_school_chemistry", "high_school_computer_science", "high_school_mathematics",
+            "high_school_physics", "machine_learning", "statistics"
+        ],
+        "humanities": [
+            "formal_logic", "high_school_european_history", "high_school_us_history", "high_school_world_history",
+            "international_law", "jurisprudence", "logical_fallacies", "moral_disputes", "moral_scenarios",
+            "philosophy", "prehistory", "professional_law", "world_religions"
+        ],
+        "social_sciences": [
+            "econometrics", "high_school_geography", "high_school_government_and_politics",
+            "high_school_macroeconomics", "high_school_microeconomics", "high_school_psychology",
+            "human_sexuality", "professional_psychology", "public_relations", "sociology"
+        ],
+        "other": [
+            "business_ethics", "clinical_knowledge", "college_medicine", "dietetics", "global_facts",
+            "management", "marketing", "medical_genetics", "miscellaneous", "nutrition",
+            "professional_accounting", "professional_medicine", "security_studies", "us_foreign_policy", "virology"
+        ]
+    }
+
     target_subsets = config.get('subsets', [])
     
+    # 將輸入統一轉為 list 處理
     if isinstance(target_subsets, str):
         target_subsets = [target_subsets]
         
-    # 處理 "all"
-    if "all" in target_subsets:
-        try:
-            print("  ↳ [Resolver] Detected 'all'. Fetching MMLU configs...")
-            all_configs = get_dataset_config_names("cais/mmlu")
-            # 排除非題目的 config
-            target_subsets = [c for c in all_configs if c not in ["all", "auxiliary_train"]]
-        except Exception as e:
-            print(f"  [Error] Failed to fetch MMLU configs: {e}")
-            target_subsets = ["high_school_mathematics"] # Fallback
-
-    if not target_subsets:
-        target_subsets = ["high_school_mathematics"]
+    resolved_list = []
+    
+    for item in target_subsets:
+        item_lower = item.lower()
+        # 1. 處理 "all"
+        if item_lower == "all":
+            try:
+                print("  ↳ [Resolver] Detected 'all'. Fetching MMLU configs...")
+                all_configs = get_dataset_config_names("cais/mmlu")
+                return [c for c in all_configs if c not in ["all", "auxiliary_train"]]
+            except Exception as e:
+                print(f"  [Error] Failed to fetch MMLU configs: {e}")
+                return ["high_school_mathematics"]
         
-    return target_subsets
+        # 2. 處理領域關鍵字 (如 social_sciences)
+        elif item_lower in MMLU_CATEGORIES:
+            print(f"  ↳ [Resolver] Detected category: {item_lower}")
+            resolved_list.extend(MMLU_CATEGORIES[item_lower])
+        
+        # 3. 處理個別子集名稱
+        else:
+            resolved_list.append(item)
+
+    # 預設回傳
+    if not resolved_list:
+        resolved_list = ["high_school_mathematics"]
+        
+    return resolved_list
 
 def load_specific_dataset(task_name, config):
     """
@@ -66,7 +105,7 @@ def load_specific_dataset(task_name, config):
             })
 
     elif task_name == "mmlu":
-        # 解析子集 (處理 'all' 或多個子集)
+        # 解析子集 (支援領域關鍵字)
         target_subsets = resolve_mmlu_subsets(config)
             
         print(f"  ↳ Loading {len(target_subsets)} subsets...")
@@ -96,7 +135,6 @@ def load_specific_dataset(task_name, config):
 
     print(f"[DataLoader] Total samples loaded: {len(data_list)}")
     
-    # 根據設定決定是否打散
     if do_shuffle:
         print("[DataLoader] 🔀 Shuffling all samples (Mixed Mode)...")
         random.seed(42) 
