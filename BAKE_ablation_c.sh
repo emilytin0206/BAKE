@@ -10,7 +10,7 @@ SUBSETS="high_school_mathematics,high_school_world_history,high_school_macroecon
 
 SPLIT="test"
 LIMIT=100
-ITERATIVE="true"
+ITERATIVE="false"
 ITER_COUNT=5
 SHUFFLE="false" 
 
@@ -83,4 +83,4 @@ if [ "$SHUFFLE" == "true" ]; then
 fi
 
 echo "Running: $CMD"
-$CMDollama
+$CMD

@@ -1,0 +1,16 @@
+Please generate {count} highly professional and stylistically diverse initial prompts specifically tailored for the `{dataset_name}` dataset in MMLU.
+
+[Target Dataset Deep-Dive: {dataset_name}]
+Before generating the prompts, you MUST align completely with the specific domain of `{dataset_name}`. 
+You must leverage your internal knowledge about this specific subject's common question formats, core concepts, and required cognitive skills.
+
+Generation Requirements (Strictly Mapping the Rule to `{dataset_name}`):
+1. Domain Boundary: The prompt must strictly operate within the boundaries of `{dataset_name}`. 
+2. Rigorous Domain Verification (Detailed Analysis & Verification): The verification step must strictly demand cross-checking against the established facts, formulas, or fundamental principles inherent to `{dataset_name}` to prevent domain-specific hallucinations.
+3. Absolute Diversity within the Domain: Provide {count} fundamentally different structural approaches specifically suited for solving `{dataset_name}` problems.
+
+Output Format
+Please directly output the {count} generated Prompts. Do not include any conversational filler. Each Prompt must be complete, capable of running independently, and strictly enclosed within the following XML tags:
+<prompt>
+[Your generated specific prompt content]
+</prompt>

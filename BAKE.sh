@@ -6,20 +6,20 @@
 # 1. 參數設定 (Settings)
 # ------------------------------------------
 TASK="mmlu"                       # "mmlu" 或 "gsm8k"
-# SUBSETS="all"
+SUBSETS="all"
 # SUBSETS="high_school_mathematics,high_school_world_history,high_school_physics,professional_law,business_ethics" 
-
-SUBSETS="high_school_mathematics,high_school_world_history,high_school_macroeconomics,high_school_physics,business_ethics" 
+# SUBSETS="high_school_mathematics"
+# SUBSETS="high_school_mathematics,high_school_world_history,high_school_macroeconomics,high_school_physics,business_ethics" 
 
                                   # 若為 "all" 代表全部，否則用逗號分隔
 # SUBSETS="other"
 SPLIT="test"
 LIMIT=100                         # -1 代表全部
-ITERATIVE="true"                  # "true" 開啟迭代, "false" 關閉
+ITERATIVE="false"                  # "true" 開啟迭代, "false" 關閉
 ITER_COUNT=5                      # 迭代產生的 Prompt 數量
 
 # [New] 實驗模式設定
-SHUFFLE="false"   # => "true": 混合打散模式 / "false": 原始順序
+SHUFFLE="true"   # => "true": 混合打散模式 / "false": 原始順序
 
 # 模型設定 (注意: 腳本會自動將冒號 ':' 轉為 '-')
 EVAL_MODEL="qwen2.5:7b"
